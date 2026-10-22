@@ -1,0 +1,288 @@
+{
+  "configs": 12,
+  "configs_with_defect": 11,
+  "scripts": [
+    "Armenian",
+    "Ethiopic",
+    "Hebrew",
+    "Khmer",
+    "Latin",
+    "Thai"
+  ],
+  "share_min": 0.02288320748208057,
+  "share_max": 0.7906797612170229,
+  "max_score_overall": 1.0000100135803223,
+  "clean_configs": [
+    "swh_Latn"
+  ],
+  "duplicate_ids_anywhere": 0,
+  "per_config": [
+    {
+      "config": "cym_Latn",
+      "script": "Latin",
+      "n": 8395,
+      "gt1": 4348,
+      "share": 0.5179273377010125,
+      "max_score": 1.0000098943710327,
+      "dup_ids": 0
+    },
+    {
+      "config": "mlt_Latn",
+      "script": "Latin",
+      "n": 5193,
+      "gt1": 4106,
+      "share": 0.7906797612170229,
+      "max_score": 1.0000100135803223,
+      "dup_ids": 0
+    },
+    {
+      "config": "isl_Latn",
+      "script": "Latin",
+      "n": 32586,
+      "gt1": 15215,
+      "share": 0.46691830847603266,
+      "max_score": 1.0000100135803223,
+      "dup_ids": 0
+    },
+    {
+      "config": "slk_Latn",
+      "script": "Latin",
+      "n": 32557,
+      "gt1": 12288,
+      "share": 0.37743035291949506,
+      "max_score": 1.0000100135803223,
+      "dup_ids": 0
+    },
+    {
+      "config": "ces_Latn",
+      "script": "Latin",
+      "n": 28051,
+      "gt1": 16798,
+      "share": 0.5988378310933656,
+      "max_score": 1.0000100135803223,
+      "dup_ids": 0
+    },
+    {
+      "config": "amh_Ethi",
+      "script": "Ethiopic",
+      "n": 3973,
+      "gt1": 152,
+      "share": 0.03825824314120312,
+      "max_score": 1.000009536743164,
+      "dup_ids": 0
+    },
+    {
+      "config": "nno_Latn",
+      "script": "Latin",
+      "n": 12227,
+      "gt1": 751,
+      "share": 0.06142144434448352,
+      "max_score": 1.0000100135803223,
+      "dup_ids": 0
+    },
+    {
+      "config": "swh_Latn",
+      "script": "Latin",
+      "n": 12669,
+      "gt1": 0,
+      "share": 0.0,
+      "max_score": 0.9998979568481445,
+      "dup_ids": 0
+    },
+    {
+      "config": "hye_Armn",
+      "script": "Armenian",
+      "n": 16131,
+      "gt1": 10281,
+      "share": 0.6373442440022318,
+      "max_score": 1.0000100135803223,
+      "dup_ids": 0
+    },
+    {
+      "config": "khm_Khmr",
+      "script": "Khmer",
+      "n": 16337,
+      "gt1": 8369,
+      "share": 0.5122727550957948,
+      "max_score": 1.0000100135803223,
+      "dup_ids": 0
+    },
+    {
+      "config": "heb_Hebr",
+      "script": "Hebrew",
+      "n": 26089,
+      "gt1": 597,
+      "share": 0.02288320748208057,
+      "max_score": 1.0000088214874268,
+      "dup_ids": 0
+    },
+    {
+      "config": "tha_Thai",
+      "script": "Thai",
+      "n": 24037,
+      "gt1": 6575,
+      "share": 0.27353663102716647,
+      "max_score": 1.0000100135803223,
+      "dup_ids": 0
+    }
+  ],
+  "suite_per_config": {
+    "cym_Latn": {
+      "scope": "cym",
+      "ran": 2,
+      "failing": 1,
+      "out_of_scope": 7,
+      "unmeasurable": 0,
+      "passing_ids": [
+        "document_ids_unique"
+      ],
+      "failing_ids": [
+        "language_score_not_a_probability"
+      ]
+    },
+    "mlt_Latn": {
+      "scope": "mlt",
+      "ran": 2,
+      "failing": 1,
+      "out_of_scope": 7,
+      "unmeasurable": 0,
+      "passing_ids": [
+        "document_ids_unique"
+      ],
+      "failing_ids": [
+        "language_score_not_a_probability"
+      ]
+    },
+    "isl_Latn": {
+      "scope": "isl",
+      "ran": 2,
+      "failing": 1,
+      "out_of_scope": 7,
+      "unmeasurable": 0,
+      "passing_ids": [
+        "document_ids_unique"
+      ],
+      "failing_ids": [
+        "language_score_not_a_probability"
+      ]
+    },
+    "slk_Latn": {
+      "scope": "slk_Latn",
+      "ran": 4,
+      "failing": 1,
+      "out_of_scope": 0,
+      "unmeasurable": 5,
+      "passing_ids": [
+        "firebase_content_farm_spam",
+        "slo_prefix_machine_translated_farm",
+        "document_ids_unique"
+      ],
+      "failing_ids": [
+        "language_score_not_a_probability"
+      ]
+    },
+    "ces_Latn": {
+      "scope": "ces",
+      "ran": 2,
+      "failing": 1,
+      "out_of_scope": 7,
+      "unmeasurable": 0,
+      "passing_ids": [
+        "document_ids_unique"
+      ],
+      "failing_ids": [
+        "language_score_not_a_probability"
+      ]
+    },
+    "amh_Ethi": {
+      "scope": "amh",
+      "ran": 2,
+      "failing": 1,
+      "out_of_scope": 7,
+      "unmeasurable": 0,
+      "passing_ids": [
+        "document_ids_unique"
+      ],
+      "failing_ids": [
+        "language_score_not_a_probability"
+      ]
+    },
+    "nno_Latn": {
+      "scope": "nno",
+      "ran": 2,
+      "failing": 1,
+      "out_of_scope": 7,
+      "unmeasurable": 0,
+      "passing_ids": [
+        "document_ids_unique"
+      ],
+      "failing_ids": [
+        "language_score_not_a_probability"
+      ]
+    },
+    "swh_Latn": {
+      "scope": "swh",
+      "ran": 2,
+      "failing": 0,
+      "out_of_scope": 7,
+      "unmeasurable": 0,
+      "passing_ids": [
+        "document_ids_unique",
+        "language_score_not_a_probability"
+      ],
+      "failing_ids": []
+    },
+    "hye_Armn": {
+      "scope": "hye",
+      "ran": 2,
+      "failing": 1,
+      "out_of_scope": 7,
+      "unmeasurable": 0,
+      "passing_ids": [
+        "document_ids_unique"
+      ],
+      "failing_ids": [
+        "language_score_not_a_probability"
+      ]
+    },
+    "khm_Khmr": {
+      "scope": "khm",
+      "ran": 2,
+      "failing": 1,
+      "out_of_scope": 7,
+      "unmeasurable": 0,
+      "passing_ids": [
+        "document_ids_unique"
+      ],
+      "failing_ids": [
+        "language_score_not_a_probability"
+      ]
+    },
+    "heb_Hebr": {
+      "scope": "heb",
+      "ran": 2,
+      "failing": 1,
+      "out_of_scope": 7,
+      "unmeasurable": 0,
+      "passing_ids": [
+        "document_ids_unique"
+      ],
+      "failing_ids": [
+        "language_score_not_a_probability"
+      ]
+    },
+    "tha_Thai": {
+      "scope": "tha",
+      "ran": 2,
+      "failing": 1,
+      "out_of_scope": 7,
+      "unmeasurable": 0,
+      "passing_ids": [
+        "document_ids_unique"
+      ],
+      "failing_ids": [
+        "language_score_not_a_probability"
+      ]
+    }
+  }
+}

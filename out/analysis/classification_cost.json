@@ -1,0 +1,30 @@
+{
+  "model": "sonnet",
+  "n_documents": 200,
+  "n_labelled": 200,
+  "documents_per_call": 20,
+  "chars_per_document": 400,
+  "calls": 10,
+  "total_usd": 0.6834509999999999,
+  "input_tokens": 190252,
+  "output_tokens": 9207,
+  "usd_per_document": 0.0034172549999999997,
+  "usd_per_1000_documents": 3.4172549999999995,
+  "corpus_documents": 26470482,
+  "extrapolated_usd_full_corpus": 90456.38696691,
+  "label_distribution": {
+    "sk": 125,
+    "notsk": 6,
+    "junk": 69
+  },
+  "note": "Cheapest realistic configuration: 400-character snippets, many per call, labels only. Extrapolation is linear in documents and ignores retries, so it is a lower bound. The label distribution is the model's own opinion and is NOT used as evidence anywhere: only the measured cost is.",
+  "token_pricing_lower_bound_usd": 12308.77413,
+  "token_pricing_assumptions": {
+    "input_tokens_per_document": 130,
+    "output_tokens_per_document": 5,
+    "usd_per_million_input": 3.0,
+    "usd_per_million_output": 15.0,
+    "note": "excludes the per-call harness overhead included in the measured figure"
+  },
+  "measured_includes_harness_overhead": true
+}

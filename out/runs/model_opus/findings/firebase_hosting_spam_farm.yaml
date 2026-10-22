@@ -1,0 +1,47 @@
+id: firebase_hosting_spam_farm
+scope: slk_Latn
+description: A single machine-generated SEO spam network hosted on Google Firebase
+  Hosting (*.web.app and *.firebaseapp.com) supplies 1.41M documents (5.3% of docs,
+  12.3% of all words). Pages are not Slovak prose but concatenations of unrelated
+  scraped snippets (Slovak, Czech, English, Swedish, Hindi transliteration) under
+  a keyword-stuffed title, on ~2,800 throwaway hosts whose names are a Swedish/Slovak
+  money keyword plus a random 4-letter suffix (hurmanblirrik*, kopavguld*, enklapengar*,
+  akozbohatnut*, iahkepeniaze*, lon*, casino*, torrents*).
+selector: domain LIKE '%.web.app' OR domain LIKE '%.firebaseapp.com'
+assertion: Documents from *.web.app / *.firebaseapp.com should account for less than
+  0.1% of the corpus.
+evidence:
+  agent_evidence: 'Aggregates: 1,408,437/26,470,482 docs (5.32%) and 12.29% of all
+    n_words in corpus_meta; 823 firebaseapp.com hosts + 1,972 web.app hosts. Mean
+    length ~1,000 words, mean minhash_cluster_size 1.002 — so near-duplicate dedup
+    did NOT remove them (every page is a unique random snippet mix). Mean lingua_top_p
+    is 0.70 vs 0.82 corpus-wide, consistent with multi-source splicing. I inspected
+    13 documents from these hosts (5 random, 8 via evaluate_detector on the selector,
+    1 full read of <urn:uuid:e524965f...>); 13/13 were the spam pattern, with zero
+    legitimate Firebase-hosted Slovak sites seen. The full read shows a page titled
+    ''Darčeková karta'' splicing Amazon/BitPay/Revolut English marketing copy, Swedish
+    donation text, Hindi-in-Latin bitcoin spam and unrelated Slovak bank T&Cs, ending
+    in a raw keyword list. Listing the lowest-count hosts (all c=1) shows the same
+    generated-name pattern, so there is no legitimate long tail on these two suffixes.
+    Counter-evidence: the pipeline is not obviously wrong to call the pages Slovak
+    — Slovak is usually the plurality language (94.5% have lingua_top=''sk''), and
+    language_score averages 0.98; the defect is that the text is incoherent spliced
+    spam, not that the label is wrong.</evidence>
+
+    <parameter name="expected_precision">0.99'
+  prevalence: 0.053207833540771944
+  prevalence_ci95:
+  - 0.05312239361012374
+  - 0.05329340315523455
+  n_matched: 1408437
+  evaluated_on: corpus_meta
+  exact_on_full_corpus: true
+  agent_expected_precision: null
+  likely_false_positives: A genuine small Slovak site that happens to be hosted on
+    Firebase Hosting; none appeared in 13 inspections or in the host-name listing.
+  example_ids:
+  - <urn:uuid:e524965f-18c9-4acc-8cd2-ceb847f4daac>
+  - <urn:uuid:8e70037f-5a5f-4113-ae55-88a619e428ac>
+  - <urn:uuid:aa5d785b-d80a-487a-a3c2-573b809319e3>
+  - <urn:uuid:cfb09d4b-ae20-42d5-9179-47f202cf70a9>
+  inspections_used_when_saved: 23

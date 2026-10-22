@@ -1,0 +1,24 @@
+{
+  "corpus_docs": 26470482,
+  "corpus_words": 11585635429,
+  "farm_docs": 1408437,
+  "farm_mean_language_score": 0.9813479425733815,
+  "farm_mean_cluster": 1.002291192293301,
+  "farm_three_way_agreement": 0.869306898356121,
+  "farm_words": 1423765900,
+  "farm_word_share": 0.12289061819053723,
+  "farm_pass_all_static": 1220394,
+  "farm_pass_all_static_share": 0.046103958363886234,
+  "farm_hosts": 2851,
+  "farm_peak_crawl_share": 0.3869059609755826,
+  "min_language_score": 0.6673652529716492,
+  "pass_all_static_thresholds": {
+    "language_score_min": 0.9,
+    "cluster_max": 2
+  },
+  "farm_mean_words": 1010.8836248976703,
+  "slo_docs": 73835,
+  "slo_overlap_lowconf": 0,
+  "slo_overlap_highdup": 0,
+  "slo_overlap_lid_disagree": 12
+}

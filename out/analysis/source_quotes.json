@@ -1,0 +1,17 @@
+{
+  "source": "HuggingFaceFW/fineweb-2 dataset card",
+  "url": "https://huggingface.co/datasets/HuggingFaceFW/fineweb-2/raw/main/README.md",
+  "retrieved": "2026-08-14",
+  "note": "Verbatim support for the paper's attributions to the FineWeb2 authors. Stored so a reviewer, or a later version of us, can check that we did not put words in their mouths.",
+  "quotes": {
+    "closely_related_languages": "While the language classifier we used, [GlotLID](https://github.com/cisnlp/GlotLID) supports over 2000 language labels, its performance is not ideal for all of them. The training data for many languages is hard to obtain and, additionally, the classifier is prone to sometimes mistaking closely related languages (for instance, Standard Arabic and Arabic dialects or Croatian and Bosnian). We tried to mitigate this by c",
+    "could_not_test_each_language": "Due to resource constraints and limited access to native speakers, we couldn't test each language individually. We encourage users to review our filtering approach for their languages of interest and modify the processing if needed. To support this, we've made available all data removed by our filtering pipeline (see \"Languages and available subsets\" above for more info). You should also probably consider complement",
+    "filters_individually_tuned": "The processing pipeline had to be heavily adapted for a multilingual setting. As each language has its own peculiarities, we **individually tuned each filter**, defining different thresholds and stopwords for each language. \ud83d\udcca These thresholds and stopwords are available in `/configs/{iso3_lang}_{script}.yml` in our [github repo](https://github.com/huggingface/fineweb-2). The starting point for our dataset was the no",
+    "fineweb2_precision_filtering_threshold": "filter languages that had a contamination score above 10% (from our data) using the wordlists in wordlists-0.85 and url_whitelist.json",
+    "fineweb2_slovak_language_score_threshold": "language_score: 0.667"
+  },
+  "sources": {
+    "fineweb2_precision_filtering_threshold": "github.com/huggingface/fineweb-2, misc/precision_filtering/README.md, retrieved 2026-08-14",
+    "fineweb2_slovak_language_score_threshold": "github.com/huggingface/fineweb-2, configs/slk_Latn.yml, retrieved 2026-08-14"
+  }
+}

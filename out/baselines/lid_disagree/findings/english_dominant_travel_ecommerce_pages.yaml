@@ -1,0 +1,37 @@
+id: english_dominant_travel_ecommerce_pages
+scope: slk_Latn
+source: baseline:lid_disagree
+description: Travel/booking/e-commerce aggregator pages (hotel listings, product catalog
+  pages) are labeled Slovak with high confidence even though their substantive body
+  content — user reviews, product/comic descriptions — is predominantly English, with
+  Slovak present only as short template chrome (navigation, headers, boilerplate sentences).
+selector: language='slk' AND fasttext='en' AND langdetect='en' AND lingua_top='en'
+  AND domain NOT LIKE '%.firebaseapp.com' AND domain NOT LIKE '%.web.app'
+assertion: prevalence <= 0.001617
+evidence:
+  agent_evidence: 'sk.hotels.com ''kempsey-powerhouse-motel'' page is almost entirely
+    English guest reviews (''Check in fine...'', ''Rooms good size...'') wrapped in
+    a few Slovak template lines, yet language_score is 0.996; comicsuniverse.sk mixes
+    Slovak site chrome with an English comic-book solicitation blurb; travelport.cz
+    hotel pages repeat a short Slovak template around long English property descriptions.
+    Counter-evidence: jolusafari.com''s snippet is actually written in fluent Slovak
+    despite all three external detectors saying ''en'', showing these detectors are
+    not fully reliable on short/templated text.'
+  prevalence: 0.0016171976014641516
+  prevalence_ci95:
+  - 0.0016019622266937009
+  - 0.0016325776345068493
+  n_matched: 42808
+  evaluated_on: meta
+  exact_on_full_corpus: true
+  agent_expected_precision: 0.55
+  likely_false_positives: Documents whose main text is genuinely Slovak but which
+    the three LID tools misjudge as English because of a short quoted English testimonial,
+    brand name, or code-like content (as with jolusafari.com in this sample).
+  example_ids:
+  - <urn:uuid:031d4876-2f23-4787-90d4-69f84f14ef3e>
+  - <urn:uuid:0c561bc5-a72a-4c5a-a555-0238e6d0c196>
+  - <urn:uuid:307fa202-3999-4fd1-b36c-1336a5e521c3>
+  - <urn:uuid:3d041587-009c-4983-ab4d-75f0c7fab565>
+  - <urn:uuid:491ed3a2-6474-4c1e-8f00-3bc04a627a92>
+  selector_error: null

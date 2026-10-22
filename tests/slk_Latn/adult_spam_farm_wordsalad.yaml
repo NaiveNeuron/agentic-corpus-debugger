@@ -1,0 +1,67 @@
+id: adult_spam_farm_wordsalad
+scope: slk_Latn
+status: accepted
+description: 'A cluster of throwaway-domain adult/porn spam sites contribute documents
+  that are not coherent Slovak prose but auto-generated word-salad: SEO tag lists,
+  stitched keyword fragments, and repeated boilerplate phrases (e.g. "zadarmo čierne
+  Lesbičky Sex Movies" injected dozens of times) built by a domain-spinning template.
+  The corpus''s own language_score is near-perfect (often >0.99) and all three shipped
+  LID tools agree on ''sk'', yet the "documents" are not naturally authored Slovak
+  text and provide no usable linguistic signal.'
+selector: n_bad_words >= 3
+assertion: prevalence <= 0.00464551
+discovered_by: agent
+found_in_runs:
+- rep2
+evidence:
+  prevalence: 0.003871255536638887
+  prevalence_ci95:
+  - 0.0038476704780377067
+  - 0.003894984599259951
+  n_matched: 102474
+  n_evaluated: 26470482
+  exact_on_full_corpus: true
+  human_precision: 0.8421052631578947
+  human_precision_ci95:
+  - 0.6243407235682331
+  - 0.9447962896007217
+  n_human_judgments: 19
+  human_language_labels:
+    sk-pred: 19
+  human_quality_labels:
+    junk: 16
+    noisy: 2
+    good: 1
+  agent_expected_precision: 0.9
+  likely_false_positives: Long, legitimate documents that legitimately discuss sex
+    education, health, or relationships in depth and happen to accumulate 3+ profanity-list
+    hits (e.g. a sex-therapy forum thread) rather than being spam-farm content; these
+    appear to be a small minority based on the two 25-document samples, but were not
+    separately quantified.
+  agent_evidence: 'Inspected 25 documents matching n_bad_words>=3 across two random
+    samples (seeds 5 and 42): 25/25 were adult-content spam pages from a recognizable
+    network of short-lived, semantically-unrelated domains (adv-moto-girl.bike, accesslocator.{net,org,info},
+    aagtrades.com, aaronpowell.me, agencerepublique.{me,net}, alvaromd.com.br, baazzaa.com,
+    bananapepper.fr, baddmadrasser.nu, slovhubkia.com, animaliak.net, aemaddin.com,
+    etc.). Text consists of grammatically incoherent fragments and repeated tag/category
+    strings rather than coherent sentences, despite high language_score and LID agreement
+    on ''sk''. domain_stats on this selector shows dozens of domains where 75-92%
+    of ALL their documents match this condition, confirming these are single-purpose
+    spam domains, not occasional profanity in normal content. Counter-check: n_bad_words=1
+    (excluded by this selector) mostly selects ordinary legitimate content (news,
+    health forums, e-shops, blogs) that merely mentions sex/health topics once or
+    twice, confirming the threshold >=3 is what separates spam farms from normal incidental
+    profanity. Prevalence: 102,474 / 26,470,482 = 0.39% of the full corpus.'
+  agent_example_ids:
+  - <urn:uuid:9e74111c-60f2-42d5-b6ac-fcdfc2f64c3a>
+  - <urn:uuid:37497ac1-2167-4ab2-aa48-a32f6a7acf6a>
+  - <urn:uuid:56569913-1253-4b51-994d-1bcd7c623063>
+  - <urn:uuid:6e2fb432-54ff-4e26-b95f-928891a8bfe8>
+  - <urn:uuid:029591a1-d6f9-497f-bf09-6dd31e36b59e>
+  overlap_with_static_slices:
+    LID-Disagree: 0.10614399750180534
+    LowConf: 0.024581845150965124
+    HighDup: 0.00024396432265745457
+  human_decision: approve
+  human_note: adult word-salad, .83 (n=12), 1.00 (n=20), .84 (n=19)
+  adjudication_group: G04

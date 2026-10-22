@@ -1,0 +1,31 @@
+id: english_documents_labeled_slovak
+scope: slk_Latn
+source: baseline:random
+description: Some documents are actually written in English but are labeled 'slk'
+  with a passing language_score, even though all three independent language identifiers
+  (fasttext, langdetect, lingua) agree the language is English.
+selector: language = 'slk' AND fasttext = 'en' AND langdetect = 'en' AND lingua_top
+  = 'en'
+assertion: prevalence <= 0.001942
+evidence:
+  agent_evidence: 'hurmanblirrikqmph.firebaseapp.com''s visible text is a verbatim
+    English UK financial/regulatory disclosure (''KEY INFORMATION (a) Name of exempt
+    principal trader: UBS Investment Bank, London...'') with language_score 0.78.
+    comicsuniverse.sk is majority English promotional copy about comic-book creators,
+    preceded only by a short Slovak cookie-consent banner, with language_score 0.946.
+    Both are labeled slk despite fasttext=langdetect=lingua_top=''en''.'
+  prevalence: 0.0019420500163162878
+  prevalence_ci95:
+  - 0.0019253502064297547
+  - 0.0019588943901849183
+  n_matched: 51407
+  evaluated_on: meta
+  exact_on_full_corpus: true
+  agent_expected_precision: 0.85
+  likely_false_positives: Very short documents where brief embedded English brand
+    names/menus cause all three tools to coincidentally agree 'en' even though the
+    full document (beyond the sampled first 400 chars) is mostly Slovak.
+  example_ids:
+  - <urn:uuid:a546140d-3a6b-4ebb-bfba-5cee9927b4ef>
+  - <urn:uuid:3d041587-009c-4983-ab4d-75f0c7fab565>
+  selector_error: null

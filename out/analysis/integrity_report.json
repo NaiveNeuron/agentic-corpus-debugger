@@ -1,0 +1,31 @@
+{
+  "failures": [],
+  "prompt": "prompts/auditor_system.md",
+  "runs": [
+    "out/runs/main",
+    "out/runs/rep1",
+    "out/runs/rep2"
+  ],
+  "defect_terms_checked": 41,
+  "data_dictionary_terms": [
+    "deduplicated",
+    "near-duplicate",
+    "deduplication",
+    "profanity-list",
+    "quality heuristics",
+    "language identification"
+  ],
+  "harness_tools_allowed": [
+    "ToolSearch"
+  ],
+  "budget": 300,
+  "inspections_used": {
+    "main": 197,
+    "rep1": 180,
+    "rep2": 173,
+    "baseline:highdup": 300,
+    "baseline:lid_disagree": 300,
+    "baseline:lowconf": 300,
+    "baseline:random": 300
+  }
+}

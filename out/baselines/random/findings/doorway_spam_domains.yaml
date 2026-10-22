@@ -1,0 +1,47 @@
+id: doorway_spam_domains
+scope: slk_Latn
+source: baseline:random
+description: A recognizable cluster of documents comes from auto-generated 'doorway'
+  pages hosted on random-alphanumeric Firebase/Google App subdomains (*.firebaseapp.com,
+  *.web.app). Their text is not authored prose but patchworked, topic-incoherent fragments
+  spliced together mid-paragraph (crypto wallets, lost-phone tips, real-estate contract
+  boilerplate, vaccination forms, credit cards, celebrity news all appear jammed together
+  in single documents), indicating programmatic SEO content rather than genuine Slovak
+  text suitable as a linguistic resource. A subset is not even in Slovak.
+selector: domain LIKE '%.firebaseapp.com' OR domain LIKE '%.web.app'
+assertion: prevalence <= 0.053208
+evidence:
+  agent_evidence: '14/300 sampled documents match this domain pattern. Examples: investeringarjbdc.web.app
+    jumps from a stroller-organizer product listing to an unrelated ''hrací pult''
+    description; pracovnemiestaohlt.firebaseapp.com splices a ''future purchase of
+    movable property'' legal-contract fragment into unrelated real-estate boilerplate;
+    fastlibraryebzm.web.app and investerarpengarnpkk.web.app similarly mix unrelated
+    finance/crypto snippets. hurmanblirrikqmph.firebaseapp.com is not Slovak at all
+    (verbatim English UBS regulatory disclosure) despite the slk label. Counter-evidence:
+    a couple of matches (e.g. magadocsbeqf.web.app) are merely thin/low-value rather
+    than clearly incoherent, and firebaseapp.com/web.app are also used by legitimate
+    small apps, so the domain pattern alone is not a perfect proxy.'
+  prevalence: 0.053207833540771944
+  prevalence_ci95:
+  - 0.05312239361012374
+  - 0.05329340315523455
+  n_matched: 1408437
+  evaluated_on: meta
+  exact_on_full_corpus: true
+  agent_expected_precision: 0.8
+  likely_false_positives: Legitimate small apps or landing pages genuinely hosted
+    on firebaseapp.com/web.app with coherent Slovak content; documents that are merely
+    thin/boilerplate rather than topically incoherent.
+  example_ids:
+  - <urn:uuid:04b22877-eb85-4e7d-b45c-4f3eaff2d0d9>
+  - <urn:uuid:6ed8d6ba-bff3-4fd8-8269-906a987a8cf4>
+  - <urn:uuid:dfed4a60-4d90-430f-a29f-37440187bcd6>
+  - <urn:uuid:f1ad6fb4-6537-4629-b85b-edb00a28f1ae>
+  - <urn:uuid:f0660b54-41ac-42ac-8c41-60076abb0ce3>
+  - <urn:uuid:a546140d-3a6b-4ebb-bfba-5cee9927b4ef>
+  - <urn:uuid:653f8a0e-0099-40e1-94d6-2980305ee160>
+  - <urn:uuid:c1538adb-f5bd-4524-9e86-1c5bea22f841>
+  - <urn:uuid:73728fa4-1023-48a9-bb3d-6c2c797ea29a>
+  - <urn:uuid:4089994f-2a44-4207-a49d-5855f64a3279>
+  - <urn:uuid:90492b79-587b-40a5-b5f6-106645daaddd>
+  selector_error: null

@@ -1,0 +1,36 @@
+id: adult_tagfarm_content_mislabeled
+scope: slk_Latn
+source: baseline:lowconf
+description: A small but recurring set of documents are pornographic tag-aggregator
+  pages (lists of explicit search terms/tags with minimal connecting prose) that are
+  mostly English or template text, not genuine Slovak writing, yet are labelled 'slk'.
+  They are identifiable by an elevated profanity/bad-word count combined with a language
+  identifier disagreement.
+selector: n_bad_words >= 3 AND langdetect != 'sk'
+assertion: prevalence <= 0.000065
+evidence:
+  agent_evidence: accesslocator.org ('mama sex s synom 3gp...') has n_bad_words=9
+    with langdetect='sk' but the bulk of visible text is English tag phrases ('Free
+    video... porno... Zral babi ky sex'); ballyclarebid.co.uk has n_bad_words=11 with
+    langdetect='en' and is almost entirely English adult tag soup; slovhubkia.com
+    has n_bad_words=7, langdetect='en', explicit English captioning around a Slovak-language
+    site name. These are template tag-listing pages rather than coherent narrative
+    Slovak text.
+  prevalence: 6.486470476812624e-05
+  prevalence_ci95:
+  - 6.186833150179495e-05
+  - 6.800618687962516e-05
+  n_matched: 1717
+  evaluated_on: meta
+  exact_on_full_corpus: true
+  agent_expected_precision: 0.5
+  likely_false_positives: Because only 3 of 300 sampled documents match this narrow
+    condition, the estimate is based on a very small sample; ordinary Slovak news/forum
+    content discussing crime or health topics with a handful of profanity-list hits
+    (not adult-tag pages) would also match n_bad_words>=3 and dilute precision at
+    corpus scale.
+  example_ids:
+  - <urn:uuid:c00f8eaf-9217-4004-af17-a7b7942770dd>
+  - <urn:uuid:f53ca551-294d-44e3-8927-d24b7009a943>
+  - <urn:uuid:892aec60-bc16-4b1e-9bf2-3df390d2324d>
+  selector_error: null

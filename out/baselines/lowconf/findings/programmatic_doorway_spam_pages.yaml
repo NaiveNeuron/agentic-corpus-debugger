@@ -1,0 +1,43 @@
+id: programmatic_doorway_spam_pages
+scope: slk_Latn
+source: baseline:lowconf
+description: A large fraction of the sample consists of machine-generated 'doorway'
+  pages on randomly-named Firebase-hosted subdomains (e.g. *.firebaseapp.com, *.web.app,
+  with paths like /NNNNN/NNNNN.html) that splice together unrelated boilerplate sentences
+  (currency converters, crypto-exchange blurbs, random trivia, e-commerce snippets)
+  rather than containing coherent human-authored Slovak prose.
+selector: domain LIKE '%.firebaseapp.com' OR domain LIKE '%.web.app'
+assertion: prevalence <= 0.053208
+evidence:
+  agent_evidence: 'Dozens of sample rows come from domains such as danefkdh.firebaseapp.com,
+    nakupzlatadbrv.firebaseapp.com, valutadnxu.web.app, akozbohatnutszbg.firebaseapp.com,
+    hurmanblirrik*.web.app, kopavguld*.web.app, forsaljningavaktier*.web.app, investeringar*.firebaseapp.com,
+    etc. Their snippets jump between unrelated topics mid-document (e.g. antique-buying
+    then a date-stamped fragment then a Bitcoin price chart) and frequently mix Czech
+    and Slovak within the same passage. Counter-evidence: not every *.firebaseapp.com/*.web.app
+    page is spam (a few, like shop.loxone.com''s parent pattern, are absent from this
+    class), and some legitimate small businesses do use Firebase hosting.'
+  prevalence: 0.053207833540771944
+  prevalence_ci95:
+  - 0.05312239361012374
+  - 0.05329340315523455
+  n_matched: 1408437
+  evaluated_on: meta
+  exact_on_full_corpus: true
+  agent_expected_precision: 0.75
+  likely_false_positives: A minority of *.firebaseapp.com/*.web.app hosts may be legitimate
+    small apps or personal sites with genuine coherent Slovak content rather than
+    templated content-farm doorway pages; the domain-suffix selector alone cannot
+    separate those from the templated-spam majority.
+  example_ids:
+  - <urn:uuid:b80b9a7c-48e8-4011-a29f-8beb9cdadf91>
+  - <urn:uuid:eb5fcebc-45a9-4d0b-901a-fae29d9cc94f>
+  - <urn:uuid:0d020677-7d94-4a2b-a40d-a45858ade4b6>
+  - <urn:uuid:6ebfd155-50b4-4189-8c27-d4496846f9f2>
+  - <urn:uuid:da368415-b4dd-4b4e-8a63-02c8599d4eb6>
+  - <urn:uuid:785aa219-fd16-43f1-9e45-6cb75aeffc41>
+  - <urn:uuid:34e83008-f4c4-401b-9b34-68be71c88028>
+  - <urn:uuid:e9e493e9-9b08-4cf8-8113-7fea1c7c33e1>
+  - <urn:uuid:f809894d-2b01-4dd1-902b-812f1349a54b>
+  - <urn:uuid:c23dd08a-e93f-4539-932c-22529e3752cd>
+  selector_error: null

@@ -1,0 +1,146 @@
+{
+  "tests": [
+    {
+      "id": "adult_spam_farm_wordsalad",
+      "status": "PASS",
+      "assertion": "prevalence <= 0.00464551",
+      "kind": "prevalence_guard",
+      "n_matched": 0,
+      "n_evaluated": 24854597,
+      "prevalence": 0.0,
+      "prevalence_ci95": [
+        0.0,
+        1.545629328140399e-07
+      ],
+      "exact_on_full_corpus": true,
+      "seconds": 0.004
+    },
+    {
+      "id": "czech_slovak_code_switched_docs",
+      "status": "PASS",
+      "assertion": "prevalence <= 0.00200605",
+      "kind": "prevalence_guard",
+      "n_matched": 0,
+      "n_evaluated": 24854597,
+      "prevalence": 0.0,
+      "prevalence_ci95": [
+        0.0,
+        1.545629328140399e-07
+      ],
+      "exact_on_full_corpus": true,
+      "seconds": 0.01
+    },
+    {
+      "id": "czech_text_mislabeled_as_slovak",
+      "status": "PASS",
+      "assertion": "prevalence <= 0.00144138",
+      "kind": "prevalence_guard",
+      "n_matched": 0,
+      "n_evaluated": 24854597,
+      "prevalence": 0.0,
+      "prevalence_ci95": [
+        0.0,
+        1.545629328140399e-07
+      ],
+      "exact_on_full_corpus": true,
+      "seconds": 0.025
+    },
+    {
+      "id": "firebase_content_farm_spam",
+      "status": "PASS",
+      "assertion": "prevalence <= 0.06384940",
+      "kind": "prevalence_guard",
+      "n_matched": 0,
+      "n_evaluated": 24854597,
+      "prevalence": 0.0,
+      "prevalence_ci95": [
+        0.0,
+        1.545629328140399e-07
+      ],
+      "exact_on_full_corpus": true,
+      "seconds": 0.055
+    },
+    {
+      "id": "porn_doorway_spam_network",
+      "status": "PASS",
+      "assertion": "prevalence <= 0.00237339",
+      "kind": "prevalence_guard",
+      "n_matched": 0,
+      "n_evaluated": 24854597,
+      "prevalence": 0.0,
+      "prevalence_ci95": [
+        0.0,
+        1.545629328140399e-07
+      ],
+      "exact_on_full_corpus": true,
+      "seconds": 0.005
+    },
+    {
+      "id": "porn_spam_keyword_farm",
+      "status": "PASS",
+      "assertion": "prevalence <= 0.00430424",
+      "kind": "prevalence_guard",
+      "n_matched": 0,
+      "n_evaluated": 24854597,
+      "prevalence": 0.0,
+      "prevalence_ci95": [
+        0.0,
+        1.545629328140399e-07
+      ],
+      "exact_on_full_corpus": true,
+      "seconds": 0.004
+    },
+    {
+      "id": "slo_prefix_machine_translated_farm",
+      "status": "PASS",
+      "assertion": "prevalence <= 0.00334720",
+      "kind": "prevalence_guard",
+      "n_matched": 0,
+      "n_evaluated": 24854597,
+      "prevalence": 0.0,
+      "prevalence_ci95": [
+        0.0,
+        1.545629328140399e-07
+      ],
+      "exact_on_full_corpus": true,
+      "seconds": 0.042
+    },
+    {
+      "id": "document_ids_unique",
+      "status": "FAIL",
+      "assertion": "n_matched == 0",
+      "kind": "metadata_invariant",
+      "n_matched": 26,
+      "n_evaluated": 24854597,
+      "prevalence": 1.046084150952035e-06,
+      "prevalence_ci95": [
+        7.139047551611309e-07,
+        1.5328261561853109e-06
+      ],
+      "exact_on_full_corpus": true,
+      "seconds": 0.407
+    },
+    {
+      "id": "language_score_not_a_probability",
+      "status": "FAIL",
+      "assertion": "n_matched == 0",
+      "kind": "metadata_invariant",
+      "n_matched": 10315974,
+      "n_evaluated": 24854597,
+      "prevalence": 0.41505295780897195,
+      "prevalence_ci95": [
+        0.4148592561811798,
+        0.415246685696092
+      ],
+      "exact_on_full_corpus": true,
+      "seconds": 0.015
+    }
+  ],
+  "seconds": 0.58,
+  "scope": "slk_Latn",
+  "skipped_out_of_scope": [],
+  "unmeasurable": [],
+  "malformed": [],
+  "n_total": 24854597,
+  "n_sample": 1910580
+}

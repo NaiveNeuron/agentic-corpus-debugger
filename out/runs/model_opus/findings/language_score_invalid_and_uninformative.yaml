@@ -1,0 +1,42 @@
+id: language_score_invalid_and_uninformative
+scope: slk_Latn
+description: 'The shipped `language_score` field is not a valid probability: 10,691,128
+  documents (40.4%) carry a score strictly greater than 1.0 (values clustered at 1.00001).
+  It is also almost information-free — 98.4% of the corpus scores at least 0.95 and
+  documents that are wholly Czech still score about 0.9998 — so it cannot be used
+  as a quality or language-purity filter.'
+selector: language_score > 1.0
+assertion: language_score must lie in [0,1] for every document.
+evidence:
+  agent_evidence: 'Exact aggregates on the full 26,470,482-doc corpus_meta: the language
+    column is ''slk'' for every row; language_score ranges from 0.66737 to 1.00001;
+    10,691,128 rows (40.39%) exceed 1.0, of which 6,999,575 sit at exactly 1.00001
+    and the rest are spread between 1.0000001 and 1.00001. All but 7 of these rows
+    also have fasttext=''sk'', so this is not confined to odd documents — it is a
+    systematic numerical defect in how the score was written out (a fastText probability
+    rescaled or accumulated past 1). Separately, binning the score shows it carries
+    almost no signal: 26,037,809 rows (98.4%) fall in the 0.95-1.0 bin, and only 432,673
+    rows are below 0.95. Grounding for the ''uninformative'' half of the claim from
+    documents I actually read: <urn:uuid:71845f06-...> is a Czech Radio article that
+    is Czech from beginning to end yet has language_score 0.99981 with fasttext=''sk''
+    and langdetect=''sk''; the 1.4M-document Firebase spam farm averages language_score
+    0.98. Counter-evidence: the score is not entirely useless at the bottom — in the
+    0.7 bin 70% of documents are fasttext=''cs'', so a much lower threshold would
+    recover some Czech; and the minimum observed value of 0.667 shows a 0.65 cut-off
+    was applied upstream.</evidence>
+
+    <parameter name="expected_precision">1.0'
+  prevalence: 0.40388867871767503
+  prevalence_ci95:
+  - 0.40370176669684615
+  - 0.40407561863532854
+  n_matched: 10691128
+  evaluated_on: corpus_meta
+  exact_on_full_corpus: true
+  agent_expected_precision: null
+  likely_false_positives: None — the condition is an exact arithmetic property of
+    a metadata column, not a heuristic.
+  example_ids:
+  - <urn:uuid:71845f06-2b3f-4ead-adec-1ef9c0d2643d>
+  - <urn:uuid:e5a8ab93-68d1-4a77-a71e-de8b05559662>
+  inspections_used_when_saved: 124

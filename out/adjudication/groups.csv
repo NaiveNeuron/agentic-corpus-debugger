@@ -1,0 +1,35 @@
+group,finding,source,n_matched,selector
+G01,firebase_content_farm_spam,agent:main,1408437,domain LIKE '%.firebaseapp.com' OR domain LIKE '%.web.app'
+G01,firebase_doorway_spam_farm,agent:rep1,1408437,domain LIKE '%.firebaseapp.com' OR domain LIKE '%.web.app'
+G01,firebase_webapp_content_farm,agent:rep2,1408437,domain LIKE '%.firebaseapp.com' OR domain LIKE '%.web.app'
+G01,firebase_webapp_spam_farms,baseline:lid_disagree,1408437,language='slk' AND (domain LIKE '%.firebaseapp.com' OR domain LIKE '%.web.app')
+G01,programmatic_doorway_spam_pages,baseline:lowconf,1408437,domain LIKE '%.firebaseapp.com' OR domain LIKE '%.web.app'
+G01,programmatic_seo_farm_boilerplate,baseline:lowconf,1408437,domain LIKE '%.firebaseapp.com' OR domain LIKE '%.web.app'
+G01,doorway_spam_domains,baseline:random,1408437,domain LIKE '%.firebaseapp.com' OR domain LIKE '%.web.app'
+G01,firebase_webapp_doorway_spam,baseline:random,1408437,domain LIKE '%.firebaseapp.com' OR domain LIKE '%.web.app'
+G02,czech_text_mislabeled_as_slovak,agent:rep1,31795,fasttext='cs' AND langdetect='cs' AND lingua_top='cs' AND NOT (domain LIKE '%.firebaseapp.com' OR domain LIKE '%.web.app')
+G02,czech_slovak_code_switched_docs,agent:rep2,44251,fasttext='cs' AND langdetect='cs' AND lingua_top='cs'
+G02,czech_language_content_mislabeled_slovak,baseline:highdup,495166,lingua_top = 'cs' OR fasttext = 'cs'
+G02,non_slovak_content_mislabeled_slovak_other_languages,baseline:highdup,102258,fasttext = langdetect AND langdetect = lingua_top AND fasttext != 'sk' AND language_score < 0.99
+G02,czech_content_mislabeled_slovak,baseline:lid_disagree,114525,language='slk' AND fasttext='cs' AND langdetect='cs'
+G02,english_dominant_travel_ecommerce_pages,baseline:lid_disagree,42808,language='slk' AND fasttext='en' AND langdetect='en' AND lingua_top='en' AND domain NOT LIKE '%.firebaseapp.com' AND domain NOT LIKE '%.web.app'
+G02,czech_documents_misclassified_as_slovak,baseline:lowconf,114525,language = 'slk' AND fasttext = 'cs' AND langdetect = 'cs'
+G02,czech_documents_mislabeled_as_slovak,baseline:lowconf,412528,language = 'slk' AND fasttext = 'cs'
+G02,english_documents_mislabeled_as_slovak,baseline:lowconf,51407,language = 'slk' AND fasttext = 'en' AND langdetect = 'en' AND lingua_top = 'en'
+G02,unrelated_language_contamination,baseline:lowconf,63195,"language = 'slk' AND fasttext = langdetect AND fasttext NOT IN ('sk','cs')"
+G02,czech_documents_labeled_slovak,baseline:random,452288,language = 'slk' AND (fasttext = 'cs' OR (lingua_top = 'cs' AND lingua_top_p >= 0.5))
+G02,czech_text_mislabeled_slovak,baseline:random,449669,language = 'slk' AND (fasttext = 'cs' OR (lingua_top = 'cs' AND lingua_top_p > 0.5))
+G02,english_documents_labeled_slovak,baseline:random,51407,language = 'slk' AND fasttext = 'en' AND langdetect = 'en' AND lingua_top = 'en'
+G02,non_slovak_language_mislabeled,baseline:random,331892,language = 'slk' AND ((fasttext <> 'sk')::int + (langdetect <> 'sk')::int + (lingua_top <> 'sk')::int) >= 2
+G03,loan_gambling_seo_spam,baseline:random,226542,url ILIKE '%pozick%' OR url ILIKE '%kasino%' OR url ILIKE '%casino%' OR domain LIKE '%.xyz'
+G04,porn_spam_keyword_farm,agent:main,94946,n_bad_words >= 3 AND domain NOT LIKE '%.sk' AND domain NOT LIKE '%.cz'
+G04,porn_doorway_spam_network,agent:rep1,52354,n_bad_words > 5
+G04,adult_spam_farm_wordsalad,agent:rep2,102474,n_bad_words >= 3
+G04,unfiltered_adult_content,baseline:lid_disagree,79248,language='slk' AND n_bad_words >= 4
+G05,slo_prefix_machine_translated_farm,agent:rep1,73835,domain LIKE 'slo.%'
+G06,spun_macaronic_template_text,baseline:lid_disagree,18708,language='slk' AND domain='kamsi.sk'
+G07,cookie_consent_boilerplate_dominant,baseline:highdup,11676,"LOWER(SUBSTR(text,1,250)) LIKE '%cookie%' OR LOWER(SUBSTR(text,1,250)) LIKE '%súbory cookie%'"
+G08,incoherent_spun_affiliate_content,baseline:random,9096,"domain IN ('terrapermonia.sk','blueplast.sk','prachova.sk','ufophoenix.xyz','dailyufosightings.xyz','lubicon.cz','obecweb.sk')"
+G09,adult_tagfarm_content_mislabeled,baseline:lowconf,1717,n_bad_words >= 3 AND langdetect != 'sk'
+G10,cross_domain_loan_ad_widget_contamination,baseline:highdup,264,"text LIKE '%Naposledy pôžičku vyskúšali%' OR text LIKE '%Vyplňte nezáväznú žiadosť%' OR text LIKE '%Hana, Břeclav%' OR text LIKE '%Posledn% žiadatelia%'"
+G11,parked_domain_placeholder_pages,baseline:highdup,2,text LIKE '%K tejto doméne zatiaľ neexistuje žiadny webhosting%' OR text LIKE '%Na tejto%doméne zatiaľ%nič nie je%' OR text LIKE '%doména je parkovaná%' OR text LIKE '%Websupport.sk ponúka najnižšie ceny domén%'

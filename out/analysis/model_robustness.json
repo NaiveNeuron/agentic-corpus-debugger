@@ -1,0 +1,50 @@
+[
+  {
+    "id": "advertising_boilerplate_spliced_into_text",
+    "n": 18887,
+    "best_jaccard": 0.00014975664545114188,
+    "best_match": "adult_spam_farm_wordsalad"
+  },
+  {
+    "id": "czech_text_labelled_as_slovak",
+    "n": 23076,
+    "best_jaccard": 0.09197124026363092,
+    "best_match": "czech_text_mislabeled_as_slovak"
+  },
+  {
+    "id": "email_addresses_silently_replaced_by_placeholders",
+    "n": 76133,
+    "best_jaccard": 0.06195953803815906,
+    "best_match": "firebase_content_farm_spam"
+  },
+  {
+    "id": "firebase_hosting_spam_farm",
+    "n": 1408437,
+    "best_jaccard": 1.0,
+    "best_match": "firebase_content_farm_spam"
+  },
+  {
+    "id": "language_score_invalid_and_uninformative",
+    "n": 10691128,
+    "best_jaccard": 0.02527373674531844,
+    "best_match": "firebase_content_farm_spam"
+  },
+  {
+    "id": "longform_machine_translated_russian_health_farm",
+    "n": 147318,
+    "best_jaccard": 0.31372816918141855,
+    "best_match": "slo_prefix_machine_translated_farm"
+  },
+  {
+    "id": "machine_translated_sk_locale_subdomains",
+    "n": 903273,
+    "best_jaccard": 0.001826577505597657,
+    "best_match": "porn_spam_keyword_farm"
+  },
+  {
+    "id": "offshore_content_farm_flat_html",
+    "n": 473571,
+    "best_jaccard": 0.15756456512709413,
+    "best_match": "porn_spam_keyword_farm"
+  }
+]

@@ -1,0 +1,41 @@
+id: cross_domain_loan_ad_widget_contamination
+scope: slk_Latn
+source: baseline:highdup
+description: A large number of documents, regardless of the host site's actual topic
+  (theater galleries, veterinary equipment, cooking forums, sports clubs, music sites,
+  equestrian festivals), contain a near-verbatim templated 'pôžička' (online loan)
+  advertisement widget, including fabricated customer testimonials with the same names
+  (e.g. 'Hana, Břeclav'). This is third-party ad/widget boilerplate that has nothing
+  to do with the page's subject matter and is duplicated wholesale across dozens of
+  unrelated domains, surviving deduplication because it is embedded within otherwise-unique
+  page shells.
+selector: text LIKE '%Naposledy pôžičku vyskúšali%' OR text LIKE '%Vyplňte nezáväznú
+  žiadosť%' OR text LIKE '%Hana, Břeclav%' OR text LIKE '%Posledn% žiadatelia%'
+assertion: prevalence <= 0.000130
+evidence:
+  agent_evidence: 'Seen verbatim or near-verbatim on mbklucenec.sk, culinaria.sk,
+    mkmb.sk, symbianmania.sk, cashbackcard.sk, webpravnik.sk, noypi.xyz, nethry.sk,
+    mikastil.sk, equestrianfestivalsamorin.sk, pegafun.sk, davdva.sk, lunaparkpetrzalka.sk
+    - none of which are loan/finance sites. The identical fake-testimonial name ''Hana,
+    Břeclav'' recurs across at least 5 unrelated domains. Counter-evidence: a few
+    loan-related documents (e.g. genuine finance/insurance sites) legitimately contain
+    similar text about their own product, so not every match is ''contamination''
+    in the strict sense, though it is still templated boilerplate.'
+  prevalence: 0.00012973635999087915
+  prevalence_ci95:
+  - 0.00011500259276618703
+  - 0.00014635749441226786
+  n_matched: 264
+  evaluated_on: corpus_view
+  exact_on_full_corpus: false
+  agent_expected_precision: 0.9
+  likely_false_positives: Documents from actual loan/finance-comparison businesses
+    where this text is the site's genuine (if still templated/thin) content rather
+    than injected off-topic ad contamination.
+  example_ids:
+  - <urn:uuid:f1e53344-1604-426f-a066-adc74d455ad8>
+  - <urn:uuid:bcea75a2-7352-4878-91df-0426d8a8afd6>
+  - <urn:uuid:89ba6b5d-af60-482d-a4a9-35a544995280>
+  - <urn:uuid:0a4d9eff-a034-43ca-b382-3dd5e10d997d>
+  - <urn:uuid:a9a51cea-7eb6-4ec7-b597-e16b9c60b6e5>
+  selector_error: null

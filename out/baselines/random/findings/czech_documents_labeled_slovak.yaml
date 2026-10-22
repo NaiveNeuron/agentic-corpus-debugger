@@ -1,0 +1,36 @@
+id: czech_documents_labeled_slovak
+scope: slk_Latn
+source: baseline:random
+description: Some documents are written in standard Czech, not Slovak, but are labeled
+  'slk'. These are genuine cross-lingual contamination (not just code-switching),
+  detectable when fasttext or lingua_top independently flag 'cs'.
+selector: language = 'slk' AND (fasttext = 'cs' OR (lingua_top = 'cs' AND lingua_top_p
+  >= 0.5))
+assertion: prevalence <= 0.017087
+evidence:
+  agent_evidence: 'receptjidlo.com is a recipe ingredient list in standard Czech (''Menší
+    porce'', ''cibule'', ''brambory'', ''sůl'', ''lžička'') with fasttext explicitly
+    = ''cs'' and language_score only 0.94. konsepti.com is a full Czech-language interior-design
+    article (''který se nachází'', ''Jedná se o penthouse'') with lingua_top=''cs'',
+    p=0.61, language_score 0.85 (visibly lower than typical Slovak-confirmed docs).
+    Counter-evidence: nskmi.sk also has lingua_top=''cs'' but is a short, genuinely
+    Slovak product list (''zubná pasta'') where the classifier likely misfired on
+    brand names — showing the selector also catches ambiguous short texts that are
+    not true Czech contamination.'
+  prevalence: 0.017086504129392128
+  prevalence_ci95:
+  - 0.01703720459062739
+  - 0.017135943836380205
+  n_matched: 452288
+  evaluated_on: meta
+  exact_on_full_corpus: true
+  agent_expected_precision: 0.55
+  likely_false_positives: Short/ambiguous Slovak texts (product lists, brand-heavy
+    snippets) that trip lingua_top into 'cs' without the document actually being Czech;
+    genuinely mixed Czech/Slovak macaronic texts (e.g. old folk songs) that are borderline
+    by nature.
+  example_ids:
+  - <urn:uuid:50a15810-b3c1-4f9e-8ba2-f7eaf9c40fab>
+  - <urn:uuid:4ba9e6d3-a5df-4632-8df3-887aec006a30>
+  - <urn:uuid:8821f76c-2c7a-4046-965a-273b1365cc10>
+  selector_error: null

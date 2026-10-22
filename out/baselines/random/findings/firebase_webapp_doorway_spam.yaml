@@ -1,0 +1,54 @@
+id: firebase_webapp_doorway_spam
+scope: slk_Latn
+source: baseline:random
+description: A recurring cluster of documents comes from randomly-named subdomains
+  on firebaseapp.com and web.app (Google Firebase free hosting), containing incoherent
+  text stitched from unrelated topic fragments (crypto/coinbase, personal loans, real
+  estate, legal templates, driving schools, COVID forms, stock-market RNS notices).
+  These read as auto-generated SEO doorway/content-farm pages rather than genuine
+  authored Slovak text, and several are fully or partially in English despite being
+  labeled Slovak.
+selector: domain LIKE '%.firebaseapp.com' OR domain LIKE '%.web.app'
+assertion: prevalence <= 0.053208
+evidence:
+  agent_evidence: '16 of the 300 sampled documents (~5%) match this domain pattern,
+    e.g. iahkepeniazeljgh.firebaseapp.com, platubfn.firebaseapp.com, akozbohatnutllil.firebaseapp.com,
+    forsaljningavaktierdrbz.web.app, pracovnemiestagcoz.firebaseapp.com, investicielqot.firebaseapp.com,
+    pracovnemiestaohlt.firebaseapp.com, fastlibraryebzm.web.app, hurmanblirrikanec.firebaseapp.com,
+    magadocsbeqf.web.app, investerarpengarnpkk.web.app, iahkepeniazefgbn.firebaseapp.com,
+    heylibbess.web.app, stormdocsfxin.web.app, hurmanblirrikqmph.firebaseapp.com (pure
+    English UBS/RNS announcement, fasttext/langdetect/lingua_top all = en yet language=slk),
+    investeringarjbdc.web.app. In every sampled case the text jumps between unrelated
+    subjects mid-document, consistent with scraped/concatenated snippets rather than
+    genuine prose. Counter-evidence: none of the 16 examples in the sample look like
+    legitimate content, so within-sample precision is high, though the domain pattern
+    could in principle catch a genuine small business site hosted on Firebase''s free
+    tier.'
+  prevalence: 0.053207833540771944
+  prevalence_ci95:
+  - 0.05312239361012374
+  - 0.05329340315523455
+  n_matched: 1408437
+  evaluated_on: meta
+  exact_on_full_corpus: true
+  agent_expected_precision: 0.85
+  likely_false_positives: A small legitimate personal or hobby site genuinely hosted
+    on Firebase's free tier would be wrongly included; also pages that are template-heavy
+    but topically coherent (e.g. a single legal-form generator) could be swept in
+    even though they are not multi-topic spam.
+  example_ids:
+  - <urn:uuid:73728fa4-1023-48a9-bb3d-6c2c797ea29a>
+  - <urn:uuid:4089994f-2a44-4207-a49d-5855f64a3279>
+  - <urn:uuid:90492b79-587b-40a5-b5f6-106645daaddd>
+  - <urn:uuid:4c16dd02-f329-4007-8156-5e73acbe8df7>
+  - <urn:uuid:a546140d-3a6b-4ebb-bfba-5cee9927b4ef>
+  - <urn:uuid:f0660b54-41ac-42ac-8c41-60076abb0ce3>
+  - <urn:uuid:6ed8d6ba-bff3-4fd8-8269-906a987a8cf4>
+  - <urn:uuid:fd5e8e75-cba9-46d1-adbe-eb19295f834b>
+  - <urn:uuid:f65b1398-4ec4-4185-bb9d-c94bed06c4d4>
+  - <urn:uuid:04b22877-eb85-4e7d-b45c-4f3eaff2d0d9>
+  - <urn:uuid:c1538adb-f5bd-4524-9e86-1c5bea22f841>
+  - <urn:uuid:653f8a0e-0099-40e1-94d6-2980305ee160>
+  - <urn:uuid:f0d41770-ef1e-4b41-aac8-f98ebe16d5d8>
+  - <urn:uuid:c2476981-1471-4c8d-969d-ada78bbe3e74>
+  selector_error: null

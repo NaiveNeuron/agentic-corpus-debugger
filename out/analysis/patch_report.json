@@ -1,0 +1,95 @@
+{
+  "relation": "meta",
+  "patches": [
+    {
+      "id": "adult_spam_farm_wordsalad",
+      "status": "accepted",
+      "evaluated_on": "meta",
+      "documents_removed": 102474,
+      "words_removed": 84245937,
+      "document_share": 0.003871255536638887,
+      "word_share": 0.007271585362432865,
+      "selector": "n_bad_words >= 3",
+      "description": "A cluster of throwaway-domain adult/porn spam sites contribute documents that are not coherent Slovak prose but auto-generated word-salad: SEO tag lists, stitched keyword fragments, and repeated boilerplate phrases (e.g. \"zadarmo \u010dierne Lesbi\u010dky Sex Movies\" injected dozens of times) built by a domain-spinning template. The corpus's own language_score is near-perfect (often >0.99) and all three shipped LID tools agree on 'sk', yet the \"documents\" are not naturally authored Slovak text and provide no usable linguistic signal."
+    },
+    {
+      "id": "czech_slovak_code_switched_docs",
+      "status": "accepted",
+      "evaluated_on": "meta",
+      "documents_removed": 44251,
+      "words_removed": 22078936,
+      "document_share": 0.0016717111535785407,
+      "word_share": 0.0019057164482091525,
+      "selector": "fasttext='cs' AND langdetect='cs' AND lingua_top='cs'",
+      "description": "A systematic subset of documents are Czech-language or heavily Czech/Slovak code-switched, not clean Slovak, yet are labelled language='slk' with high language_score. This mostly comes from (a) Slovak e-commerce sites that paste Czech-language product descriptions/reviews verbatim from shared CZ/SK catalogs and (b) cz.pinterest.com / forum pages whose captions and comments mix Czech and Slovak. Because Czech and Slovak are highly mutually intelligible, the pipeline's own LID and all three shipped auxiliary LIDs (fasttext, langdetect, lingua) confidently but wrongly agree that many such documents are Slovak, and even when they agree the document is Czech, the corpus still ships it labelled slk."
+    },
+    {
+      "id": "czech_text_mislabeled_as_slovak",
+      "status": "accepted",
+      "evaluated_on": "meta",
+      "documents_removed": 31795,
+      "words_removed": 9696032,
+      "document_share": 0.0012011492650568281,
+      "word_share": 0.0008369011833161836,
+      "selector": "fasttext='cs' AND langdetect='cs' AND lingua_top='cs' AND NOT (domain LIKE '%.firebaseapp.com' OR domain LIKE '%.web.app')",
+      "description": "A systematic slice of documents are substantially or entirely Czech-language text (product data, forum posts, cookie notices, thesis metadata, Pinterest boards) that the corpus nonetheless labels as Slovak (slk_Latn). These typically come from bilingual CZ/SK commerce platforms, cross-posted forums, and Pinterest country mirrors that reuse Czech copy on .sk domains or vice versa."
+    },
+    {
+      "id": "firebase_content_farm_spam",
+      "status": "accepted",
+      "evaluated_on": "meta",
+      "documents_removed": 1408437,
+      "words_removed": 1423765900,
+      "document_share": 0.053207833540771944,
+      "word_share": 0.12289061819053723,
+      "selector": "domain LIKE '%.firebaseapp.com' OR domain LIKE '%.web.app'",
+      "description": "A large-scale, machine-generated content-farm/SEO-spam network is hosted on randomly-named subdomains of Google's free Firebase hosting (*.firebaseapp.com, *.web.app). Each subdomain name is a Slovak or Scandinavian finance/get-rich-quick keyword (e.g. \"akozbohatnut\" = how to get rich, \"investerarpengar\" = Swedish \"invest money\", \"pracovnemiesta\" = job vacancies, \"danove\" = taxes, \"nakupzlata\" = buy gold) plus a random letter suffix, and each hosts thousands of pages of incoherent, multi-topic text stitched together from scraped fragments (finance/crypto glossary snippets, news snippets, unrelated Q&A, sometimes switching mid-document into Czech, Bosnian/Serbian, or Slovenian). The pages are not authored prose and are not really \"Slovak documents\" in the intended sense, despite passing the language filter with high average confidence (0.98) and evading near-duplicate dedup entirely (avg minhash_cluster_size \u2248 1, since every domain/page uses a unique random suffix/URL)."
+    },
+    {
+      "id": "porn_doorway_spam_network",
+      "status": "accepted",
+      "evaluated_on": "meta",
+      "documents_removed": 52354,
+      "words_removed": 39952808,
+      "document_share": 0.001977825715451649,
+      "word_share": 0.003448477922928089,
+      "selector": "n_bad_words > 5",
+      "description": "A second, distinct content-farm/doorway-page spam network -- unrelated to the firebaseapp/web.app finance farm -- serves auto-generated pornography aggregator pages under ~60+ unrelated-looking domains with generic personal/company names and varied TLDs (adv-moto-girl.bike, baazzaa.com, agencerepublique.net/.me, aaronpowell.me, bananapepper.fr, americanislandsregionalcenter.us, etc.). Pages are keyword-stuffed concatenations of pornographic video-tag phrases machine-translated/rendered into Slovak, not coherent prose, and repeat the same tag vocabulary across thousands of near-identical URLs per domain."
+    },
+    {
+      "id": "porn_spam_keyword_farm",
+      "status": "accepted",
+      "evaluated_on": "meta",
+      "documents_removed": 94946,
+      "words_removed": 72601400,
+      "document_share": 0.0035868632841668693,
+      "word_share": 0.006266501345128767,
+      "selector": "n_bad_words >= 3 AND domain NOT LIKE '%.sk' AND domain NOT LIKE '%.cz'",
+      "description": "A second, separate spam network of thousands of randomly-named domains (English dictionary-word-like names + generic gTLDs/ccTLDs such as .com/.me/.fr/.bike/.online/.info/.nl/.it/.us/.br) hosts keyword-stuffed, incoherent \"word salad\" adult/porn doorway pages that are grammatically broken pastiches of scraped Slovak sentence fragments and tag lists, not genuine documents. Many share a literal CMS template header \"Posted by Admin | in <Month> <Day>, 2020 |\"."
+    },
+    {
+      "id": "slo_prefix_machine_translated_farm",
+      "status": "candidate",
+      "evaluated_on": "meta",
+      "documents_removed": 73835,
+      "words_removed": 373634532,
+      "document_share": 0.0027893334167470012,
+      "word_share": 0.03224980919602869,
+      "selector": "domain LIKE 'slo.%'",
+      "description": "A third distinct content-farm network: hundreds of unrelated-looking, seemingly hijacked/repurposed domains (e.g. slo.andhramedicalcollegevizag.com, slo.istanbulmedicine.com, slo.kelinvestgroup.com, slo.orsitaning.ru) all serve the same machine-translated content mirror under a 'slo.' (Slovak) subdomain. Content is overwhelmingly pseudo-medical/health/lifestyle articles whose URL slugs are transliterated Russian (e.g. 'diagnostika-raka-jaichek-u-muzhchin', 'kod-po-mkb-mehanicheskaja-zheltuha'), indicating the same Russian-origin article set has been bulk machine-translated into Slovak (and presumably many other languages via sibling subdomain prefixes) and republished across this domain farm. Unlike the firebaseapp.com spam, the translated text is fluent and grammatically coherent single-topic prose, so it reads as legitimate native Slovak and would not be caught by quality heuristics, but it is not organically authored Slovak content and the same articles are repeated near-verbatim across dozens of domains."
+    }
+  ],
+  "combined": {
+    "documents": 26470482,
+    "words": 11585635429,
+    "documents_removed": 1615885,
+    "words_removed": 1889561969,
+    "document_share": 0.06104478943753272,
+    "word_share": 0.1630952381144532,
+    "note": "not the sum of the patches, which overlap"
+  },
+  "statuses_applied": [
+    "accepted",
+    "candidate"
+  ]
+}

@@ -1,0 +1,58 @@
+id: offshore_content_farm_flat_html
+scope: slk_Latn
+description: 'A large network of throwaway non-Slovak hosts (random company-ish .com/.info/.xyz/.ga/.bike/.co.uk
+  names, plus numeric .xyz domains) serves Slovak-labelled pages at flat root-level
+  /slug.html URLs. The pages are machine-generated: Slovak dating/porn keyword-spam
+  with deliberately character-scrambled words ("rádioaktíbne", "Odpovďe", "kúpeľbá",
+  "oZznamka") to defeat duplicate detection, or machine-translated Russian/English
+  lifestyle articles. 473,571 documents (1.79%) across ~6,500 hosts.'
+selector: domain NOT LIKE '%.sk' AND domain NOT LIKE '%.cz' AND regexp_matches(url,
+  '^https?://[^/]+/[a-z0-9-]+\.html$')
+assertion: No single non-.sk host that is not a recognised international site should
+  contribute more than a few hundred documents to a Slovak slice.
+evidence:
+  agent_evidence: 'The selector matches 473,571/26,470,482 docs (1.789%, exact on
+    the full corpus) over 6,466 hosts; the top hosts each contribute 4k-11k docs (40l.de
+    10,949; 1percentcommission.com 10,484; arabclicks.info 10,155; 2brothersmobiledetailing.com
+    9,294; 189795.xyz 8,393; 180145.xyz; 181275.xyz; adv-moto-girl.bike; ballyclarebid.co.uk;
+    bacousa.com), which is not a plausible shape for a real foreign-hosted Slovak
+    site. I inspected 18 documents from this network. evaluate_detector with n=10
+    returned 10/10 machine-generated junk: five Slovak dating/porn keyword-spam pages
+    whose URL slugs are Slovak with the diacritic letters simply deleted (/datovania-vemi-plach-mu.html
+    = ''datovania veľmi plachý muž'', /mama-syn-skuton-sex-psky.html, /najlep-obrzok-pre-dtumov-daje-profil.html)
+    and whose body text contains the same deletion/transposition corruption inside
+    otherwise Slovak sentences; three machine-translated content-farm articles whose
+    slugs betray the source language (kakizaki-clinic.com//allergija-na-solnce-u-detej-lechenie.html
+    from Russian, myhometownfl.com//96-baby-for-two-children-15-examples.html and
+    fintantaite.com//80-10-no-heat-hairstyles... from English); and two pages on free-TLD
+    hosts with random-string names (tikkthha.ga, bhxkrkzd.ga) whose URLs are meaningless
+    (/a15j6-ud8752-huy1-16-ey.html). n_bad_words>=20 is dominated by hosts of this
+    network (adv-moto-girl.bike, accesslocator.net, badotea.info, babyweightmagic.com).
+    KEY COUNTER-EVIDENCE that the URL shape alone is not the culprit: the identical
+    URL shape restricted to .sk hosts (245,158 docs) sampled at n=5 gave 5/5 genuine
+    Slovak pages (a Banská Bystrica events page, an e-shop product page, a recipe,
+    a game shop, a real-estate listing), which is why the selector excludes .sk and
+    .cz. Limitation: the selector will miss network members whose URLs are not flat
+    .html, and it does not distinguish the keyword-spam sub-type from the machine-translation
+    sub-type.</evidence>
+
+    <parameter name="expected_precision">0.9'
+  prevalence: 0.017890531800667627
+  prevalence_ci95:
+  - 0.017840104590374353
+  - 0.01794109894581091
+  n_matched: 473571
+  evaluated_on: corpus_meta
+  exact_on_full_corpus: true
+  agent_expected_precision: null
+  likely_false_positives: Genuine Slovak or Slovak-diaspora sites hosted on a .com/.eu/.org
+    domain that happen to use flat /slug.html URLs; also legitimate multilingual sites
+    with a Slovak section at the URL root.
+  example_ids:
+  - <urn:uuid:bc6f4beb-be12-46ee-8f7c-51bba5ab80b7>
+  - <urn:uuid:7665d596-d920-488b-bf98-29bbdb5a9f29>
+  - <urn:uuid:46208c00-e2ba-4e0d-bb27-d8570851b280>
+  - <urn:uuid:e0163a69-3c33-45a1-a477-db809a3da143>
+  - <urn:uuid:09004735-b59d-47f6-b2ad-4e359d1975a8>
+  - <urn:uuid:b84f3b37-e63d-4f45-91d5-303e846dc58f>
+  inspections_used_when_saved: 76

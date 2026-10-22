@@ -1,0 +1,61 @@
+{
+  "runs": [
+    {
+      "run": "main",
+      "logged_calls": 67,
+      "replayed": 42,
+      "matched": 40,
+      "matched_as_set": 42,
+      "skipped": 25,
+      "errors": 0,
+      "mismatches": []
+    },
+    {
+      "run": "rep1",
+      "logged_calls": 85,
+      "replayed": 55,
+      "matched": 52,
+      "matched_as_set": 54,
+      "skipped": 30,
+      "errors": 0,
+      "mismatches": [
+        {
+          "call": 13,
+          "tool": "domain_stats",
+          "logged": "3, \"share_of_domain\": 1.0}, {\"domain\": \"pracovnemiestatjee.firebaseapp.com\", \"matching_docs\": 2382, ",
+          "replayed": "3, \"share_of_domain\": 1.0}, {\"domain\": \"akoinvestovathqyp.firebaseapp.com\", \"matching_docs\": 2382, \""
+        }
+      ]
+    },
+    {
+      "run": "rep2",
+      "logged_calls": 79,
+      "replayed": 50,
+      "matched": 47,
+      "matched_as_set": 48,
+      "skipped": 29,
+      "errors": 0,
+      "mismatches": [
+        {
+          "call": 23,
+          "tool": "domain_stats",
+          "logged": "share_of_domain\": 0.0032}, {\"domain\": \"adhvikafoundation.org\", \"matching_docs\": 10, \"domain_docs\": 4",
+          "replayed": "share_of_domain\": 0.0032}, {\"domain\": \"aagtrades.com\", \"matching_docs\": 10, \"domain_docs\": 2870, \"sh"
+        },
+        {
+          "call": 46,
+          "tool": "aggregate",
+          "logged": "{\"url\": \"http://www.durexsk.sk/produkty/hra%C4%8Dky/play-little-devil/\", \"c\": 2, \"w\": 102.0}, {\"url\"",
+          "replayed": "{\"url\": \"http://www.durexsk.sk/produkty/lubrikacne-gely/vykonnost/durex-perfect-glide/\", \"c\": 2, \"w\""
+        }
+      ]
+    }
+  ],
+  "replayed": 147,
+  "matched_exactly": 139,
+  "matched_as_set": 144,
+  "exact_rate": 0.9455782312925171,
+  "set_rate": 0.9795918367346939,
+  "budgeted_calls_included": false,
+  "note": "Mismatches are rows ordered differently where the SQL leaves ties unordered; the tools now impose total orders, so future trajectories replay byte-for-byte."
+}

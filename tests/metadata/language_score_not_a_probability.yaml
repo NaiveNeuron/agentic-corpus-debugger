@@ -1,0 +1,50 @@
+id: language_score_not_a_probability
+scope: any
+status: accepted
+kind: metadata_invariant
+description: >-
+  The published per-document language confidence is not a valid probability:
+  10,691,128 documents (40.39% of the corpus) carry a language_score strictly
+  greater than 1.0, with values up to 1.00001. The field is also nearly
+  information-free as a purity signal, since 98.37% of documents score at least
+  0.95 while wholly Czech documents still score above 0.999. A future release
+  should emit scores in [0, 1].
+selector: language_score > 1.0
+assertion: n_matched == 0
+discovered_by: agent:model_opus
+found_in_runs:
+  - model_opus
+evidence:
+  prevalence: 0.4038893
+  n_matched: 10691128
+  n_evaluated: 26470482
+  exact_on_full_corpus: true
+  validation: arithmetic
+  note: >-
+    Needs no human adjudication: the claim is that a probability exceeds one,
+    which is checked by counting. Confirmed not to be an artefact of our derived
+    tables by re-running the count directly on the raw release shard
+    data/train-00000-of-00204.parquet, which contains 62,922 such documents.
+  max_observed_language_score: 1.00001
+  share_at_least_0_95: 0.983655
+  human_decision: not_required
+  cross_language: >-
+    Not specific to the Slovak redistribution. In the upstream FineWeb2 release
+    the same defect appears in 11 of 12 language configurations we
+    checked, spanning 7 scripts, with shares from
+    2.3% to 79.1%
+    and a shared ceiling of 1.00001; swh_Latn is the one config with none.
+    Because the bound is arithmetic rather than linguistic, this test is scoped
+    to any corpus.
+  mechanism: >-
+    Diagnosed from the pipeline's source, not inferred. fastText avoids log(0) by
+    defining std_log(x) = log(x + 1e-5) (fastText src/loss.cc:26 and
+    src/model.cc:89), so predict returns p + 1e-5 and a maximally confident label
+    scores float32(1.00001) = 1.0000100135803223. datatrove's LanguageFilter
+    stores that value unchanged (pipeline/filters/language_filter.py:
+    doc.metadata["language_score"] = lang_score), with no clamp. The observed
+    maximum is bit-identical to that constant in every affected language
+    configuration, which is why the defect is release-wide rather than Slovak.
+    The fix is one line upstream: clamp to 1.0, or subtract the epsilon before
+    publishing the score. Until then, a consumer must not read the field as a
+    probability.

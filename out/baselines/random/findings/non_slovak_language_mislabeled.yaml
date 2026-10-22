@@ -1,0 +1,40 @@
+id: non_slovak_language_mislabeled
+scope: slk_Latn
+source: baseline:random
+description: 'Some documents labeled language=slk are not Slovak at all (or only marginally
+  contain Slovak text): at least two of the three independent language identifiers
+  (fasttext, langdetect, lingua_top) disagree with the ''sk'' label, and manual inspection
+  confirms the snippet is genuinely in another language (usually English).'
+selector: language = 'slk' AND ((fasttext <> 'sk')::int + (langdetect <> 'sk')::int
+  + (lingua_top <> 'sk')::int) >= 2
+assertion: prevalence <= 0.012538
+evidence:
+  agent_evidence: 'urn:uuid:a546140d (hurmanblirrikqmph.firebaseapp.com): fasttext=en,
+    langdetect=en, lingua_top=en, text is a fully English UBS Investment Bank RNS
+    stock disclosure. urn:uuid:3d041587 (comicsuniverse.sk): fasttext=en, langdetect=en,
+    lingua_top=en, text is an English cookie notice plus English comic-book blurb.
+    urn:uuid:a63816eb (sk.pinterest.com): langdetect=en, lingua_top=en (p=0.54), text
+    mixes Slovak captions with English pin titles. urn:uuid:f0660b54 (heylibbess.web.app):
+    langdetect=en, lingua_top=en, text is an English FDIC/SEPA finance explainer.
+    Counter-evidence: most slk-labeled documents in the sample have all three identifiers
+    agreeing with ''sk'' at high confidence, so this is a minority but real and reproducible
+    failure mode, concentrated among short or boilerplate-heavy pages.'
+  prevalence: 0.012538192542168291
+  prevalence_ci95:
+  - 0.012495874269801525
+  - 0.012580652302930147
+  n_matched: 331892
+  evaluated_on: meta
+  exact_on_full_corpus: true
+  agent_expected_precision: 0.7
+  likely_false_positives: Documents that are genuinely mixed-language (e.g. a Slovak
+    article quoting an English headline or product name) will trigger this condition
+    even though the bulk of the document is legitimate Slovak text; also very short
+    snippets give language identifiers unstable, low-confidence votes that can flip
+    to 'wrong' by chance.
+  example_ids:
+  - <urn:uuid:a546140d-3a6b-4ebb-bfba-5cee9927b4ef>
+  - <urn:uuid:3d041587-009c-4983-ab4d-75f0c7fab565>
+  - <urn:uuid:a63816eb-c916-48fe-8721-5c74aa90120a>
+  - <urn:uuid:f0660b54-41ac-42ac-8c41-60076abb0ce3>
+  selector_error: null

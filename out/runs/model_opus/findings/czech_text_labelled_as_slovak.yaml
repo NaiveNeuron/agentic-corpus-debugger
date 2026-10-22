@@ -1,0 +1,54 @@
+id: czech_text_labelled_as_slovak
+scope: slk_Latn
+description: Czech text is systematically present in the slice and labelled slk_Latn,
+  either as whole Czech documents (Czech news sites, Czech e-shop feeds, cz.pinterest.com)
+  or as large untranslated Czech blocks spliced into Slovak e-commerce pages. Because
+  Slovak and Czech are near-identical to the pipeline's LID, these documents still
+  receive very high slk confidence, so the quality filter does not remove them.
+selector: (length(text)-length(replace(replace(replace(text,'ř',''),'ě',''),'ů','')))::double/nullif(n_chars,0)
+  > 0.005 AND domain NOT LIKE '%.web.app' AND domain NOT LIKE '%.firebaseapp.com'
+assertion: Less than 0.2% of documents should contain Czech-only letters at a density
+  above 0.5%.
+evidence:
+  agent_evidence: 'The selector keys on ř/ě/ů, three letters that exist in Czech but
+    not in the Slovak alphabet, requiring them to make up >0.5% of characters (roughly
+    one Czech-only letter per 200 chars, i.e. a running Czech passage rather than
+    a stray quoted word). Free SQL on the 2,034,896-doc sample: 237,560 docs (11.7%)
+    contain at least one such letter, 41,267 (2.03%) exceed the 0.5% density, and
+    23,076 (1.13%, ≈300k full-corpus) do so outside the Firebase spam farm. Metadata
+    cross-check: 114,525 docs (0.43%) have BOTH independent LIDs (fasttext and langdetect)
+    saying ''cs''; language_score bins show that in the 0.7 bin 70% of docs are fasttext=''cs''
+    while in the 1.0 bin only 0.6% are, so the pipeline''s own confidence does register
+    the problem but its threshold does not exclude them. I inspected 16 documents
+    in this space. Whole-document Czech: rozhlas.cz Czech Radio article, euronehnutelnosti.sk
+    Czech real-estate boilerplate about Rožňava, hu.pinterest.com Czech recipe, sracky.1984.cz
+    Czech profanity spam. Mixed sk/cs: sentence_lid on <urn:uuid:dbf4eb86-...> (mimmo.sk
+    toy shop) returns 12 Slovak lines and 2 Czech lines, 51.5%/48.5% by characters;
+    premiumstore.sk and alax.cz pages have Slovak navigation with a fully Czech product
+    description. Counter-evidence and limits: the selector is a character heuristic,
+    so a Slovak page quoting a Czech book title or a Czech author''s name can pass
+    the threshold when the document is short; two of ten inspected docs (agfoods.sk,
+    mnp-stroy.ru) had density 0.008 with no Czech in the first 400 chars, so their
+    Czech is a small later passage. Conversely the selector misses Czech text written
+    without ř/ě/ů and it misses the reverse case I also saw, where the LIDs called
+    a genuinely Slovak page (hudysport.sk) Czech.</evidence>
+
+    <parameter name="expected_precision">0.85'
+  prevalence: 0.0113401372846573
+  prevalence_ci95:
+  - 0.011195572234328939
+  - 0.011486547374913652
+  n_matched: 23076
+  evaluated_on: corpus
+  exact_on_full_corpus: false
+  agent_expected_precision: null
+  likely_false_positives: Genuinely Slovak documents that quote a short Czech string
+    (book title, band name, Czech proper noun) and are short enough for that to exceed
+    the density threshold; also Slovak pages listing Czech place names.
+  example_ids:
+  - <urn:uuid:71845f06-2b3f-4ead-adec-1ef9c0d2643d>
+  - <urn:uuid:9320fa00-5b49-48e7-88e9-e9913dca556b>
+  - <urn:uuid:dbf4eb86-84c5-4d3e-a7e2-6e39692f34f7>
+  - <urn:uuid:00cf2c7f-d98d-48c3-a7b3-01f6e1f0dbbf>
+  - <urn:uuid:35559493-143d-47fb-8f76-efc54e24f1dc>
+  inspections_used_when_saved: 53

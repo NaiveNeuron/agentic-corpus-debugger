@@ -1,0 +1,40 @@
+id: czech_documents_misclassified_as_slovak
+scope: slk_Latn
+source: baseline:lowconf
+description: A large share of documents are actually Czech, not Slovak, but were labelled
+  'slk' by the pipeline. This is evidenced by both independent language identifiers
+  (fastText and langdetect) agreeing on 'cs' while the corpus's own classifier still
+  assigned 'slk' with a low confidence score. Slovak and Czech are mutually intelligible
+  and often confused by language ID models, but a document that two independent taggers
+  both call Czech is very unlikely to be genuine Slovak.
+selector: language = 'slk' AND fasttext = 'cs' AND langdetect = 'cs'
+assertion: prevalence <= 0.004327
+evidence:
+  agent_evidence: 'Many sampled documents (e.g. nakupzlatadbrv.firebaseapp.com, nakupzlatabspq.firebaseapp.com,
+    cz.pinterest.com recipe/craft boards, palatino-cz.com, linux.cz, mall.sk) show
+    fasttext=''cs'' and langdetect=''cs'' together, and the visible snippets read
+    as standard Czech (''Kondicionér pro posílení vlasů...'', ''Táto příloha je...''
+    mixed Czech/Slovak, ''Bílky vyšleháme do tuhé pěny...''). All carry language_score
+    around 0.667, i.e. barely above whatever minimum threshold the pipeline uses.
+    Counter-evidence: some cz.pinterest.com / cs-tagged pages contain genuine Slovak
+    sentences mixed with Czech (bilingual boards), so not every match is a pure misclassification.'
+  prevalence: 0.004326517363756353
+  prevalence_ci95:
+  - 0.004301585580755661
+  - 0.004351593018634751
+  n_matched: 114525
+  evaluated_on: meta
+  exact_on_full_corpus: true
+  agent_expected_precision: 0.75
+  likely_false_positives: Genuinely mixed Czech/Slovak documents (common on cross-posted
+    recipe/craft/forum sites) where both languages appear roughly equally, and cases
+    where fastText or langdetect themselves mis-tag borderline Slovak dialectal text
+    as Czech.
+  example_ids:
+  - <urn:uuid:eb5fcebc-45a9-4d0b-901a-fae29d9cc94f>
+  - <urn:uuid:0d020677-7d94-4a2b-a40d-a45858ade4b6>
+  - <urn:uuid:06b8edf0-0e71-4618-90bf-213240812e07>
+  - <urn:uuid:033f9c29-95b6-4df8-8718-c1b9e5b690ef>
+  - <urn:uuid:3edcbf0a-7e70-493e-a0f2-b339986914db>
+  - <urn:uuid:a3b418ee-9842-4c2e-931f-25ab39b59c48>
+  selector_error: null

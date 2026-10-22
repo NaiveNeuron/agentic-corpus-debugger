@@ -1,0 +1,57 @@
+id: longform_machine_translated_russian_health_farm
+scope: slk_Latn
+description: A network of domains impersonating US/UK medical practices (canebayprimarycare.com,
+  goldenyearscarehomes.com, edmondsinternalmedicine.com, icaremedicalcenter.com, clinicrf.com,
+  ...) plus their "slo."/"sk." locale variants publishes enormous (5,000-12,000 word)
+  machine translations of Russian health, medical-test and business-plan articles.
+  They are only 0.56% of documents but 9.0% of all words in the corpus, and they give
+  medical advice.
+selector: n_words >= 4000 AND domain NOT LIKE '%.sk' AND domain NOT LIKE '%.cz'
+assertion: No non-Slovak host should contribute more than ~1M words of 5,000+-word
+  documents to a Slovak slice; long-document token mass should be dominated by .sk
+  publishers.
+evidence:
+  agent_evidence: 'Exact on the full corpus: 147,318 documents (0.557%) carrying 1,040,159,243
+    of the corpus''s 11,585,635,429 words = 8.98% of all tokens, spread over 5,166
+    hosts. The head by word volume is canebayprimarycare.com (3,623 docs, 24.1M words,
+    mean 6,641 w/doc), goldenyearscarehomes.com (18.6M), slo.healthycatchups.com (16.4M),
+    clinicrf.com, icaremedicalcenter.com, edmondsinternalmedicine.com, ponsmedicaldiagnostics.com,
+    slo.flagelmedicine.com, slo.andhramedicalcollegevizag.com, atlanticsouthmedical.com,
+    lemarhomehealth.com — a naming pattern of fake clinics, none of which is a plausible
+    Slovak publisher. evaluate_detector at n=10 on the exact selector returned 10/10
+    machine-translated content, and 9/10 had a transliterated Russian source slug
+    still in the URL: /papilomy-okolo-krku-priciny-a-liecba/, /cherez-skolko-nachinaet-dejstvovat-mikrolaks,
+    /pochemu-povysheny-limfocity-v-krovi-u-zhenshhiny.html, /mioma-v-klimakse, /mesjachnye-v-period-kormlenija-grudju,
+    /horoshij-dezodorant-ot-pota-dlja-zhenshhin.html, /analiz-krovi-amilaza-pankreaticheskaja,
+    /biznes-plan-kondicionery.html, /biznes-konsultirovanie-psihologicheskoe.php.
+    A separate 3-doc sample of canebayprimarycare.com / slo.andhramedicalcollegevizag.com
+    gave the same picture (/skolko-chelovek-zhivet-s-rakom-legkih.php, /analiz-na-lejkoz.php).
+    All of these carry language_score ≈ 1.0 and lingua_top=''sk'', so no metadata
+    field flags them. Counter-evidence and overlap: the same length+host rule also
+    catches genuine long Slovak documents on document-hosting platforms — issuu.com
+    (1,465 docs, 24.0M words), readgur.com (866 docs, 12.9M), sk.scribd.com (197 docs,
+    8.2M) — roughly 4% of the matched documents; and 101,882 of the 147,318 matches
+    sit on sk./slo. locale subdomains, so this finding overlaps the machine_translated_sk_locale_subdomains
+    finding. The portion NOT already covered by any of my other selectors is 64,930
+    documents and 475.6M words = 4.11% of all corpus tokens.</evidence>
+
+    <parameter name="expected_precision">0.9'
+  prevalence: 0.005565369002347596
+  prevalence_ci95:
+  - 0.005537099990840603
+  - 0.005593781526148982
+  n_matched: 147318
+  evaluated_on: corpus_meta
+  exact_on_full_corpus: true
+  agent_expected_precision: null
+  likely_false_positives: Genuine long Slovak documents hosted on international document-sharing
+    platforms (issuu.com, readgur.com, scribd, dokumen.pub) and long Slovak pages
+    on legitimate .eu/.com/.org institutional sites.
+  example_ids:
+  - <urn:uuid:9a45433d-f2a0-4b11-a15e-1ab60df2db4a>
+  - <urn:uuid:2c1dc83b-755d-4c21-ba39-6c3b454d3ae5>
+  - <urn:uuid:e60c6ded-5a50-4d2e-8eb7-276627bab40d>
+  - <urn:uuid:5d054e32-f119-4258-a150-d909669954e7>
+  - <urn:uuid:3b54fe2c-edb4-4cfe-9f1b-debd1dc827ea>
+  - <urn:uuid:a3e9e397-25dc-44a9-89e7-6c2bd34e020e>
+  inspections_used_when_saved: 116

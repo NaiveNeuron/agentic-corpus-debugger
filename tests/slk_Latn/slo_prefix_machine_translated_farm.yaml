@@ -1,0 +1,71 @@
+id: slo_prefix_machine_translated_farm
+scope: slk_Latn
+status: candidate
+description: 'A third distinct content-farm network: hundreds of unrelated-looking,
+  seemingly hijacked/repurposed domains (e.g. slo.andhramedicalcollegevizag.com, slo.istanbulmedicine.com,
+  slo.kelinvestgroup.com, slo.orsitaning.ru) all serve the same machine-translated
+  content mirror under a ''slo.'' (Slovak) subdomain. Content is overwhelmingly pseudo-medical/health/lifestyle
+  articles whose URL slugs are transliterated Russian (e.g. ''diagnostika-raka-jaichek-u-muzhchin'',
+  ''kod-po-mkb-mehanicheskaja-zheltuha''), indicating the same Russian-origin article
+  set has been bulk machine-translated into Slovak (and presumably many other languages
+  via sibling subdomain prefixes) and republished across this domain farm. Unlike
+  the firebaseapp.com spam, the translated text is fluent and grammatically coherent
+  single-topic prose, so it reads as legitimate native Slovak and would not be caught
+  by quality heuristics, but it is not organically authored Slovak content and the
+  same articles are repeated near-verbatim across dozens of domains.'
+selector: domain LIKE 'slo.%'
+assertion: prevalence <= 0.00334720
+discovered_by: agent
+found_in_runs:
+- rep1
+evidence:
+  prevalence: 0.0027893334167470012
+  prevalence_ci95:
+  - 0.002769313648914039
+  - 0.002809497502633525
+  n_matched: 73835
+  n_evaluated: 26470482
+  exact_on_full_corpus: true
+  human_precision: 0.07142857142857142
+  human_precision_ci95:
+  - 0.012721886112291648
+  - 0.3146926955395781
+  n_human_judgments: 14
+  human_language_labels:
+    sk: 6
+    sk-pred: 8
+  human_quality_labels:
+    noisy: 7
+    junk: 1
+    good: 6
+  agent_expected_precision: 0.9
+  likely_false_positives: A small number of domains under this prefix could coincidentally
+    be legitimate Slovak-prefixed sites unrelated to the farm; none were observed
+    in the 12-document sample, but the prefix match alone is a heuristic, not a certified
+    membership test.
+  agent_evidence: '231 distinct domains under the ''slo.'' prefix, totaling 73,835
+    of 26,470,482 documents (0.28% of documents). These documents are far longer than
+    the corpus average (mean 5,060 words vs. corpus-wide mean 438 words, ~11.6x),
+    so they account for a disproportionate ~3.2% of the corpus''s total word volume
+    despite being 0.28% of documents. evaluate_detector (seed=6, n=12) inspected 12
+    sampled documents: all 12 were fluent Slovak health/lifestyle/pet-care articles
+    with Russian-transliterated URL slugs, hosted on domains whose names bear no topical
+    relation to their content (a medical article at ''slo.kelinvestgroup.com'', a
+    Nintendo Switch game article at ''slo.gov-civil-lisboa.pt'') -- strong evidence
+    of a domain-squatting content-mirror operation rather than genuine publishers.
+    minhash_cluster_size on these documents is mostly 1-6, indicating the near-duplicate
+    detector only partially catches copies of the same underlying article spread across
+    different mirror domains.'
+  agent_example_ids:
+  - <urn:uuid:0e09e1ba-7f86-4d94-9d3a-fdda83f18f09>
+  - <urn:uuid:db522042-2f48-4548-b9bc-f46702be8a9b>
+  - <urn:uuid:ddee5174-b6f2-4578-82bd-ccb5a5e72aa5>
+  - <urn:uuid:c4bb182b-2b3c-4227-96e1-9d3078a4be63>
+  overlap_with_static_slices:
+    LID-Disagree: 0.00016252454797860094
+    LowConf: 0.0
+    HighDup: 0.0
+  human_decision: unsure
+  human_note: labels give .07 (n=14); kept as a candidate so the unsupported finding
+    stays visible
+  adjudication_group: G05

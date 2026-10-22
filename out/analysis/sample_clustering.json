@@ -1,0 +1,167 @@
+{
+  "slices": [
+    {
+      "slice": "adult_spam_farm_wordsalad",
+      "source": "agent",
+      "items": 25,
+      "hosts_in_sample": 21,
+      "top_host_share": 0.12,
+      "hosts_in_slice": 4326
+    },
+    {
+      "slice": "czech_slovak_code_switched_docs",
+      "source": "agent",
+      "items": 25,
+      "hosts_in_sample": 25,
+      "top_host_share": 0.04,
+      "hosts_in_slice": 7462
+    },
+    {
+      "slice": "czech_text_mislabeled_as_slovak",
+      "source": "agent",
+      "items": 25,
+      "hosts_in_sample": 22,
+      "top_host_share": 0.16,
+      "hosts_in_slice": 5994
+    },
+    {
+      "slice": "firebase_content_farm_spam",
+      "source": "agent",
+      "items": 25,
+      "hosts_in_sample": 25,
+      "top_host_share": 0.04,
+      "hosts_in_slice": 2851
+    },
+    {
+      "slice": "porn_doorway_spam_network",
+      "source": "agent",
+      "items": 25,
+      "hosts_in_sample": 18,
+      "top_host_share": 0.12,
+      "hosts_in_slice": 660
+    },
+    {
+      "slice": "porn_spam_keyword_farm",
+      "source": "agent",
+      "items": 25,
+      "hosts_in_sample": 21,
+      "top_host_share": 0.12,
+      "hosts_in_slice": 2828
+    },
+    {
+      "slice": "slo_prefix_machine_translated_farm",
+      "source": "agent",
+      "items": 25,
+      "hosts_in_sample": 24,
+      "top_host_share": 0.08,
+      "hosts_in_slice": 231
+    },
+    {
+      "slice": "cookie_consent_boilerplate_dominant",
+      "source": "baseline:highdup",
+      "items": 12,
+      "hosts_in_sample": 12,
+      "top_host_share": 0.08333333333333333,
+      "hosts_in_slice": 4067
+    },
+    {
+      "slice": "cross_domain_loan_ad_widget_contamination",
+      "source": "baseline:highdup",
+      "items": 12,
+      "hosts_in_sample": 12,
+      "top_host_share": 0.08333333333333333,
+      "hosts_in_slice": 201
+    },
+    {
+      "slice": "czech_language_content_mislabeled_slovak",
+      "source": "baseline:highdup",
+      "items": 12,
+      "hosts_in_sample": 12,
+      "top_host_share": 0.08333333333333333,
+      "hosts_in_slice": 39762
+    },
+    {
+      "slice": "czech_content_mislabeled_slovak",
+      "source": "baseline:lid_disagree",
+      "items": 12,
+      "hosts_in_sample": 12,
+      "top_host_share": 0.08333333333333333,
+      "hosts_in_slice": 12014
+    },
+    {
+      "slice": "english_dominant_travel_ecommerce_pages",
+      "source": "baseline:lid_disagree",
+      "items": 12,
+      "hosts_in_sample": 11,
+      "top_host_share": 0.16666666666666666,
+      "hosts_in_slice": 7753
+    },
+    {
+      "slice": "firebase_webapp_spam_farms",
+      "source": "baseline:lid_disagree",
+      "items": 12,
+      "hosts_in_sample": 12,
+      "top_host_share": 0.08333333333333333,
+      "hosts_in_slice": 2851
+    },
+    {
+      "slice": "adult_tagfarm_content_mislabeled",
+      "source": "baseline:lowconf",
+      "items": 12,
+      "hosts_in_sample": 9,
+      "top_host_share": 0.3333333333333333,
+      "hosts_in_slice": 402
+    },
+    {
+      "slice": "czech_documents_misclassified_as_slovak",
+      "source": "baseline:lowconf",
+      "items": 12,
+      "hosts_in_sample": 12,
+      "top_host_share": 0.08333333333333333,
+      "hosts_in_slice": 12014
+    },
+    {
+      "slice": "czech_documents_mislabeled_as_slovak",
+      "source": "baseline:lowconf",
+      "items": 12,
+      "hosts_in_sample": 12,
+      "top_host_share": 0.08333333333333333,
+      "hosts_in_slice": 29169
+    },
+    {
+      "slice": "czech_documents_labeled_slovak",
+      "source": "baseline:random",
+      "items": 12,
+      "hosts_in_sample": 12,
+      "top_host_share": 0.08333333333333333,
+      "hosts_in_slice": 35217
+    },
+    {
+      "slice": "czech_text_mislabeled_slovak",
+      "source": "baseline:random",
+      "items": 11,
+      "hosts_in_sample": 11,
+      "top_host_share": 0.09090909090909091,
+      "hosts_in_slice": 34784
+    },
+    {
+      "slice": "english_documents_labeled_slovak",
+      "source": "baseline:random",
+      "items": 12,
+      "hosts_in_sample": 11,
+      "top_host_share": 0.16666666666666666,
+      "hosts_in_slice": null
+    },
+    {
+      "slice": "random_control",
+      "source": "control",
+      "items": 40,
+      "hosts_in_sample": 40,
+      "top_host_share": 0.025,
+      "hosts_in_slice": null
+    }
+  ],
+  "agent_min_hosts_in_sample": 18,
+  "agent_max_top_host_share": 0.16,
+  "verdict": "samples are spread over many hosts, so precision intervals are close to the independent-draw case"
+}

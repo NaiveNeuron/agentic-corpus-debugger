@@ -1,0 +1,44 @@
+id: loan_gambling_seo_spam
+scope: slk_Latn
+source: baseline:random
+description: A set of documents built around 'quick loan' (pôžička) and gambling/casino
+  (kasino, automaty, poker) keywords contain incoherent, topic-jumping text that reads
+  as machine-stitched or spun content optimized for search ranking rather than genuine
+  articles — a single document abruptly mixes betting-bonus copy with unrelated facts
+  (train schedules, football trivia, travel descriptions, tourist landmarks).
+selector: url ILIKE '%pozick%' OR url ILIKE '%kasino%' OR url ILIKE '%casino%' OR
+  domain LIKE '%.xyz'
+assertion: prevalence <= 0.008558
+evidence:
+  agent_evidence: 'urn:uuid:3f541d42 (blueplast.sk, ''pozicka-do-100-eur-brezno''):
+    jumps between a train schedule anecdote, a football club joke, a Tipsport betting-bonus
+    pitch, and a Mediterranean resort description within 400 characters. urn:uuid:df8a21b0
+    (terrapermonia.sk, ''okamzita-pozicka-piestany''): mixes a nature-reserve description,
+    a DOXXbet no-deposit bonus claim, and off-road driving copy. urn:uuid:e195fd5d
+    (obecweb.sk, football/betting-odds page) mixes a football match preview with an
+    unrelated Tallinn street description. urn:uuid:81929787 (prachova.sk, casino-automaty
+    spam) contains a profanity hit (n_bad_words=1) and generic, incoherent gambling
+    copy. urn:uuid:52ca7fe4 and urn:uuid:3bf84c1d (ufophoenix.xyz, dailyufosightings.xyz)
+    show the same jumbled poker/casino pattern. Counter-evidence: not every url containing
+    ''pozicka'' is spam — some are legitimate travel/rental listings (''rafting -
+    splav rieky Váh'') that happen to contain the substring incidentally.'
+  prevalence: 0.008558287680594558
+  prevalence_ci95:
+  - 0.00852326741243414
+  - 0.008593450592338726
+  n_matched: 226542
+  evaluated_on: meta
+  exact_on_full_corpus: true
+  agent_expected_precision: 0.6
+  likely_false_positives: The keyword-based selector will also catch genuine finance/travel
+    articles that legitimately discuss loans or a casino as a place name, and any
+    .xyz-domain site that is not actually spam; the url/domain heuristic is a proxy
+    for a topical-incoherence judgment that SQL alone cannot verify.
+  example_ids:
+  - <urn:uuid:3f541d42-6fae-424b-95b2-2bf362dcef2a>
+  - <urn:uuid:df8a21b0-75d7-4a07-bf53-bf304aae54f2>
+  - <urn:uuid:81929787-ef6b-465d-a0b8-8560fd197119>
+  - <urn:uuid:e195fd5d-eedb-47ed-a0e2-5cc6068ca6c6>
+  - <urn:uuid:52ca7fe4-cfcb-4b67-8417-c476b43e4efa>
+  - <urn:uuid:3bf84c1d-5029-4493-9e56-76118b163ae6>
+  selector_error: null

@@ -1,0 +1,37 @@
+id: czech_language_content_mislabeled_slovak
+scope: slk_Latn
+source: baseline:highdup
+description: A subset of documents labelled slk_Latn with high pipeline confidence
+  actually contain Czech-language text (or a Czech/Slovak code-mixed page), as shown
+  by an independent identifier (lingua_top, sometimes fasttext) landing on 'cs' rather
+  than 'sk', typically accompanied by a lower lingua_top_p confidence.
+selector: lingua_top = 'cs' OR fasttext = 'cs'
+assertion: prevalence <= 0.018706
+evidence:
+  agent_evidence: 'interstore.sk snippet is fully Czech (''Rtěnka Max Factor Colour
+    Elixir Lipstick.Dodá rtům intenzivní barvu...''), fasttext=''cs'', lingua_top=''cs''.
+    direto.sk and predajkavy.sk contain clearly Czech passages (''Pořiďte si...Kč'',
+    ''Vážený zákazník, h3>...zlepšili sme celý systém'') with lingua_top=''cs''. top4street.sk
+    snippet is also Czech (''Nový rok je tu a ty nemáš vymyslené jediné predsavzatie?'')
+    though its lingua_top happens to read ''cs'' with p=0.52 only, illustrating the
+    ambiguity is genuine, not identifier noise. Counter-evidence: some flagged docs
+    are genuinely mixed-language (Slovak page quoting a Czech source/product description),
+    so the whole document is not 100% Czech.'
+  prevalence: 0.018706346185913804
+  prevalence_ci95:
+  - 0.01865480180033111
+  - 0.018758030269552025
+  n_matched: 495166
+  evaluated_on: meta
+  exact_on_full_corpus: true
+  agent_expected_precision: 0.6
+  likely_false_positives: Slovak-majority documents that merely quote or embed a short
+    Czech-sourced snippet (e.g. a product review pulled from a Czech sister site)
+    inside otherwise-Slovak page text; lingua_top on short/mixed texts is inherently
+    noisy.
+  example_ids:
+  - <urn:uuid:662da187-7d01-45af-af8b-6da0e72e4048>
+  - <urn:uuid:be6a6c6c-f768-4219-b7cd-426af4e111fa>
+  - <urn:uuid:05ba51c1-0f4a-478f-b510-247134419f71>
+  - <urn:uuid:d640118d-8794-401d-aea7-b3e2b486ffe8>
+  selector_error: null

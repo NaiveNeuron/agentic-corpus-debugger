@@ -1,0 +1,55 @@
+id: firebase_content_farm_spam
+scope: slk_Latn
+description: A large-scale, machine-generated content-farm/SEO-spam network is hosted
+  on randomly-named subdomains of Google's free Firebase hosting (*.firebaseapp.com,
+  *.web.app). Each subdomain name is a Slovak or Scandinavian finance/get-rich-quick
+  keyword (e.g. "akozbohatnut" = how to get rich, "investerarpengar" = Swedish "invest
+  money", "pracovnemiesta" = job vacancies, "danove" = taxes, "nakupzlata" = buy gold)
+  plus a random letter suffix, and each hosts thousands of pages of incoherent, multi-topic
+  text stitched together from scraped fragments (finance/crypto glossary snippets,
+  news snippets, unrelated Q&A, sometimes switching mid-document into Czech, Bosnian/Serbian,
+  or Slovenian). The pages are not authored prose and are not really "Slovak documents"
+  in the intended sense, despite passing the language filter with high average confidence
+  (0.98) and evading near-duplicate dedup entirely (avg minhash_cluster_size ≈ 1,
+  since every domain/page uses a unique random suffix/URL).
+selector: domain LIKE '%.firebaseapp.com' OR domain LIKE '%.web.app'
+assertion: A clean corpus should exclude or down-weight documents from this content-farm
+  network; at minimum, minhash-based deduplication should be enhanced with a near-template/boilerplate
+  detector so this kind of shallowly-varied spam is not treated as unique high-value
+  text.
+evidence:
+  agent_evidence: 'Domain-level aggregation shows domain LIKE ''%.firebaseapp.com''
+    OR ''%.web.app'' covers 1,408,437 documents (5.32% of the 26.47M-doc corpus),
+    spread across thousands of distinct randomly-suffixed subdomains (e.g. akoinvestovatffsq,
+    akozbohatnuthdiy, pracovnemiestakulp, nakupzlatafvvi, each with ~2,400-2,650 docs,
+    share_of_domain=1.0). Inspected 32 sampled documents (evaluate_detector, seeds
+    13 and 99): all were incoherent multi-topic scrapes (crypto/finance glossary text
+    abruptly followed by unrelated topics like Simpsons characters, dog food, football
+    results, cat behavior), several with sentences in other Slavic languages (Bosnian/Serbian,
+    Slovenian) interleaved. minhash_cluster_size is ~1 for essentially all of them
+    (avg 1.002) despite the content clearly being templated/recombined across the
+    network, meaning the dedup step entirely misses this network because each page''s
+    exact text differs. language_score for the domain averages 0.98, i.e. the langID
+    pipeline is confidently fooled. No counter-examples found among the 32 inspected
+    (no genuine small personal/business Slovak blogs on Firebase hosting turned up
+    in-sample), though it is possible a small minority of genuine sites use this hosting
+    and would be wrongly caught.'
+  prevalence: 0.053207833540771944
+  prevalence_ci95:
+  - 0.05312239361012374
+  - 0.05329340315523455
+  n_matched: 1408437
+  evaluated_on: corpus_meta
+  exact_on_full_corpus: true
+  agent_expected_precision: 0.95
+  likely_false_positives: A genuine small Slovak personal or hobby site legitimately
+    hosted on Firebase (free Google hosting is popular for small apps/blogs) would
+    be wrongly caught; none were observed in ~32 inspected documents, but the selector
+    cannot distinguish them from the farm by domain pattern alone.
+  example_ids:
+  - <urn:uuid:f7f7aa87-70d2-4d09-a852-ee52bb20a312>
+  - <urn:uuid:bd2f6877-6638-4c27-a015-35f66ec00144>
+  - <urn:uuid:1a3b1482-7835-494f-846c-ae0a1ed7f547>
+  - <urn:uuid:c71024ee-418b-437c-b266-7f547bcfe18b>
+  - <urn:uuid:f9878416-2e7c-441f-afdb-3fe11a61006a>
+  inspections_used_when_saved: 162

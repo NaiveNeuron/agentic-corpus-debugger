@@ -1,0 +1,40 @@
+id: incoherent_spun_affiliate_content
+scope: slk_Latn
+source: baseline:random
+description: A set of documents on loan/casino/betting affiliate sites contain fluent-at-the-sentence-level
+  Slovak that is nevertheless topically incoherent across the document — unrelated
+  sentences (tourism facts, sports trivia, legal notices) are stitched next to gambling/loan
+  promotional copy with no topical continuity, indicating spun or automatically assembled
+  SEO content rather than genuine authored text. Unlike the doorway-domain cluster,
+  these pass language identification cleanly because each sentence is well-formed
+  Slovak.
+selector: domain IN ('terrapermonia.sk','blueplast.sk','prachova.sk','ufophoenix.xyz','dailyufosightings.xyz','lubicon.cz','obecweb.sk')
+assertion: prevalence <= 0.000344
+evidence:
+  agent_evidence: terrapermonia.sk ('okamzita pozicka piestany') juxtaposes 'Vďaka
+    jej unikátnym, nedotknutým prírodným krásam, bola vyhlásená za národnú pamiatku'
+    (tourism) directly with 'ide o DOXXbet no deposit bonus' (gambling) and unrelated
+    cycling-route text. obecweb.sk mixes World Cup match odds with an unrelated sentence
+    about Tallinn's prettiest alley. blueplast.sk mixes a football joke, a train-line
+    renovation notice, and payday-loan copy in adjacent sentences. All are labeled
+    slk with high language_score/fasttext=sk since individual sentences are fluent.
+  prevalence: 0.000343628045760557
+  prevalence_ci95:
+  - 0.00033663953571819703
+  - 0.0003507615837355348
+  n_matched: 9096
+  evaluated_on: meta
+  exact_on_full_corpus: true
+  agent_expected_precision: 0.6
+  likely_false_positives: This selector is a closed list drawn only from the sample
+    and will not generalize to the full corpus; a broader keyword-based heuristic
+    (url containing 'pozicka'/'kasino'/'poker') would also catch coherent, legitimate
+    loan-comparison or casino-review articles such as trhoviskopoziciek.sk, which
+    is fluent and topically consistent despite the same keywords.
+  example_ids:
+  - <urn:uuid:586689ae-e419-4c0b-a133-eff633d78bcc>
+  - <urn:uuid:3f541d42-6fae-424b-95b2-2bf362dcef2a>
+  - <urn:uuid:f65b1398-4ec4-4185-bb9d-c94bed06c4d4>
+  - <urn:uuid:81929787-ef6b-465d-a0b8-8560fd197119>
+  - <urn:uuid:8f24c5b7-6cb0-4f02-86ac-030718211f57>
+  selector_error: null

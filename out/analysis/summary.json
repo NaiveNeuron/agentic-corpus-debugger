@@ -1,0 +1,2114 @@
+{
+  "corpus": {
+    "n_total": 26470482,
+    "n_sample": 2034896
+  },
+  "baseline_slices": {
+    "LID-Disagree": {
+      "selector": "fasttext <> 'sk' or langdetect <> 'sk' or lingua_top <> 'sk'",
+      "n": 826409,
+      "prevalence": 0.031220020851905908
+    },
+    "LowConf": {
+      "selector": "language_score < 0.8",
+      "n": 129222,
+      "prevalence": 0.004881739592048229
+    },
+    "HighDup": {
+      "selector": "minhash_cluster_size >= 100",
+      "n": 61173,
+      "prevalence": 0.0023109892747702893
+    }
+  },
+  "control": {
+    "n_judged": 25,
+    "n_defective": 2,
+    "n_junk": 0,
+    "n_not_slovak": 2,
+    "precision": 0.08,
+    "precision_ci95": [
+      0.02221993369109194,
+      0.2496651212295782
+    ],
+    "language_labels": {
+      "sk": 6,
+      "sk-pred": 17,
+      "mix": 1,
+      "other": 1
+    },
+    "quality_labels": {
+      "good": 11,
+      "noisy": 14
+    }
+  },
+  "rediscovery": {
+    "firebase_content_farm_spam": {
+      "by": [
+        "lid_disagree",
+        "lowconf",
+        "random"
+      ],
+      "jaccard": {
+        "highdup": 0.07874313815381982,
+        "lid_disagree": 1.0,
+        "lowconf": 1.0,
+        "random": 1.0
+      },
+      "expected_hits_300": 15.962350062231582
+    },
+    "porn_spam_keyword_farm": {
+      "by": [],
+      "jaccard": {
+        "highdup": 0.006764514703649426,
+        "lid_disagree": 0.7891925759303198,
+        "lowconf": 0.01723756906077348,
+        "random": 0.007865277315369049
+      },
+      "expected_hits_300": 1.0760589852500608
+    },
+    "czech_text_mislabeled_as_slovak": {
+      "by": [],
+      "jaccard": {
+        "highdup": 0.3099300343964978,
+        "lid_disagree": 0.2776249727133814,
+        "lowconf": 0.2776249727133814,
+        "random": 0.09579923589601437
+      },
+      "expected_hits_300": 0.36034477951704846
+    },
+    "porn_doorway_spam_network": {
+      "by": [],
+      "jaccard": {
+        "highdup": 0.003743505695921742,
+        "lid_disagree": 0.6606349687058348,
+        "lowconf": 0.017232621578402784,
+        "random": 0.0039127602057528734
+      },
+      "expected_hits_300": 0.5933477146354947
+    },
+    "slo_prefix_machine_translated_farm": {
+      "by": [],
+      "jaccard": {
+        "highdup": 0.00033085194375516956,
+        "lid_disagree": 0.00033326363113597154,
+        "lowconf": 0.0,
+        "random": 6.658343736995423e-06
+      },
+      "expected_hits_300": 0.8368000250241003
+    },
+    "adult_spam_farm_wordsalad": {
+      "by": [],
+      "jaccard": {
+        "highdup": 0.006900920572021619,
+        "lid_disagree": 0.7733473856783184,
+        "lowconf": 0.01675546968011398,
+        "random": 0.008003861532499297
+      },
+      "expected_hits_300": 1.161376660991666
+    },
+    "czech_slovak_code_switched_docs": {
+      "by": [],
+      "jaccard": {
+        "highdup": 0.43164673233270795,
+        "lid_disagree": 0.38638725169177035,
+        "lowconf": 0.38638725169177035,
+        "random": 0.1333295168307763
+      },
+      "expected_hits_300": 0.5015133460735622
+    }
+  },
+  "baseline_candidate_counts": {
+    "lowconf": {
+      "files": 7,
+      "n_distinct": 6,
+      "n_same_as_agent": 1
+    },
+    "lid_disagree": {
+      "files": 5,
+      "n_distinct": 5,
+      "n_same_as_agent": 0
+    },
+    "highdup": {
+      "files": 5,
+      "n_distinct": 5,
+      "n_same_as_agent": 0
+    },
+    "random": {
+      "files": 8,
+      "n_distinct": 7,
+      "n_same_as_agent": 1
+    }
+  },
+  "n_candidates": {
+    "agent_distinct_selectors": 7,
+    "per_run": {
+      "main": 2,
+      "rep1": 4,
+      "rep2": 3
+    }
+  },
+  "agent_cost_usd": 7.495968899999999,
+  "agent_inspections": {
+    "main": 197,
+    "rep1": 180,
+    "rep2": 173
+  },
+  "n_human_labels": 255,
+  "n_annotation_items": 358,
+  "validation_size": {
+    "agreement": null,
+    "coding_rule": {
+      "n_new_rule": 138,
+      "n_carried_from_first_pass": 117,
+      "carried_labels_accepted": true,
+      "n_old_rule_pending_recode": 0,
+      "n_recode_outstanding": 0,
+      "per_finding": {
+        "firebase_content_farm_spam": {
+          "n": 19,
+          "new_rule": 15,
+          "carried_from_first_pass": 4,
+          "old_rule_pending_recode": 0
+        },
+        "porn_spam_keyword_farm": {
+          "n": 12,
+          "new_rule": 11,
+          "carried_from_first_pass": 1,
+          "old_rule_pending_recode": 0
+        },
+        "czech_text_mislabeled_as_slovak": {
+          "n": 17,
+          "new_rule": 6,
+          "carried_from_first_pass": 11,
+          "old_rule_pending_recode": 0
+        },
+        "porn_doorway_spam_network": {
+          "n": 20,
+          "new_rule": 20,
+          "carried_from_first_pass": 0,
+          "old_rule_pending_recode": 0
+        },
+        "slo_prefix_machine_translated_farm": {
+          "n": 14,
+          "new_rule": 2,
+          "carried_from_first_pass": 12,
+          "old_rule_pending_recode": 0
+        },
+        "adult_spam_farm_wordsalad": {
+          "n": 19,
+          "new_rule": 16,
+          "carried_from_first_pass": 3,
+          "old_rule_pending_recode": 0
+        },
+        "czech_slovak_code_switched_docs": {
+          "n": 21,
+          "new_rule": 11,
+          "carried_from_first_pass": 10,
+          "old_rule_pending_recode": 0
+        }
+      }
+    },
+    "n_labels": 255,
+    "per_finding": [
+      12,
+      14,
+      17,
+      19,
+      19,
+      20,
+      21
+    ],
+    "min": 12,
+    "max": 21,
+    "median": 19
+  },
+  "n_adjudicated_groups": 24,
+  "findings": [
+    {
+      "id": "firebase_content_farm_spam",
+      "source": "agent",
+      "runs": [
+        "main",
+        "rep1",
+        "rep2"
+      ],
+      "also_baseline": [
+        "lowconf",
+        "lowconf",
+        "random",
+        "random"
+      ],
+      "description": "A large-scale, machine-generated content-farm/SEO-spam network is hosted on randomly-named subdomains of Google's free Firebase hosting (*.firebaseapp.com, *.web.app). Each subdomain name is a Slovak or Scandinavian finance/get-rich-quick keyword (e.g. \"akozbohatnut\" = how to get rich, \"investerarpengar\" = Swedish \"invest money\", \"pracovnemiesta\" = job vacancies, \"danove\" = taxes, \"nakupzlata\" = buy gold) plus a random letter suffix, and each hosts thousands of pages of incoherent, multi-topic text stitched together from scraped fragments (finance/crypto glossary snippets, news snippets, unrelated Q&A, sometimes switching mid-document into Czech, Bosnian/Serbian, or Slovenian). The pages are not authored prose and are not really \"Slovak documents\" in the intended sense, despite passing the language filter with high average confidence (0.98) and evading near-duplicate dedup entirely (avg minhash_cluster_size \u2248 1, since every domain/page uses a unique random suffix/URL).",
+      "selector": "domain LIKE '%.firebaseapp.com' OR domain LIKE '%.web.app'",
+      "assertion": "A clean corpus should exclude or down-weight documents from this content-farm network; at minimum, minhash-based deduplication should be enhanced with a near-template/boilerplate detector so this kind of shallowly-varied spam is not treated as unique high-value text.",
+      "n_matched": 1408437,
+      "n_evaluated": 26470482,
+      "exact_on_full_corpus": true,
+      "prevalence": 0.053207833540771944,
+      "prevalence_ci95": [
+        0.05312239361012374,
+        0.05329340315523455
+      ],
+      "estimated_docs_full_corpus": 1408437,
+      "agent_expected_precision": 0.95,
+      "likely_false_positives": "A genuine small Slovak personal or hobby site legitimately hosted on Firebase (free Google hosting is popular for small apps/blogs) would be wrongly caught; none were observed in ~32 inspected documents, but the selector cannot distinguish them from the farm by domain pattern alone.",
+      "agent_evidence": "Domain-level aggregation shows domain LIKE '%.firebaseapp.com' OR '%.web.app' covers 1,408,437 documents (5.32% of the 26.47M-doc corpus), spread across thousands of distinct randomly-suffixed subdomains (e.g. akoinvestovatffsq, akozbohatnuthdiy, pracovnemiestakulp, nakupzlatafvvi, each with ~2,400-2,650 docs, share_of_domain=1.0). Inspected 32 sampled documents (evaluate_detector, seeds 13 and 99): all were incoherent multi-topic scrapes (crypto/finance glossary text abruptly followed by unrelated topics like Simpsons characters, dog food, football results, cat behavior), several with sentences in other Slavic languages (Bosnian/Serbian, Slovenian) interleaved. minhash_cluster_size is ~1 for essentially all of them (avg 1.002) despite the content clearly being templated/recombined across the network, meaning the dedup step entirely misses this network because each page's exact text differs. language_score for the domain averages 0.98, i.e. the langID pipeline is confidently fooled. No counter-examples found among the 32 inspected (no genuine small personal/business Slovak blogs on Firebase hosting turned up in-sample), though it is possible a small minority of genuine sites use this hosting and would be wrongly caught.",
+      "agent_example_ids": [
+        "<urn:uuid:f7f7aa87-70d2-4d09-a852-ee52bb20a312>",
+        "<urn:uuid:bd2f6877-6638-4c27-a015-35f66ec00144>",
+        "<urn:uuid:1a3b1482-7835-494f-846c-ae0a1ed7f547>",
+        "<urn:uuid:c71024ee-418b-437c-b266-7f547bcfe18b>",
+        "<urn:uuid:f9878416-2e7c-441f-afdb-3fe11a61006a>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 0.13069310164387898,
+        "LowConf": 0.03217680308029397,
+        "HighDup": 0.0
+      },
+      "max_baseline_overlap": 0.13069310164387898,
+      "human": {
+        "n_judged": 19,
+        "n_defective": 14,
+        "n_junk": 14,
+        "n_not_slovak": 3,
+        "precision": 0.7368421052631579,
+        "precision_ci95": [
+          0.5120803155892935,
+          0.8819376166045982
+        ],
+        "language_labels": {
+          "sk-pred": 12,
+          "mix": 3,
+          "sk": 4
+        },
+        "quality_labels": {
+          "junk": 14,
+          "noisy": 5
+        }
+      },
+      "human_decision": "approve",
+      "adjudication_group": "G01",
+      "baseline_jaccard": {
+        "highdup": 0.07874313815381982,
+        "lid_disagree": 1.0,
+        "lowconf": 1.0,
+        "random": 1.0
+      },
+      "rediscovered_by": [
+        "lid_disagree",
+        "lowconf",
+        "random"
+      ],
+      "expected_hits_in_300_random": 15.962350062231582
+    },
+    {
+      "id": "porn_spam_keyword_farm",
+      "source": "agent",
+      "runs": [
+        "main"
+      ],
+      "also_baseline": [],
+      "description": "A second, separate spam network of thousands of randomly-named domains (English dictionary-word-like names + generic gTLDs/ccTLDs such as .com/.me/.fr/.bike/.online/.info/.nl/.it/.us/.br) hosts keyword-stuffed, incoherent \"word salad\" adult/porn doorway pages that are grammatically broken pastiches of scraped Slovak sentence fragments and tag lists, not genuine documents. Many share a literal CMS template header \"Posted by Admin | in <Month> <Day>, 2020 |\".",
+      "selector": "n_bad_words >= 3 AND domain NOT LIKE '%.sk' AND domain NOT LIKE '%.cz'",
+      "assertion": "A clean corpus should not contain incoherent keyword-stuffed doorway pages; documents matching this template/domain signature should be filtered as spam regardless of the language-ID confidence assigned to them.",
+      "n_matched": 94946,
+      "n_evaluated": 26470482,
+      "exact_on_full_corpus": true,
+      "prevalence": 0.0035868632841668693,
+      "prevalence_ci95": [
+        0.0035641605353027655,
+        0.0036097101195972274
+      ],
+      "estimated_docs_full_corpus": 94946,
+      "agent_expected_precision": 0.95,
+      "likely_false_positives": "A genuine Slovak site on a non-.sk/.cz domain (e.g. a Slovak business using a .com or .eu domain) that legitimately discusses adult/medical topics or uses informal/profane language (e.g. forum arguments) could be wrongly caught by the bad-word threshold; this is why the domain-diversity check (thousands of distinct low-traffic domains, each ~70-90% flagged) was used as corroborating evidence rather than relying on word count alone.",
+      "agent_evidence": "domain_stats on n_bad_words>=3 shows dozens of domains (slovhubkia.com, adv-moto-girl.bike, baazzaa.com, aaronpowell.me, alexpichel.com, bananapepper.fr, accesslocator.net/.org/.info, agencerepublique.me/.net, and many more) each contributing 1,000-6,000 docs with 75-92% of their own documents matching high bad-word counts. Inspected 32 documents total via evaluate_detector (seeds 11 and 42): 32/32 were confirmed word-salad porn/dating spam pages \u2014 grammatically incoherent strings of scraped fragments/tag lists about explicit content, all with random-looking domain names unrelated to Slovakia, minhash_cluster_size mostly 1 (unique per page despite templated structure). A follow-up sample of the same domains without the bad-word filter (e.g. bananapepper.fr) showed the identical word-salad template style even at n_bad_words=0, meaning the true farm is larger than what this conservative selector catches. The regexp literal 'Posted by Admin \\\\| in [A-Za-z]+ \\\\d+, 2020' alone matches an estimated 28,592 docs (0.108%) and also had 12/12 precision when checked independently.",
+      "agent_example_ids": [
+        "<urn:uuid:9e74111c-60f2-42d5-b6ac-fcdfc2f64c3a>",
+        "<urn:uuid:0db6d8a0-e330-4087-8909-5d90eea5afb1>",
+        "<urn:uuid:011a5243-893e-4728-8a22-02267d533d32>",
+        "<urn:uuid:ca8fafb4-906a-484b-af71-c19c62430f0d>",
+        "<urn:uuid:52f29f99-7e10-4e4f-bd6f-206687991f3e>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 0.11192677943251954,
+        "LowConf": 0.025909464327091188,
+        "HighDup": 5.266151285994144e-05
+      },
+      "max_baseline_overlap": 0.11192677943251954,
+      "human": {
+        "n_judged": 12,
+        "n_defective": 10,
+        "n_junk": 10,
+        "n_not_slovak": 0,
+        "precision": 0.8333333333333334,
+        "precision_ci95": [
+          0.5519636426153274,
+          0.9530358523851776
+        ],
+        "language_labels": {
+          "sk-pred": 12
+        },
+        "quality_labels": {
+          "junk": 10,
+          "noisy": 1,
+          "good": 1
+        }
+      },
+      "human_decision": "approve",
+      "adjudication_group": "G04",
+      "baseline_jaccard": {
+        "highdup": 0.006764514703649426,
+        "lid_disagree": 0.7891925759303198,
+        "lowconf": 0.01723756906077348,
+        "random": 0.007865277315369049
+      },
+      "rediscovered_by": [],
+      "expected_hits_in_300_random": 1.0760589852500608
+    },
+    {
+      "id": "czech_text_mislabeled_as_slovak",
+      "source": "agent",
+      "runs": [
+        "rep1"
+      ],
+      "also_baseline": [],
+      "description": "A systematic slice of documents are substantially or entirely Czech-language text (product data, forum posts, cookie notices, thesis metadata, Pinterest boards) that the corpus nonetheless labels as Slovak (slk_Latn). These typically come from bilingual CZ/SK commerce platforms, cross-posted forums, and Pinterest country mirrors that reuse Czech copy on .sk domains or vice versa.",
+      "selector": "fasttext='cs' AND langdetect='cs' AND lingua_top='cs' AND NOT (domain LIKE '%.firebaseapp.com' OR domain LIKE '%.web.app')",
+      "assertion": "Documents where independent language identifiers unanimously disagree with the corpus's Slovak label and agree on Czech should be re-examined and either relabeled or removed from a Slovak-only resource.",
+      "n_matched": 31795,
+      "n_evaluated": 26470482,
+      "exact_on_full_corpus": true,
+      "prevalence": 0.0012011492650568281,
+      "prevalence_ci95": [
+        0.0011880263579465444,
+        0.0012144169511996126
+      ],
+      "estimated_docs_full_corpus": 31795,
+      "agent_expected_precision": 0.8,
+      "likely_false_positives": "Genuinely bilingual CZ/SK forum threads where the majority language present may still be Slovak in aggregate across the page; Slovak academic abstracts hosted on Czech institutional repositories (dspace.vutbr.cz) where only template/metadata fields are Czech but the abstract body is authentic Slovak.",
+      "agent_evidence": "44,251 of 26,470,482 documents (0.17%) have all three independent language identifiers (fasttext, langdetect, lingua) agreeing on Czech while the pipeline's own label is Slovak. domain_stats shows this concentrated in identifiable domain classes: Pinterest country mirrors (cz.pinterest.com 9.9% of its own docs, sk.pinterest.com 2.7%), CZ/SK shared e-commerce catalogs (latky-marlen.sk 39%, tenisove-zbozi.cz 51%, sracky.1984.cz 76% -- though the last is actually a nonsense/profanity generator, a separate issue), bilingual parenting/forum sites (modrykonik.sk/.cz), and a Czech thesis repository (dspace.vutbr.cz, 8.7%, though many of these have genuinely Slovak abstracts with only Czech/English metadata labels -- a partial false positive). I inspected 15+15 sampled documents (evaluate_detector seed=9 n=15 and sample_documents seed=3/4): the large majority (~13/15, ~87%) were dominantly or entirely Czech running text (e.g. latky-marlen.sk fabric descriptions in Czech, mandarinka.cz jewelry descriptions in Czech, arome.cz classified ad, audiozone.cz forum reply) with at most a Slovak sentence or two; a minority were genuinely bilingual forum threads (modrykonik) where Slovak and Czech speakers converse in their own language on the same page. I also checked fasttext='cs' alone (without langdetect/lingua agreement): that weaker condition was much noisier, catching many genuinely Slovak pages that fasttext misclassifies on short/quote-heavy text (forum.zdravie.sk, zlavoking.sk, new.rcsolosnica.sk all pure Slovak) -- so I did not use it.",
+      "agent_example_ids": [
+        "<urn:uuid:da31a797-8fb8-4c32-89f9-cbc79820299d>",
+        "<urn:uuid:faf2b598-326b-492a-9411-343e5e9dcfca>",
+        "<urn:uuid:1474f3b4-313f-43f7-9f4b-308812812867>",
+        "<urn:uuid:5d47e13c-0427-4c76-a254-5445155073dd>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 1.0,
+        "LowConf": 0.5335115584211354,
+        "HighDup": 0.0010378990407296745
+      },
+      "max_baseline_overlap": 1.0,
+      "human": {
+        "n_judged": 17,
+        "n_defective": 9,
+        "n_junk": 0,
+        "n_not_slovak": 9,
+        "precision": 0.5294117647058824,
+        "precision_ci95": [
+          0.3096289731154949,
+          0.738351988039119
+        ],
+        "language_labels": {
+          "mix": 8,
+          "sk-pred": 8,
+          "cs": 1
+        },
+        "quality_labels": {
+          "noisy": 17
+        }
+      },
+      "human_decision": "approve",
+      "adjudication_group": "G02",
+      "baseline_jaccard": {
+        "highdup": 0.3099300343964978,
+        "lid_disagree": 0.2776249727133814,
+        "lowconf": 0.2776249727133814,
+        "random": 0.09579923589601437
+      },
+      "rediscovered_by": [],
+      "expected_hits_in_300_random": 0.36034477951704846
+    },
+    {
+      "id": "porn_doorway_spam_network",
+      "source": "agent",
+      "runs": [
+        "rep1"
+      ],
+      "also_baseline": [],
+      "description": "A second, distinct content-farm/doorway-page spam network -- unrelated to the firebaseapp/web.app finance farm -- serves auto-generated pornography aggregator pages under ~60+ unrelated-looking domains with generic personal/company names and varied TLDs (adv-moto-girl.bike, baazzaa.com, agencerepublique.net/.me, aaronpowell.me, bananapepper.fr, americanislandsregionalcenter.us, etc.). Pages are keyword-stuffed concatenations of pornographic video-tag phrases machine-translated/rendered into Slovak, not coherent prose, and repeat the same tag vocabulary across thousands of near-identical URLs per domain.",
+      "selector": "n_bad_words > 5",
+      "assertion": "Keyword-stuffed pornography-aggregator doorway pages should not be present in a corpus curated as a linguistic resource / pretraining data; documents from domains with a high share of profanity-list matches concentrated in short template pages should be filtered.",
+      "n_matched": 52354,
+      "n_evaluated": 26470482,
+      "exact_on_full_corpus": true,
+      "prevalence": 0.001977825715451649,
+      "prevalence_ci95": [
+        0.001960972427061278,
+        0.00199482355744003
+      ],
+      "estimated_docs_full_corpus": 52354,
+      "agent_expected_precision": 0.9,
+      "likely_false_positives": "Legitimate Slovak news/health/forum articles that discuss sex education, sexual health, or crime reporting and happen to use several profanity-list words in a short document (e.g. a rape/abuse news story) could cross the n_bad_words>5 threshold without being spam; none were observed in the 15-document sample but the mechanism is plausible for low-count crossings.",
+      "agent_evidence": "n_bad_words > 5 selects 52,354 of 26,470,482 documents (0.20%) across 660 distinct domains. domain_stats shows dozens of domains where 40-65% of ALL that domain's documents match this threshold (e.g. adv-moto-girl.bike 63%, accesslocator.net 64%, badotea.info 63%), indicating whole-domain spam rather than incidental profanity. A follow-up aggregate restricting to domains where >15% of the domain's own documents exceed the threshold (and the domain has >50 docs) found 63 such domains totaling 99,008 documents (0.37% of the corpus) -- i.e. the true footprint of this spam network is roughly double what the bad-words threshold alone catches, since many of its pages use euphemisms/fewer flagged terms per page. I inspected 15 sampled documents via evaluate_detector (seed=11): all 15 (100%) were confirmed pornographic-tag doorway pages with no coherent Slovak prose, matching the pattern (e.g. 'Manelka berie prvy vek penis', 'eben-ghetto-sex', keyword strings like 'Sexy \u010dierna eben sluts sex pre monny'). language_score on these was very high (0.99+) since the individual words/phrases are valid Slovak translations, so the language filter does not catch them.",
+      "agent_example_ids": [
+        "<urn:uuid:097d5e6b-7335-43d3-9ad3-8af0ccdbef58>",
+        "<urn:uuid:51c5dab9-fa95-4d95-b85a-a42d0fb44c52>",
+        "<urn:uuid:0bbbaa84-b461-4db1-8013-807a7f217e33>",
+        "<urn:uuid:c40fc7e9-7b8d-4ae2-905d-e8bed1f25b01>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 0.10331588799327654,
+        "LowConf": 0.03419031974634221,
+        "HighDup": 1.9100737288459333e-05
+      },
+      "max_baseline_overlap": 0.10331588799327654,
+      "human": {
+        "n_judged": 20,
+        "n_defective": 20,
+        "n_junk": 20,
+        "n_not_slovak": 0,
+        "precision": 1.0,
+        "precision_ci95": [
+          0.8388698745050667,
+          0.9999999999999998
+        ],
+        "language_labels": {
+          "sk": 1,
+          "sk-pred": 19
+        },
+        "quality_labels": {
+          "junk": 20
+        }
+      },
+      "human_decision": "approve",
+      "adjudication_group": "G04",
+      "baseline_jaccard": {
+        "highdup": 0.003743505695921742,
+        "lid_disagree": 0.6606349687058348,
+        "lowconf": 0.017232621578402784,
+        "random": 0.0039127602057528734
+      },
+      "rediscovered_by": [],
+      "expected_hits_in_300_random": 0.5933477146354947
+    },
+    {
+      "id": "slo_prefix_machine_translated_farm",
+      "source": "agent",
+      "runs": [
+        "rep1"
+      ],
+      "also_baseline": [],
+      "description": "A third distinct content-farm network: hundreds of unrelated-looking, seemingly hijacked/repurposed domains (e.g. slo.andhramedicalcollegevizag.com, slo.istanbulmedicine.com, slo.kelinvestgroup.com, slo.orsitaning.ru) all serve the same machine-translated content mirror under a 'slo.' (Slovak) subdomain. Content is overwhelmingly pseudo-medical/health/lifestyle articles whose URL slugs are transliterated Russian (e.g. 'diagnostika-raka-jaichek-u-muzhchin', 'kod-po-mkb-mehanicheskaja-zheltuha'), indicating the same Russian-origin article set has been bulk machine-translated into Slovak (and presumably many other languages via sibling subdomain prefixes) and republished across this domain farm. Unlike the firebaseapp.com spam, the translated text is fluent and grammatically coherent single-topic prose, so it reads as legitimate native Slovak and would not be caught by quality heuristics, but it is not organically authored Slovak content and the same articles are repeated near-verbatim across dozens of domains.",
+      "selector": "domain LIKE 'slo.%'",
+      "assertion": "Bulk machine-translated content republished across a domain-squatting mirror farm should not be included as if it were organic native-language Slovak text; such documents should be deduplicated across domains and/or filtered by their subdomain-mirroring signature.",
+      "n_matched": 73835,
+      "n_evaluated": 26470482,
+      "exact_on_full_corpus": true,
+      "prevalence": 0.0027893334167470012,
+      "prevalence_ci95": [
+        0.002769313648914039,
+        0.002809497502633525
+      ],
+      "estimated_docs_full_corpus": 73835,
+      "agent_expected_precision": 0.9,
+      "likely_false_positives": "A small number of domains under this prefix could coincidentally be legitimate Slovak-prefixed sites unrelated to the farm; none were observed in the 12-document sample, but the prefix match alone is a heuristic, not a certified membership test.",
+      "agent_evidence": "231 distinct domains under the 'slo.' prefix, totaling 73,835 of 26,470,482 documents (0.28% of documents). These documents are far longer than the corpus average (mean 5,060 words vs. corpus-wide mean 438 words, ~11.6x), so they account for a disproportionate ~3.2% of the corpus's total word volume despite being 0.28% of documents. evaluate_detector (seed=6, n=12) inspected 12 sampled documents: all 12 were fluent Slovak health/lifestyle/pet-care articles with Russian-transliterated URL slugs, hosted on domains whose names bear no topical relation to their content (a medical article at 'slo.kelinvestgroup.com', a Nintendo Switch game article at 'slo.gov-civil-lisboa.pt') -- strong evidence of a domain-squatting content-mirror operation rather than genuine publishers. minhash_cluster_size on these documents is mostly 1-6, indicating the near-duplicate detector only partially catches copies of the same underlying article spread across different mirror domains.",
+      "agent_example_ids": [
+        "<urn:uuid:0e09e1ba-7f86-4d94-9d3a-fdda83f18f09>",
+        "<urn:uuid:db522042-2f48-4548-b9bc-f46702be8a9b>",
+        "<urn:uuid:ddee5174-b6f2-4578-82bd-ccb5a5e72aa5>",
+        "<urn:uuid:c4bb182b-2b3c-4227-96e1-9d3078a4be63>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 0.00016252454797860094,
+        "LowConf": 0.0,
+        "HighDup": 0.0
+      },
+      "max_baseline_overlap": 0.00016252454797860094,
+      "human": {
+        "n_judged": 14,
+        "n_defective": 1,
+        "n_junk": 1,
+        "n_not_slovak": 0,
+        "precision": 0.07142857142857142,
+        "precision_ci95": [
+          0.012721886112291648,
+          0.3146926955395781
+        ],
+        "language_labels": {
+          "sk": 6,
+          "sk-pred": 8
+        },
+        "quality_labels": {
+          "noisy": 7,
+          "junk": 1,
+          "good": 6
+        }
+      },
+      "human_decision": "unsure",
+      "adjudication_group": "G05",
+      "baseline_jaccard": {
+        "highdup": 0.00033085194375516956,
+        "lid_disagree": 0.00033326363113597154,
+        "lowconf": 0.0,
+        "random": 6.658343736995423e-06
+      },
+      "rediscovered_by": [],
+      "expected_hits_in_300_random": 0.8368000250241003
+    },
+    {
+      "id": "adult_spam_farm_wordsalad",
+      "source": "agent",
+      "runs": [
+        "rep2"
+      ],
+      "also_baseline": [],
+      "description": "A cluster of throwaway-domain adult/porn spam sites contribute documents that are not coherent Slovak prose but auto-generated word-salad: SEO tag lists, stitched keyword fragments, and repeated boilerplate phrases (e.g. \"zadarmo \u010dierne Lesbi\u010dky Sex Movies\" injected dozens of times) built by a domain-spinning template. The corpus's own language_score is near-perfect (often >0.99) and all three shipped LID tools agree on 'sk', yet the \"documents\" are not naturally authored Slovak text and provide no usable linguistic signal.",
+      "selector": "n_bad_words >= 3",
+      "assertion": "Documents selected by n_bad_words>=3 should be manually reviewed and either removed or down-weighted before use as a linguistic resource, since a large majority are auto-generated adult-SEO spam rather than authentic Slovak prose.",
+      "n_matched": 102474,
+      "n_evaluated": 26470482,
+      "exact_on_full_corpus": true,
+      "prevalence": 0.003871255536638887,
+      "prevalence_ci95": [
+        0.0038476704780377067,
+        0.003894984599259951
+      ],
+      "estimated_docs_full_corpus": 102474,
+      "agent_expected_precision": 0.9,
+      "likely_false_positives": "Long, legitimate documents that legitimately discuss sex education, health, or relationships in depth and happen to accumulate 3+ profanity-list hits (e.g. a sex-therapy forum thread) rather than being spam-farm content; these appear to be a small minority based on the two 25-document samples, but were not separately quantified.",
+      "agent_evidence": "Inspected 25 documents matching n_bad_words>=3 across two random samples (seeds 5 and 42): 25/25 were adult-content spam pages from a recognizable network of short-lived, semantically-unrelated domains (adv-moto-girl.bike, accesslocator.{net,org,info}, aagtrades.com, aaronpowell.me, agencerepublique.{me,net}, alvaromd.com.br, baazzaa.com, bananapepper.fr, baddmadrasser.nu, slovhubkia.com, animaliak.net, aemaddin.com, etc.). Text consists of grammatically incoherent fragments and repeated tag/category strings rather than coherent sentences, despite high language_score and LID agreement on 'sk'. domain_stats on this selector shows dozens of domains where 75-92% of ALL their documents match this condition, confirming these are single-purpose spam domains, not occasional profanity in normal content. Counter-check: n_bad_words=1 (excluded by this selector) mostly selects ordinary legitimate content (news, health forums, e-shops, blogs) that merely mentions sex/health topics once or twice, confirming the threshold >=3 is what separates spam farms from normal incidental profanity. Prevalence: 102,474 / 26,470,482 = 0.39% of the full corpus.",
+      "agent_example_ids": [
+        "<urn:uuid:9e74111c-60f2-42d5-b6ac-fcdfc2f64c3a>",
+        "<urn:uuid:37497ac1-2167-4ab2-aa48-a32f6a7acf6a>",
+        "<urn:uuid:56569913-1253-4b51-994d-1bcd7c623063>",
+        "<urn:uuid:6e2fb432-54ff-4e26-b95f-928891a8bfe8>",
+        "<urn:uuid:029591a1-d6f9-497f-bf09-6dd31e36b59e>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 0.10614399750180534,
+        "LowConf": 0.024581845150965124,
+        "HighDup": 0.00024396432265745457
+      },
+      "max_baseline_overlap": 0.10614399750180534,
+      "human": {
+        "n_judged": 19,
+        "n_defective": 16,
+        "n_junk": 16,
+        "n_not_slovak": 0,
+        "precision": 0.8421052631578947,
+        "precision_ci95": [
+          0.6243407235682331,
+          0.9447962896007217
+        ],
+        "language_labels": {
+          "sk-pred": 19
+        },
+        "quality_labels": {
+          "junk": 16,
+          "noisy": 2,
+          "good": 1
+        }
+      },
+      "human_decision": "approve",
+      "adjudication_group": "G04",
+      "baseline_jaccard": {
+        "highdup": 0.006900920572021619,
+        "lid_disagree": 0.7733473856783184,
+        "lowconf": 0.01675546968011398,
+        "random": 0.008003861532499297
+      },
+      "rediscovered_by": [],
+      "expected_hits_in_300_random": 1.161376660991666
+    },
+    {
+      "id": "czech_slovak_code_switched_docs",
+      "source": "agent",
+      "runs": [
+        "rep2"
+      ],
+      "also_baseline": [],
+      "description": "A systematic subset of documents are Czech-language or heavily Czech/Slovak code-switched, not clean Slovak, yet are labelled language='slk' with high language_score. This mostly comes from (a) Slovak e-commerce sites that paste Czech-language product descriptions/reviews verbatim from shared CZ/SK catalogs and (b) cz.pinterest.com / forum pages whose captions and comments mix Czech and Slovak. Because Czech and Slovak are highly mutually intelligible, the pipeline's own LID and all three shipped auxiliary LIDs (fasttext, langdetect, lingua) confidently but wrongly agree that many such documents are Slovak, and even when they agree the document is Czech, the corpus still ships it labelled slk.",
+      "selector": "fasttext='cs' AND langdetect='cs' AND lingua_top='cs'",
+      "assertion": "Documents where fasttext, langdetect and lingua all independently agree the text is Czech should not be shipped under a pure-Slovak language label without at least a code-switch/contamination flag.",
+      "n_matched": 44251,
+      "n_evaluated": 26470482,
+      "exact_on_full_corpus": true,
+      "prevalence": 0.0016717111535785407,
+      "prevalence_ci95": [
+        0.00165622033878475,
+        0.0016873466108217286
+      ],
+      "estimated_docs_full_corpus": 44251,
+      "agent_expected_precision": 0.7,
+      "likely_false_positives": "Genuinely Slovak documents (colloquial forum speech, short lists of proper nouns/brand names, or terse product listings) that confuse all three external language identifiers into guessing Czech even though the corpus's own slk label is correct.",
+      "agent_evidence": "Inspected 22 documents where all three auxiliary LIDs (fasttext, langdetect, lingua_top) independently label the text 'cs' while the corpus's own pipeline still labels it 'slk' (seeds 2 and 3). About 16/22 clearly contained substantial or dominant Czech-language text: pure-Czech pages crawled from .cz domains (ciirc.cvut.cz academic page, dg-shop.cz, zks-shop.cz, stoklasa-sk.sk, monelli.cz), and, more frequently, nominally-Slovak e-shops (bonami.sk, svet-kupelne.sk, krasnadoma.sk, b2b.agfoods.sk, kuchynsky-drez.sk) and cz.pinterest.com boards whose product/recipe text is untranslated Czech pasted alongside Slovak site chrome. Counter-evidence: 6/22 were false positives where the text was actually fully idiomatic Slovak (e.g. bezkempu.cz camping listing, modrykonik.sk forum posts, a car-brand name list) that all three external LIDs misjudged as Czech, presumably because Slovak dialectal/colloquial text and short brand-name lists are hard to distinguish from Czech. Prevalence of the strict triple-agreement selector is 44,251/26,470,482 = 0.17% of the full corpus; loosening to fasttext='cs' alone matches 412,528 (1.6%) but with visibly lower precision on manual inspection.",
+      "agent_example_ids": [
+        "<urn:uuid:f446353c-c2cb-4c05-b7cb-3f0c702a0945>",
+        "<urn:uuid:d3b4a245-3181-43d3-b661-fff063f78785>",
+        "<urn:uuid:ccae2f4f-5717-4466-92d5-194ef9a7e72f>",
+        "<urn:uuid:c0b4af37-1006-41e7-ac71-6fb8110cd5f0>",
+        "<urn:uuid:2304b1ba-e60f-4515-8141-b3cbd0f883e0>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 1.0,
+        "LowConf": 0.5775462701407877,
+        "HighDup": 0.0007457458588506474
+      },
+      "max_baseline_overlap": 1.0,
+      "human": {
+        "n_judged": 21,
+        "n_defective": 17,
+        "n_junk": 7,
+        "n_not_slovak": 16,
+        "precision": 0.8095238095238095,
+        "precision_ci95": [
+          0.599990134607267,
+          0.923325593848227
+        ],
+        "language_labels": {
+          "mix": 14,
+          "sk-pred": 5,
+          "other": 1,
+          "cs": 1
+        },
+        "quality_labels": {
+          "junk": 7,
+          "noisy": 14
+        }
+      },
+      "human_decision": "approve",
+      "adjudication_group": "G02",
+      "baseline_jaccard": {
+        "highdup": 0.43164673233270795,
+        "lid_disagree": 0.38638725169177035,
+        "lowconf": 0.38638725169177035,
+        "random": 0.1333295168307763
+      },
+      "rediscovered_by": [],
+      "expected_hits_in_300_random": 0.5015133460735622
+    },
+    {
+      "id": "cookie_consent_boilerplate_dominant",
+      "source": "baseline:highdup",
+      "runs": [],
+      "also_baseline": [],
+      "description": "A very large share of documents open with (and are sometimes almost entirely composed of) generic cookie-consent / GDPR notices rather than substantive page content. Because the crawler/extractor captured this legal boilerplate as the primary text, many 'unique' post-dedup documents contribute little genuine linguistic content and are highly repetitive in structure/vocabulary across completely unrelated sites.",
+      "selector": "LOWER(SUBSTR(text,1,250)) LIKE '%cookie%' OR LOWER(SUBSTR(text,1,250)) LIKE '%s\u00fabory cookie%'",
+      "assertion": "prevalence <= 0.005738",
+      "n_matched": 11676,
+      "n_evaluated": 2034896,
+      "exact_on_full_corpus": false,
+      "prevalence": 0.0057378853759602454,
+      "prevalence_ci95": [
+        0.005635034930820889,
+        0.005842602013529052
+      ],
+      "estimated_docs_full_corpus": 151885,
+      "agent_expected_precision": 0.65,
+      "likely_false_positives": "Pages that mention 'cookie' briefly in the first 250 characters but then continue with substantial unique content afterward (e.g. a product page whose consent banner is short and followed by rich description); also legitimate standalone cookie-policy documents, which are 'about' cookies rather than contaminated by them.",
+      "agent_evidence": "teatrotatro.sk, zootechnika.sk, tanierik.sk, rajmodelov.sk, muzeumkremnica.sk, essensparfumy.sk, knplast.sk, kucharske-noze-doplnky pages, h-ios.sk, harris.peakston.sk, prva-lekaren.sk, feedo.sk all open with near-identical cookie-notice boilerplate; several (e.g. teatrotatro.sk, cluster_size 1,370,347) are among the highest-duplication documents in the whole sample, indicating this pattern is extremely widespread across the corpus.",
+      "agent_example_ids": [
+        "<urn:uuid:f4898f61-7158-4c3f-ad9d-cbb115c97452>",
+        "<urn:uuid:3efc18e2-302d-4242-a757-16a924083784>",
+        "<urn:uuid:4e559fe5-d387-4e96-b17a-7da335f4086d>",
+        "<urn:uuid:9fd76da5-a22d-449c-a535-bd7b3c5b83bd>",
+        "<urn:uuid:0a4d9eff-a034-43ca-b382-3dd5e10d997d>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 0.05995203836930456,
+        "LowConf": 0.009421034600890716,
+        "HighDup": 0.017728674203494346
+      },
+      "max_baseline_overlap": 0.05995203836930456,
+      "human": {
+        "n_judged": 7,
+        "n_defective": 0,
+        "n_junk": 0,
+        "n_not_slovak": 0,
+        "precision": 0.0,
+        "precision_ci95": [
+          0.0,
+          0.35433884297520657
+        ],
+        "language_labels": {
+          "sk": 2,
+          "sk-pred": 5
+        },
+        "quality_labels": {
+          "noisy": 7
+        }
+      },
+      "human_decision": "reject",
+      "adjudication_group": "G07"
+    },
+    {
+      "id": "cross_domain_loan_ad_widget_contamination",
+      "source": "baseline:highdup",
+      "runs": [],
+      "also_baseline": [],
+      "description": "A large number of documents, regardless of the host site's actual topic (theater galleries, veterinary equipment, cooking forums, sports clubs, music sites, equestrian festivals), contain a near-verbatim templated 'p\u00f4\u017ei\u010dka' (online loan) advertisement widget, including fabricated customer testimonials with the same names (e.g. 'Hana, B\u0159eclav'). This is third-party ad/widget boilerplate that has nothing to do with the page's subject matter and is duplicated wholesale across dozens of unrelated domains, surviving deduplication because it is embedded within otherwise-unique page shells.",
+      "selector": "text LIKE '%Naposledy p\u00f4\u017ei\u010dku vysk\u00fa\u0161ali%' OR text LIKE '%Vypl\u0148te nez\u00e1v\u00e4zn\u00fa \u017eiados\u0165%' OR text LIKE '%Hana, B\u0159eclav%' OR text LIKE '%Posledn% \u017eiadatelia%'",
+      "assertion": "prevalence <= 0.000130",
+      "n_matched": 264,
+      "n_evaluated": 2034896,
+      "exact_on_full_corpus": false,
+      "prevalence": 0.00012973635999087915,
+      "prevalence_ci95": [
+        0.00011500259276618703,
+        0.00014635749441226786
+      ],
+      "estimated_docs_full_corpus": 3434,
+      "agent_expected_precision": 0.9,
+      "likely_false_positives": "Documents from actual loan/finance-comparison businesses where this text is the site's genuine (if still templated/thin) content rather than injected off-topic ad contamination.",
+      "agent_evidence": "Seen verbatim or near-verbatim on mbklucenec.sk, culinaria.sk, mkmb.sk, symbianmania.sk, cashbackcard.sk, webpravnik.sk, noypi.xyz, nethry.sk, mikastil.sk, equestrianfestivalsamorin.sk, pegafun.sk, davdva.sk, lunaparkpetrzalka.sk - none of which are loan/finance sites. The identical fake-testimonial name 'Hana, B\u0159eclav' recurs across at least 5 unrelated domains. Counter-evidence: a few loan-related documents (e.g. genuine finance/insurance sites) legitimately contain similar text about their own product, so not every match is 'contamination' in the strict sense, though it is still templated boilerplate.",
+      "agent_example_ids": [
+        "<urn:uuid:f1e53344-1604-426f-a066-adc74d455ad8>",
+        "<urn:uuid:bcea75a2-7352-4878-91df-0426d8a8afd6>",
+        "<urn:uuid:89ba6b5d-af60-482d-a4a9-35a544995280>",
+        "<urn:uuid:0a4d9eff-a034-43ca-b382-3dd5e10d997d>",
+        "<urn:uuid:a9a51cea-7eb6-4ec7-b597-e16b9c60b6e5>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 0.01893939393939394,
+        "LowConf": 0.003787878787878788,
+        "HighDup": 0.03787878787878788
+      },
+      "max_baseline_overlap": 0.03787878787878788,
+      "human": {
+        "n_judged": 11,
+        "n_defective": 7,
+        "n_junk": 5,
+        "n_not_slovak": 3,
+        "precision": 0.6363636363636364,
+        "precision_ci95": [
+          0.35379677689163724,
+          0.8483377638586862
+        ],
+        "language_labels": {
+          "sk-pred": 7,
+          "mix": 2,
+          "cs": 1,
+          "sk": 1
+        },
+        "quality_labels": {
+          "noisy": 6,
+          "junk": 5
+        }
+      },
+      "human_decision": "approve",
+      "adjudication_group": "G10"
+    },
+    {
+      "id": "czech_language_content_mislabeled_slovak",
+      "source": "baseline:highdup",
+      "runs": [],
+      "also_baseline": [],
+      "description": "A subset of documents labelled slk_Latn with high pipeline confidence actually contain Czech-language text (or a Czech/Slovak code-mixed page), as shown by an independent identifier (lingua_top, sometimes fasttext) landing on 'cs' rather than 'sk', typically accompanied by a lower lingua_top_p confidence.",
+      "selector": "lingua_top = 'cs' OR fasttext = 'cs'",
+      "assertion": "prevalence <= 0.018706",
+      "n_matched": 495166,
+      "n_evaluated": 26470482,
+      "exact_on_full_corpus": true,
+      "prevalence": 0.018706346185913804,
+      "prevalence_ci95": [
+        0.01865480180033111,
+        0.018758030269552025
+      ],
+      "estimated_docs_full_corpus": 495166,
+      "agent_expected_precision": 0.6,
+      "likely_false_positives": "Slovak-majority documents that merely quote or embed a short Czech-sourced snippet (e.g. a product review pulled from a Czech sister site) inside otherwise-Slovak page text; lingua_top on short/mixed texts is inherently noisy.",
+      "agent_evidence": "interstore.sk snippet is fully Czech ('Rt\u011bnka Max Factor Colour Elixir Lipstick.Dod\u00e1 rt\u016fm intenzivn\u00ed barvu...'), fasttext='cs', lingua_top='cs'. direto.sk and predajkavy.sk contain clearly Czech passages ('Po\u0159i\u010fte si...K\u010d', 'V\u00e1\u017een\u00fd z\u00e1kazn\u00edk, h3>...zlep\u0161ili sme cel\u00fd syst\u00e9m') with lingua_top='cs'. top4street.sk snippet is also Czech ('Nov\u00fd rok je tu a ty nem\u00e1\u0161 vymyslen\u00e9 jedin\u00e9 predsavzatie?') though its lingua_top happens to read 'cs' with p=0.52 only, illustrating the ambiguity is genuine, not identifier noise. Counter-evidence: some flagged docs are genuinely mixed-language (Slovak page quoting a Czech source/product description), so the whole document is not 100% Czech.",
+      "agent_example_ids": [
+        "<urn:uuid:662da187-7d01-45af-af8b-6da0e72e4048>",
+        "<urn:uuid:be6a6c6c-f768-4219-b7cd-426af4e111fa>",
+        "<urn:uuid:05ba51c1-0f4a-478f-b510-247134419f71>",
+        "<urn:uuid:d640118d-8794-401d-aea7-b3e2b486ffe8>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 1.0,
+        "LowConf": 0.18453407544136713,
+        "HighDup": 0.001058230977086472
+      },
+      "max_baseline_overlap": 1.0,
+      "human": {
+        "n_judged": 10,
+        "n_defective": 6,
+        "n_junk": 1,
+        "n_not_slovak": 5,
+        "precision": 0.6,
+        "precision_ci95": [
+          0.3126695474501863,
+          0.8318224187964901
+        ],
+        "language_labels": {
+          "sk-pred": 5,
+          "mix": 5
+        },
+        "quality_labels": {
+          "noisy": 9,
+          "junk": 1
+        }
+      },
+      "human_decision": "approve",
+      "adjudication_group": "G02"
+    },
+    {
+      "id": "non_slovak_content_mislabeled_slovak_other_languages",
+      "source": "baseline:highdup",
+      "runs": [],
+      "also_baseline": [],
+      "description": "A small but identifiable set of documents are not Slovak at all (English, or bilingual boilerplate with Polish) yet are labelled slk_Latn, generally with a language_score noticeably below the near-1.0 typical of the rest of the corpus, and with all three independent identifiers agreeing on the other language.",
+      "selector": "fasttext = langdetect AND langdetect = lingua_top AND fasttext != 'sk' AND language_score < 0.99",
+      "assertion": "prevalence <= 0.003863",
+      "n_matched": 102258,
+      "n_evaluated": 26470482,
+      "exact_on_full_corpus": true,
+      "prevalence": 0.003863095503889956,
+      "prevalence_ci95": [
+        0.0038395352953859738,
+        0.0038867997187823143
+      ],
+      "estimated_docs_full_corpus": 102258,
+      "agent_expected_precision": 0.55,
+      "likely_false_positives": "Short or template-heavy Slovak documents where the automated identifiers simply disagree due to too little running text, without the document actually being non-Slovak; the language_score<0.99 threshold alone is a weak signal and needs the identifier-agreement condition to be meaningful.",
+      "agent_evidence": "pknet.sk (fasttext=langdetect=lingua_top='en', language_score 0.8785) is an English WordPress theme/login page. bicykle.sk (fasttext=langdetect=lingua_top='en', language_score 0.9219) is almost entirely English marketing copy ('Be the first to know about new products...'). oravskemuzeum.sk (fasttext=lingua_top='pl', langdetect='sk', language_score 0.989) is a bilingual Slovak/Polish closure notice.",
+      "agent_example_ids": [
+        "<urn:uuid:353fcaa9-7f13-4f07-b65c-7b8b545ec64a>",
+        "<urn:uuid:1d2278e1-52d1-4072-97cd-acfa85821683>",
+        "<urn:uuid:e9f3fdf3-1ed2-44a8-9d63-19f707c4e38c>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 1.0,
+        "LowConf": 0.4346457000919243,
+        "HighDup": 0.001300631735414344
+      },
+      "max_baseline_overlap": 1.0,
+      "human": {
+        "n_judged": 0,
+        "n_defective": 0,
+        "n_junk": 0,
+        "n_not_slovak": 0,
+        "precision": null,
+        "precision_ci95": null,
+        "language_labels": {},
+        "quality_labels": {}
+      },
+      "human_decision": "unsure",
+      "adjudication_group": "G02"
+    },
+    {
+      "id": "parked_domain_placeholder_pages",
+      "source": "baseline:highdup",
+      "runs": [],
+      "also_baseline": [],
+      "description": "Some documents are not real content pages at all but auto-generated 'this domain has no website yet' / hosting-registrar placeholder pages (typically from Websupport.sk-style templates), which contain no topical content and are near-identical to each other across many different domains.",
+      "selector": "text LIKE '%K tejto dom\u00e9ne zatia\u013e neexistuje \u017eiadny webhosting%' OR text LIKE '%Na tejto%dom\u00e9ne zatia\u013e%ni\u010d nie je%' OR text LIKE '%dom\u00e9na je parkovan\u00e1%' OR text LIKE '%Websupport.sk pon\u00faka najni\u017e\u0161ie ceny dom\u00e9n%'",
+      "assertion": "prevalence <= 0.000001",
+      "n_matched": 2,
+      "n_evaluated": 2034896,
+      "exact_on_full_corpus": false,
+      "prevalence": 9.828512120521148e-07,
+      "prevalence_ci95": [
+        2.695276524411667e-07,
+        3.5840281047966495e-06
+      ],
+      "estimated_docs_full_corpus": 26,
+      "agent_expected_precision": 0.85,
+      "likely_false_positives": "Legitimate pages that happen to mention a registrar in passing without being a parked-domain placeholder themselves; low-recall pattern so precision should stay high.",
+      "agent_evidence": "4init.sk ('Na tejto dom\u00e9ne zatia\u013e ni\u010d nie je... Websupport'), agrobiochemix.pl ('K tejto dom\u00e9ne zatia\u013e neexistuje \u017eiadny webhosting... Websupport.sk'), jezirka-stavby.cz ('Dom\u00e9na je parkovan\u00e1 na CZECHIA.COM') are all templated registrar placeholder pages with essentially zero unique or topical content, two of them on non-.sk TLDs (.pl, .cz).",
+      "agent_example_ids": [
+        "<urn:uuid:884a4503-1c3e-4899-bdd1-2affb13ffdce>",
+        "<urn:uuid:016ae022-ffab-49eb-8096-c82c72ecec40>",
+        "<urn:uuid:a3b4d714-1929-42ac-a369-b6083a95c38c>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 0.5,
+        "LowConf": 0.0,
+        "HighDup": 1.0
+      },
+      "max_baseline_overlap": 1.0,
+      "human": {
+        "n_judged": 0,
+        "n_defective": 0,
+        "n_junk": 0,
+        "n_not_slovak": 0,
+        "precision": null,
+        "precision_ci95": null,
+        "language_labels": {},
+        "quality_labels": {}
+      },
+      "human_decision": "reject",
+      "adjudication_group": "G11"
+    },
+    {
+      "id": "czech_content_mislabeled_slovak",
+      "source": "baseline:lid_disagree",
+      "runs": [],
+      "also_baseline": [],
+      "description": "A recurring subset of documents is written substantially or entirely in Czech (recipes, forum posts, product boilerplate, cookie/legal notices) but is labeled slk_Latn, apparently because Czech and Slovak are close enough to confuse the pipeline's language detector, especially on Czech-hosted (.cz) or Czech-Slovak shared e-shop content.",
+      "selector": "language='slk' AND fasttext='cs' AND langdetect='cs'",
+      "assertion": "prevalence <= 0.004327",
+      "n_matched": 114525,
+      "n_evaluated": 26470482,
+      "exact_on_full_corpus": true,
+      "prevalence": 0.004326517363756353,
+      "prevalence_ci95": [
+        0.004301585580755661,
+        0.004351593018634751
+      ],
+      "estimated_docs_full_corpus": 114525,
+      "agent_expected_precision": 0.55,
+      "likely_false_positives": "Genuinely bilingual Czech-Slovak documents (quoted Slovak speech inside a Czech article, or vice versa), and short/ambiguous product-listing text where both fasttext and langdetect default to 'cs' even though the actual majority text is Slovak.",
+      "agent_evidence": "huskysk.sk text is fully Czech ('Nesed\u00ed V\u00e1m n\u00e1mi dodan\u00fd v\u00fdrobek... Husky nab\u00edz\u00ed mo\u017enost V\u00ddM\u011aNY zbo\u017e\u00ed'); tratovestroje.net opens with a Czech historical/technical passage ('V roce 1921 zakoupily \u010cSD...'); behej.com is a Czech running-forum post ('dnes se mn\u011b... neda\u0159ilo dostat tepy'); eshop.autopalace.sk pages mix short Slovak product codes with Czech legal boilerplate ('Pokra\u010dov\u00e1n\u00edm v prohl\u00ed\u017een\u00ed t\u00e9to str\u00e1nky souhlas\u00edm...'). Counter-evidence: lecba-rakoviny.cz shows a genuinely Slovak-written question posted on a Czech medical site, so fasttext=cs/langdetect=cs does not always mean the document is actually Czech-dominant.",
+      "agent_example_ids": [
+        "<urn:uuid:59c7ae48-fc31-4865-8179-60d08d65096c>",
+        "<urn:uuid:c5b7ca4d-9f7b-4832-a90d-5ddb6136fcc6>",
+        "<urn:uuid:5cd8be56-9975-400b-b7ad-c9ef0390ecc5>",
+        "<urn:uuid:31cc4107-9898-4d63-bd0a-ec483ed39f2b>",
+        "<urn:uuid:36553d4b-e69c-4616-bf4d-c6704863dab6>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 1.0,
+        "LowConf": 0.4438943462126173,
+        "HighDup": 0.0008120497707924034
+      },
+      "max_baseline_overlap": 1.0,
+      "human": {
+        "n_judged": 10,
+        "n_defective": 6,
+        "n_junk": 4,
+        "n_not_slovak": 5,
+        "precision": 0.6,
+        "precision_ci95": [
+          0.3126695474501863,
+          0.8318224187964901
+        ],
+        "language_labels": {
+          "sk-pred": 5,
+          "mix": 5
+        },
+        "quality_labels": {
+          "noisy": 5,
+          "junk": 4,
+          "good": 1
+        }
+      },
+      "human_decision": "approve",
+      "adjudication_group": "G02"
+    },
+    {
+      "id": "english_dominant_travel_ecommerce_pages",
+      "source": "baseline:lid_disagree",
+      "runs": [],
+      "also_baseline": [],
+      "description": "Travel/booking/e-commerce aggregator pages (hotel listings, product catalog pages) are labeled Slovak with high confidence even though their substantive body content \u2014 user reviews, product/comic descriptions \u2014 is predominantly English, with Slovak present only as short template chrome (navigation, headers, boilerplate sentences).",
+      "selector": "language='slk' AND fasttext='en' AND langdetect='en' AND lingua_top='en' AND domain NOT LIKE '%.firebaseapp.com' AND domain NOT LIKE '%.web.app'",
+      "assertion": "prevalence <= 0.001617",
+      "n_matched": 42808,
+      "n_evaluated": 26470482,
+      "exact_on_full_corpus": true,
+      "prevalence": 0.0016171976014641516,
+      "prevalence_ci95": [
+        0.0016019622266937009,
+        0.0016325776345068493
+      ],
+      "estimated_docs_full_corpus": 42808,
+      "agent_expected_precision": 0.55,
+      "likely_false_positives": "Documents whose main text is genuinely Slovak but which the three LID tools misjudge as English because of a short quoted English testimonial, brand name, or code-like content (as with jolusafari.com in this sample).",
+      "agent_evidence": "sk.hotels.com 'kempsey-powerhouse-motel' page is almost entirely English guest reviews ('Check in fine...', 'Rooms good size...') wrapped in a few Slovak template lines, yet language_score is 0.996; comicsuniverse.sk mixes Slovak site chrome with an English comic-book solicitation blurb; travelport.cz hotel pages repeat a short Slovak template around long English property descriptions. Counter-evidence: jolusafari.com's snippet is actually written in fluent Slovak despite all three external detectors saying 'en', showing these detectors are not fully reliable on short/templated text.",
+      "agent_example_ids": [
+        "<urn:uuid:031d4876-2f23-4787-90d4-69f84f14ef3e>",
+        "<urn:uuid:0c561bc5-a72a-4c5a-a555-0238e6d0c196>",
+        "<urn:uuid:307fa202-3999-4fd1-b36c-1336a5e521c3>",
+        "<urn:uuid:3d041587-009c-4983-ab4d-75f0c7fab565>",
+        "<urn:uuid:491ed3a2-6474-4c1e-8f00-3bc04a627a92>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 1.0,
+        "LowConf": 0.2947813492805083,
+        "HighDup": 0.0020556905251354887
+      },
+      "max_baseline_overlap": 1.0,
+      "human": {
+        "n_judged": 9,
+        "n_defective": 4,
+        "n_junk": 1,
+        "n_not_slovak": 4,
+        "precision": 0.4444444444444444,
+        "precision_ci95": [
+          0.188775429471914,
+          0.7333526542559703
+        ],
+        "language_labels": {
+          "sk-pred": 5,
+          "other": 4
+        },
+        "quality_labels": {
+          "noisy": 8,
+          "junk": 1
+        }
+      },
+      "human_decision": "reject",
+      "adjudication_group": "G02"
+    },
+    {
+      "id": "firebase_webapp_spam_farms",
+      "source": "baseline:lid_disagree",
+      "runs": [],
+      "also_baseline": [],
+      "description": "A large share of documents come from randomly-named subdomains on firebaseapp.com and web.app (often with keyword-stuffed names in Slovak/Czech/Swedish like 'investovat', 'kryptomena', 'valuta', 'pracovnemiesta', 'akozbohatnut'). These are auto-generated doorway/content-farm pages that concatenate unrelated scraped paragraphs (finance, crypto, travel, dictionary snippets) often in several different languages within one document, with no coherent topic or narrative. Many are only fragmentarily Slovak yet the whole document is labeled slk_Latn.",
+      "selector": "language='slk' AND (domain LIKE '%.firebaseapp.com' OR domain LIKE '%.web.app')",
+      "assertion": "prevalence <= 0.053208",
+      "n_matched": 1408437,
+      "n_evaluated": 26470482,
+      "exact_on_full_corpus": true,
+      "prevalence": 0.053207833540771944,
+      "prevalence_ci95": [
+        0.05312239361012374,
+        0.05329340315523455
+      ],
+      "estimated_docs_full_corpus": 1408437,
+      "agent_expected_precision": 0.75,
+      "likely_false_positives": "Pages on these same hosting domains that happen to contain a single coherent, genuinely Slovak article (e.g. straightforward coin/product descriptions) rather than a stitched multi-language collage.",
+      "agent_evidence": "e.g. danerfkp.firebaseapp.com splices a German-flag caption with an unrelated Vel\u00e1zquez/Rubens art-history paragraph; forsaljningavaktierbyxa.web.app splices an English NGO description with a Slovak dream-dictionary entry; hurmanblirrikqmph.firebaseapp.com is pure English UBS/FXCM regulatory boilerplate labeled slk (language_score 0.78, fasttext/langdetect/lingua all 'en'). Counter-evidence: some pages on these same domains (e.g. valutagjqb.firebaseapp.com, coin-collecting text) are internally coherent single-topic Slovak articles, so not every document on these hosts is spam gibberish.",
+      "agent_example_ids": [
+        "<urn:uuid:a546140d-3a6b-4ebb-bfba-5cee9927b4ef>",
+        "<urn:uuid:4e7a1167-0478-4727-b8bc-96f6efd28103>",
+        "<urn:uuid:529cef53-fe18-4788-a6ce-415daa042dbf>",
+        "<urn:uuid:a1d25130-f36c-4814-9334-809cfcc974eb>",
+        "<urn:uuid:b8c873f5-7ea9-4189-aeef-917cc763788d>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 0.13069310164387898,
+        "LowConf": 0.03217680308029397,
+        "HighDup": 0.0
+      },
+      "max_baseline_overlap": 0.13069310164387898,
+      "human": {
+        "n_judged": 11,
+        "n_defective": 10,
+        "n_junk": 9,
+        "n_not_slovak": 3,
+        "precision": 0.9090909090909091,
+        "precision_ci95": [
+          0.6226353745137962,
+          0.9837682477371741
+        ],
+        "language_labels": {
+          "sk-pred": 7,
+          "mix": 2,
+          "other": 1,
+          "sk": 1
+        },
+        "quality_labels": {
+          "noisy": 2,
+          "junk": 9
+        }
+      },
+      "human_decision": "approve",
+      "adjudication_group": "G01"
+    },
+    {
+      "id": "spun_macaronic_template_text",
+      "source": "baseline:lid_disagree",
+      "runs": [],
+      "also_baseline": [],
+      "description": "A set of location/accommodation listing pages (observed systematically on domain kamsi.sk) use algorithmically spun text that ungrammatically mixes Slovak and Czech words and synonyms (e.g. 'a lebo', 'pr\u00edpadne', 'treba') to generate ostensibly unique per-town pages. This is not natural language in either Slovak or Czech, and is templated near-duplicate filler rather than genuine linguistic content.",
+      "selector": "language='slk' AND domain='kamsi.sk'",
+      "assertion": "prevalence <= 0.000707",
+      "n_matched": 18708,
+      "n_evaluated": 26470482,
+      "exact_on_full_corpus": true,
+      "prevalence": 0.0007067495030880057,
+      "prevalence_ci95": [
+        0.0006966976534884804,
+        0.0007169462752222049
+      ],
+      "estimated_docs_full_corpus": 18708,
+      "agent_expected_precision": 0.8,
+      "likely_false_positives": "Any kamsi.sk pages that use normal, grammatical Slovak listing text rather than the synonym-spun template (not observed in this sample but plausible for other sections of the site).",
+      "agent_evidence": "Four sampled kamsi.sk pages (Rev\u00faca, M\u011bln\u00edk, Svidn\u00edk, Ve\u013ek\u00fd Krt\u00ed\u0161, Zlat\u00e9 Moravce) all show the identical broken pattern, e.g. 'Vychutnejte si romantick\u00e9 ubytovanie a \u010dasto nav\u0161t\u011bvovan\u00e9 ubytovanie v Zlat\u00fdch Moravc\u00edch v ob\u013euben\u00fdch mest\u00e1ch a rozdielnej kvalit\u011b' \u2014 a nonsensical, spun concatenation, repeated with only place names swapped.",
+      "agent_example_ids": [
+        "<urn:uuid:cf5fe1ed-48d2-476c-9d52-52222ec984ee>",
+        "<urn:uuid:2ee7137b-de05-4ff5-8c5d-8ebd4b1c67fd>",
+        "<urn:uuid:fe046841-1760-440d-960d-41acf0af9aa0>",
+        "<urn:uuid:916e49c4-c0bd-47ef-afb8-3f5b9e4a9dd7>",
+        "<urn:uuid:dc4d8111-57b2-4b70-a60f-2732ca1f73fc>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 0.6940346375881976,
+        "LowConf": 0.014432328415651058,
+        "HighDup": 0.0
+      },
+      "max_baseline_overlap": 0.6940346375881976,
+      "human": {
+        "n_judged": 0,
+        "n_defective": 0,
+        "n_junk": 0,
+        "n_not_slovak": 0,
+        "precision": null,
+        "precision_ci95": null,
+        "language_labels": {},
+        "quality_labels": {}
+      },
+      "human_decision": "unsure",
+      "adjudication_group": "G06"
+    },
+    {
+      "id": "unfiltered_adult_content",
+      "source": "baseline:lid_disagree",
+      "runs": [],
+      "also_baseline": [],
+      "description": "Explicit pornographic content is present in the Slovak slice despite the pipeline recording a profanity-match signal (n_bad_words) that could have been used to filter it; documents with several profanity-list hits are graphic adult-video listings rather than borderline slang usage.",
+      "selector": "language='slk' AND n_bad_words >= 4",
+      "assertion": "prevalence <= 0.002994",
+      "n_matched": 79248,
+      "n_evaluated": 26470482,
+      "exact_on_full_corpus": true,
+      "prevalence": 0.002993825348552399,
+      "prevalence_ci95": [
+        0.0029730842290100925,
+        0.0030147107267933905
+      ],
+      "estimated_docs_full_corpus": 79248,
+      "agent_expected_precision": 0.8,
+      "likely_false_positives": "Documents with several incidental profanity-list matches that are not adult content (e.g. crude blog comments, angry forum arguments, or word-list false hits on unrelated vocabulary).",
+      "agent_evidence": "slovhubkia.com entries (n_bad_words 4\u20137) are explicit pornographic video descriptions; alexpichel.com (n_bad_words 9) is an explicit porn-listing page. These pass the quality/dedup pipeline unfiltered and are indistinguishable in the metadata from ordinary documents except for the bad-word count, which was evidently not used as an exclusion threshold.",
+      "agent_example_ids": [
+        "<urn:uuid:33a88e12-e0e0-458b-84b7-87a51783d8f5>",
+        "<urn:uuid:c2e1923d-db9f-409a-bdc7-da29952cb3d7>",
+        "<urn:uuid:af5acf6b-dc9e-4c7a-ad2f-81093895b36f>",
+        "<urn:uuid:3e2c3d91-17ad-432f-b446-4dda8c0634f8>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 0.1120659196446598,
+        "LowConf": 0.02827831617201696,
+        "HighDup": 6.309307490409852e-05
+      },
+      "max_baseline_overlap": 0.1120659196446598,
+      "human": {
+        "n_judged": 0,
+        "n_defective": 0,
+        "n_junk": 0,
+        "n_not_slovak": 0,
+        "precision": null,
+        "precision_ci95": null,
+        "language_labels": {},
+        "quality_labels": {}
+      },
+      "human_decision": "approve",
+      "adjudication_group": "G04"
+    },
+    {
+      "id": "adult_tagfarm_content_mislabeled",
+      "source": "baseline:lowconf",
+      "runs": [],
+      "also_baseline": [],
+      "description": "A small but recurring set of documents are pornographic tag-aggregator pages (lists of explicit search terms/tags with minimal connecting prose) that are mostly English or template text, not genuine Slovak writing, yet are labelled 'slk'. They are identifiable by an elevated profanity/bad-word count combined with a language identifier disagreement.",
+      "selector": "n_bad_words >= 3 AND langdetect != 'sk'",
+      "assertion": "prevalence <= 0.000065",
+      "n_matched": 1717,
+      "n_evaluated": 26470482,
+      "exact_on_full_corpus": true,
+      "prevalence": 6.486470476812624e-05,
+      "prevalence_ci95": [
+        6.186833150179495e-05,
+        6.800618687962516e-05
+      ],
+      "estimated_docs_full_corpus": 1717,
+      "agent_expected_precision": 0.5,
+      "likely_false_positives": "Because only 3 of 300 sampled documents match this narrow condition, the estimate is based on a very small sample; ordinary Slovak news/forum content discussing crime or health topics with a handful of profanity-list hits (not adult-tag pages) would also match n_bad_words>=3 and dilute precision at corpus scale.",
+      "agent_evidence": "accesslocator.org ('mama sex s synom 3gp...') has n_bad_words=9 with langdetect='sk' but the bulk of visible text is English tag phrases ('Free video... porno... Zral babi ky sex'); ballyclarebid.co.uk has n_bad_words=11 with langdetect='en' and is almost entirely English adult tag soup; slovhubkia.com has n_bad_words=7, langdetect='en', explicit English captioning around a Slovak-language site name. These are template tag-listing pages rather than coherent narrative Slovak text.",
+      "agent_example_ids": [
+        "<urn:uuid:c00f8eaf-9217-4004-af17-a7b7942770dd>",
+        "<urn:uuid:f53ca551-294d-44e3-8927-d24b7009a943>",
+        "<urn:uuid:892aec60-bc16-4b1e-9bf2-3df390d2324d>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 1.0,
+        "LowConf": 0.4385556202679091,
+        "HighDup": 0.0
+      },
+      "max_baseline_overlap": 1.0,
+      "human": {
+        "n_judged": 9,
+        "n_defective": 9,
+        "n_junk": 9,
+        "n_not_slovak": 1,
+        "precision": 1.0,
+        "precision_ci95": [
+          0.7008472464490406,
+          1.0
+        ],
+        "language_labels": {
+          "sk-pred": 8,
+          "mix": 1
+        },
+        "quality_labels": {
+          "junk": 9
+        }
+      },
+      "human_decision": "approve",
+      "adjudication_group": "G09"
+    },
+    {
+      "id": "czech_documents_misclassified_as_slovak",
+      "source": "baseline:lowconf",
+      "runs": [],
+      "also_baseline": [],
+      "description": "A large share of documents are actually Czech, not Slovak, but were labelled 'slk' by the pipeline. This is evidenced by both independent language identifiers (fastText and langdetect) agreeing on 'cs' while the corpus's own classifier still assigned 'slk' with a low confidence score. Slovak and Czech are mutually intelligible and often confused by language ID models, but a document that two independent taggers both call Czech is very unlikely to be genuine Slovak.",
+      "selector": "language = 'slk' AND fasttext = 'cs' AND langdetect = 'cs'",
+      "assertion": "prevalence <= 0.004327",
+      "n_matched": 114525,
+      "n_evaluated": 26470482,
+      "exact_on_full_corpus": true,
+      "prevalence": 0.004326517363756353,
+      "prevalence_ci95": [
+        0.004301585580755661,
+        0.004351593018634751
+      ],
+      "estimated_docs_full_corpus": 114525,
+      "agent_expected_precision": 0.75,
+      "likely_false_positives": "Genuinely mixed Czech/Slovak documents (common on cross-posted recipe/craft/forum sites) where both languages appear roughly equally, and cases where fastText or langdetect themselves mis-tag borderline Slovak dialectal text as Czech.",
+      "agent_evidence": "Many sampled documents (e.g. nakupzlatadbrv.firebaseapp.com, nakupzlatabspq.firebaseapp.com, cz.pinterest.com recipe/craft boards, palatino-cz.com, linux.cz, mall.sk) show fasttext='cs' and langdetect='cs' together, and the visible snippets read as standard Czech ('Kondicion\u00e9r pro pos\u00edlen\u00ed vlas\u016f...', 'T\u00e1to p\u0159\u00edloha je...' mixed Czech/Slovak, 'B\u00edlky vy\u0161leh\u00e1me do tuh\u00e9 p\u011bny...'). All carry language_score around 0.667, i.e. barely above whatever minimum threshold the pipeline uses. Counter-evidence: some cz.pinterest.com / cs-tagged pages contain genuine Slovak sentences mixed with Czech (bilingual boards), so not every match is a pure misclassification.",
+      "agent_example_ids": [
+        "<urn:uuid:eb5fcebc-45a9-4d0b-901a-fae29d9cc94f>",
+        "<urn:uuid:0d020677-7d94-4a2b-a40d-a45858ade4b6>",
+        "<urn:uuid:06b8edf0-0e71-4618-90bf-213240812e07>",
+        "<urn:uuid:033f9c29-95b6-4df8-8718-c1b9e5b690ef>",
+        "<urn:uuid:3edcbf0a-7e70-493e-a0f2-b339986914db>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 1.0,
+        "LowConf": 0.4438943462126173,
+        "HighDup": 0.0008120497707924034
+      },
+      "max_baseline_overlap": 1.0,
+      "human": {
+        "n_judged": 9,
+        "n_defective": 7,
+        "n_junk": 5,
+        "n_not_slovak": 5,
+        "precision": 0.7777777777777778,
+        "precision_ci95": [
+          0.4525833436728054,
+          0.9367762376877727
+        ],
+        "language_labels": {
+          "sk-pred": 4,
+          "mix": 4,
+          "other": 1
+        },
+        "quality_labels": {
+          "noisy": 3,
+          "good": 1,
+          "junk": 5
+        }
+      },
+      "human_decision": "approve",
+      "adjudication_group": "G02"
+    },
+    {
+      "id": "czech_documents_mislabeled_as_slovak",
+      "source": "baseline:lowconf",
+      "runs": [],
+      "also_baseline": [],
+      "description": "A substantial share of documents labelled slk with low language_score are actually Czech: fasttext (and often langdetect/lingua_top) identify them as 'cs', and the visible text uses Czech grammar/vocabulary, indicating the pipeline's Slovak classifier confuses the two closely related languages near its decision threshold.",
+      "selector": "language = 'slk' AND fasttext = 'cs'",
+      "assertion": "prevalence <= 0.015584",
+      "n_matched": 412528,
+      "n_evaluated": 26470482,
+      "exact_on_full_corpus": true,
+      "prevalence": 0.015584453656718454,
+      "prevalence_ci95": [
+        0.015537338235164498,
+        0.01563170968247393
+      ],
+      "estimated_docs_full_corpus": 412528,
+      "agent_expected_precision": 0.6,
+      "likely_false_positives": "Genuine Slovak documents that fasttext happens to misclassify as Czech (a known confusion for this language pair, especially on short or code-mixed text) will be wrongly caught by this selector, as will genuinely bilingual cs/sk pages.",
+      "agent_evidence": "Examples include cz.pinterest.com Czech recipe/craft boards, vw-club.cz and nakole.cz Czech forum posts, and many of the firebase doorway pages, all with fasttext='cs' while labelled slk, and language_score sitting near the 0.667 floor seen throughout the sample. Counter-evidence: because Czech and Slovak are close, fasttext itself sometimes mislabels genuine Slovak text as 'cs', so not every row is a true mismatch.",
+      "agent_example_ids": [
+        "<urn:uuid:4b123d20-3033-463b-a4e3-17f939fe3d22>",
+        "<urn:uuid:b80b9a7c-48e8-4011-a29f-8beb9cdadf91>",
+        "<urn:uuid:eb5fcebc-45a9-4d0b-901a-fae29d9cc94f>",
+        "<urn:uuid:0d020677-7d94-4a2b-a40d-a45858ade4b6>",
+        "<urn:uuid:d1284497-969a-42cb-ae1b-b8ad1d75bc41>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 1.0,
+        "LowConf": 0.21584474265989217,
+        "HighDup": 0.0008653958034363728
+      },
+      "max_baseline_overlap": 1.0,
+      "human": {
+        "n_judged": 8,
+        "n_defective": 2,
+        "n_junk": 2,
+        "n_not_slovak": 2,
+        "precision": 0.25,
+        "precision_ci95": [
+          0.07147768885802765,
+          0.5907301208974108
+        ],
+        "language_labels": {
+          "mix": 1,
+          "sk": 2,
+          "sk-pred": 4,
+          "other": 1
+        },
+        "quality_labels": {
+          "junk": 2,
+          "good": 2,
+          "noisy": 4
+        }
+      },
+      "human_decision": "reject",
+      "adjudication_group": "G02"
+    },
+    {
+      "id": "english_documents_mislabeled_as_slovak",
+      "source": "baseline:lowconf",
+      "runs": [],
+      "also_baseline": [
+        "random"
+      ],
+      "description": "A recurring set of documents is written almost entirely in English (English book blurbs, product/company descriptions, academic abstracts, UI strings on .sk sites) yet carries the slk label, with fasttext, langdetect and lingua_top all independently agreeing on 'en'.",
+      "selector": "language = 'slk' AND fasttext = 'en' AND langdetect = 'en' AND lingua_top = 'en'",
+      "assertion": "prevalence <= 0.001942",
+      "n_matched": 51407,
+      "n_evaluated": 26470482,
+      "exact_on_full_corpus": true,
+      "prevalence": 0.0019420500163162878,
+      "prevalence_ci95": [
+        0.0019253502064297547,
+        0.0019588943901849183
+      ],
+      "estimated_docs_full_corpus": 51407,
+      "agent_expected_precision": 0.8,
+      "likely_false_positives": "Pages that are truly majority-Slovak but happen to open with an English-language element (an embedded English review, product name, or navigation snippet) within the first 400 characters would be wrongly flagged as fully English.",
+      "agent_evidence": "Examples: a Nabokov book blurb on pricemania.sk, a machine listing description on machineseeker.sk, a wine-shop description on seaportwineandspirits.com, an English scissors blog post, English hotel descriptions on sk.hotels.com/sk.airbnb.com, and an English club/company description on essenstv.com \u2014 all three independent language identifiers converge on English against the corpus's own slk label. Counter-evidence: some of these pages are genuinely bilingual and the first-400-character window may just have landed on the English portion of an otherwise Slovak page.",
+      "agent_example_ids": [
+        "<urn:uuid:0d2837d9-6487-4579-b2da-ef0e057d0432>",
+        "<urn:uuid:e728b070-1237-4202-9339-4d12ed15b715>",
+        "<urn:uuid:c50c5467-2bd6-4644-88be-654c94a41f54>",
+        "<urn:uuid:022e6bd1-2b45-4c5a-bda3-55cf7aaee953>",
+        "<urn:uuid:ff7416a2-c97e-4d69-89ae-fb40f6a3ab84>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 1.0,
+        "LowConf": 0.32991615927791934,
+        "HighDup": 0.0017118291283288267
+      },
+      "max_baseline_overlap": 1.0,
+      "human": {
+        "n_judged": 0,
+        "n_defective": 0,
+        "n_junk": 0,
+        "n_not_slovak": 0,
+        "precision": null,
+        "precision_ci95": null,
+        "language_labels": {},
+        "quality_labels": {}
+      },
+      "human_decision": "unsure",
+      "adjudication_group": "G02"
+    },
+    {
+      "id": "unrelated_language_contamination",
+      "source": "baseline:lowconf",
+      "runs": [],
+      "also_baseline": [],
+      "description": "A substantial subset of documents are not Slavic-language text at all but English (and occasionally Polish, Russian, German, Turkish) pages \u2014 product listings, hotel booking pages, app stores, code documentation \u2014 where two independent language identifiers agree on the same non-Slovak, non-Czech language, yet the corpus labelled them 'slk'. These are not borderline dialect-confusion cases; they indicate the language-ID stage of the pipeline is unreliable on short/boilerplate-heavy documents.",
+      "selector": "language = 'slk' AND fasttext = langdetect AND fasttext NOT IN ('sk','cs')",
+      "assertion": "prevalence <= 0.002387",
+      "n_matched": 63195,
+      "n_evaluated": 26470482,
+      "exact_on_full_corpus": true,
+      "prevalence": 0.002387376248003342,
+      "prevalence_ci95": [
+        0.0023688567357809174,
+        0.0024060401949495443
+      ],
+      "estimated_docs_full_corpus": 63195,
+      "agent_expected_precision": 0.7,
+      "likely_false_positives": "Pages that are legitimately bilingual (Slovak site with an English product name/quote block) where the majority-language tag is technically correct for the dominant text but the page still contains usable Slovak content; also cases where fastText/langdetect themselves are wrong on very short snippets.",
+      "agent_evidence": "Examples: askfileswaju.web.app (a C-language operators reference table, fasttext=langdetect='en'), pricemania.sk (English book blurb for 'The Luzhin Defense', en/en), machineseeker.sk (English machinery listing, en/en), seaportwineandspirits.com (English business description, en/en), sk.airbnb.com listing (en/en), ikea.com product description (en/en), lenockaslittleworld.blogspot.com (English blog post, en/en). All have language_score ~0.667, i.e. at the low-confidence floor. Counter-evidence: several of these pages do contain a short embedded Slovak fragment (e.g. a Slovak menu breadcrumb on an otherwise English IKEA page), so the page is not 100% non-Slovak, just overwhelmingly so.",
+      "agent_example_ids": [
+        "<urn:uuid:6ebfd155-50b4-4189-8c27-d4496846f9f2>",
+        "<urn:uuid:0d2837d9-6487-4579-b2da-ef0e057d0432>",
+        "<urn:uuid:e728b070-1237-4202-9339-4d12ed15b715>",
+        "<urn:uuid:c50c5467-2bd6-4644-88be-654c94a41f54>",
+        "<urn:uuid:022e6bd1-2b45-4c5a-bda3-55cf7aaee953>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 1.0,
+        "LowConf": 0.31833214653057995,
+        "HighDup": 0.0016931719281588734
+      },
+      "max_baseline_overlap": 1.0,
+      "human": {
+        "n_judged": 0,
+        "n_defective": 0,
+        "n_junk": 0,
+        "n_not_slovak": 0,
+        "precision": null,
+        "precision_ci95": null,
+        "language_labels": {},
+        "quality_labels": {}
+      },
+      "human_decision": "unsure",
+      "adjudication_group": "G02"
+    },
+    {
+      "id": "czech_documents_labeled_slovak",
+      "source": "baseline:random",
+      "runs": [],
+      "also_baseline": [],
+      "description": "Some documents are written in standard Czech, not Slovak, but are labeled 'slk'. These are genuine cross-lingual contamination (not just code-switching), detectable when fasttext or lingua_top independently flag 'cs'.",
+      "selector": "language = 'slk' AND (fasttext = 'cs' OR (lingua_top = 'cs' AND lingua_top_p >= 0.5))",
+      "assertion": "prevalence <= 0.017087",
+      "n_matched": 452288,
+      "n_evaluated": 26470482,
+      "exact_on_full_corpus": true,
+      "prevalence": 0.017086504129392128,
+      "prevalence_ci95": [
+        0.01703720459062739,
+        0.017135943836380205
+      ],
+      "estimated_docs_full_corpus": 452288,
+      "agent_expected_precision": 0.55,
+      "likely_false_positives": "Short/ambiguous Slovak texts (product lists, brand-heavy snippets) that trip lingua_top into 'cs' without the document actually being Czech; genuinely mixed Czech/Slovak macaronic texts (e.g. old folk songs) that are borderline by nature.",
+      "agent_evidence": "receptjidlo.com is a recipe ingredient list in standard Czech ('Men\u0161\u00ed porce', 'cibule', 'brambory', 's\u016fl', 'l\u017ei\u010dka') with fasttext explicitly = 'cs' and language_score only 0.94. konsepti.com is a full Czech-language interior-design article ('kter\u00fd se nach\u00e1z\u00ed', 'Jedn\u00e1 se o penthouse') with lingua_top='cs', p=0.61, language_score 0.85 (visibly lower than typical Slovak-confirmed docs). Counter-evidence: nskmi.sk also has lingua_top='cs' but is a short, genuinely Slovak product list ('zubn\u00e1 pasta') where the classifier likely misfired on brand names \u2014 showing the selector also catches ambiguous short texts that are not true Czech contamination.",
+      "agent_example_ids": [
+        "<urn:uuid:50a15810-b3c1-4f9e-8ba2-f7eaf9c40fab>",
+        "<urn:uuid:4ba9e6d3-a5df-4632-8df3-887aec006a30>",
+        "<urn:uuid:8821f76c-2c7a-4046-965a-273b1365cc10>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 1.0,
+        "LowConf": 0.19860133366350644,
+        "HighDup": 0.0009838863732842791
+      },
+      "max_baseline_overlap": 1.0,
+      "human": {
+        "n_judged": 10,
+        "n_defective": 4,
+        "n_junk": 3,
+        "n_not_slovak": 2,
+        "precision": 0.4,
+        "precision_ci95": [
+          0.16817758120350967,
+          0.6873304525498135
+        ],
+        "language_labels": {
+          "sk-pred": 7,
+          "other": 1,
+          "sk": 1,
+          "mix": 1
+        },
+        "quality_labels": {
+          "noisy": 6,
+          "good": 1,
+          "junk": 3
+        }
+      },
+      "human_decision": "reject",
+      "adjudication_group": "G02"
+    },
+    {
+      "id": "czech_text_mislabeled_slovak",
+      "source": "baseline:random",
+      "runs": [],
+      "also_baseline": [],
+      "description": "A minority of documents are written mostly or entirely in Czech (distinct vocabulary/grammar such as 'brambory', 'kter\u00fd se nach\u00e1z\u00ed', 'vytvo\u0159ila') but are labeled as Slovak, reflecting the pipeline's difficulty separating these mutually-intelligible languages.",
+      "selector": "language = 'slk' AND (fasttext = 'cs' OR (lingua_top = 'cs' AND lingua_top_p > 0.5))",
+      "assertion": "prevalence <= 0.016988",
+      "n_matched": 449669,
+      "n_evaluated": 26470482,
+      "exact_on_full_corpus": true,
+      "prevalence": 0.016987563732311334,
+      "prevalence_ci95": [
+        0.016938404876450104,
+        0.017036862785113887
+      ],
+      "estimated_docs_full_corpus": 449669,
+      "agent_expected_precision": 0.55,
+      "likely_false_positives": "Slovak sites that quote or excerpt Czech-language material (common given the close linguistic ties and shared media market) will be caught even though the page's dominant language is genuinely Slovak; single-tool low-confidence 'cs' votes add further noise.",
+      "agent_evidence": "urn:uuid:50a15810 (receptjidlo.com): fasttext=cs; recipe text uses Czech words ('kuku\u0159ice', 'cibule', 'brambory', 'strou\u017eky \u010desneku', 'pep\u0159', 's\u016fl') rather than their Slovak equivalents. urn:uuid:4ba9e6d3 (konsepti.com): lingua_top=cs, p=0.61; body text '...kter\u00fd se nach\u00e1z\u00ed v historick\u00e9m centru Prahy, vytvo\u0159ila pro investora...' is grammatically Czech, not Slovak. Counter-evidence: a similar low-confidence lingua_top='cs' signal on urn:uuid:8821f76c (nskmi.sk, p=0.30) turned out on inspection to be genuinely Slovak text ('zubn\u00e1 pasta'), showing that low-confidence lingua_top alone is not reliable, which is why the selector requires either fasttext='cs' or a higher-confidence lingua_top.",
+      "agent_example_ids": [
+        "<urn:uuid:50a15810-b3c1-4f9e-8ba2-f7eaf9c40fab>",
+        "<urn:uuid:4ba9e6d3-a5df-4632-8df3-887aec006a30>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 1.0,
+        "LowConf": 0.19968243307855332,
+        "HighDup": 0.0009762736590692264
+      },
+      "max_baseline_overlap": 1.0,
+      "human": {
+        "n_judged": 7,
+        "n_defective": 1,
+        "n_junk": 0,
+        "n_not_slovak": 1,
+        "precision": 0.14285714285714285,
+        "precision_ci95": [
+          0.02567895594897479,
+          0.5131345033190299
+        ],
+        "language_labels": {
+          "mix": 1,
+          "sk-pred": 5,
+          "sk": 1
+        },
+        "quality_labels": {
+          "noisy": 7
+        }
+      },
+      "human_decision": "reject",
+      "adjudication_group": "G02"
+    },
+    {
+      "id": "incoherent_spun_affiliate_content",
+      "source": "baseline:random",
+      "runs": [],
+      "also_baseline": [],
+      "description": "A set of documents on loan/casino/betting affiliate sites contain fluent-at-the-sentence-level Slovak that is nevertheless topically incoherent across the document \u2014 unrelated sentences (tourism facts, sports trivia, legal notices) are stitched next to gambling/loan promotional copy with no topical continuity, indicating spun or automatically assembled SEO content rather than genuine authored text. Unlike the doorway-domain cluster, these pass language identification cleanly because each sentence is well-formed Slovak.",
+      "selector": "domain IN ('terrapermonia.sk','blueplast.sk','prachova.sk','ufophoenix.xyz','dailyufosightings.xyz','lubicon.cz','obecweb.sk')",
+      "assertion": "prevalence <= 0.000344",
+      "n_matched": 9096,
+      "n_evaluated": 26470482,
+      "exact_on_full_corpus": true,
+      "prevalence": 0.000343628045760557,
+      "prevalence_ci95": [
+        0.00033663953571819703,
+        0.0003507615837355348
+      ],
+      "estimated_docs_full_corpus": 9096,
+      "agent_expected_precision": 0.6,
+      "likely_false_positives": "This selector is a closed list drawn only from the sample and will not generalize to the full corpus; a broader keyword-based heuristic (url containing 'pozicka'/'kasino'/'poker') would also catch coherent, legitimate loan-comparison or casino-review articles such as trhoviskopoziciek.sk, which is fluent and topically consistent despite the same keywords.",
+      "agent_evidence": "terrapermonia.sk ('okamzita pozicka piestany') juxtaposes 'V\u010faka jej unik\u00e1tnym, nedotknut\u00fdm pr\u00edrodn\u00fdm kr\u00e1sam, bola vyhl\u00e1sen\u00e1 za n\u00e1rodn\u00fa pamiatku' (tourism) directly with 'ide o DOXXbet no deposit bonus' (gambling) and unrelated cycling-route text. obecweb.sk mixes World Cup match odds with an unrelated sentence about Tallinn's prettiest alley. blueplast.sk mixes a football joke, a train-line renovation notice, and payday-loan copy in adjacent sentences. All are labeled slk with high language_score/fasttext=sk since individual sentences are fluent.",
+      "agent_example_ids": [
+        "<urn:uuid:586689ae-e419-4c0b-a133-eff633d78bcc>",
+        "<urn:uuid:3f541d42-6fae-424b-95b2-2bf362dcef2a>",
+        "<urn:uuid:f65b1398-4ec4-4185-bb9d-c94bed06c4d4>",
+        "<urn:uuid:81929787-ef6b-465d-a0b8-8560fd197119>",
+        "<urn:uuid:8f24c5b7-6cb0-4f02-86ac-030718211f57>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 0.020338610378188213,
+        "LowConf": 0.001978891820580475,
+        "HighDup": 0.0
+      },
+      "max_baseline_overlap": 0.020338610378188213,
+      "human": {
+        "n_judged": 0,
+        "n_defective": 0,
+        "n_junk": 0,
+        "n_not_slovak": 0,
+        "precision": null,
+        "precision_ci95": null,
+        "language_labels": {},
+        "quality_labels": {}
+      },
+      "human_decision": "reject",
+      "adjudication_group": "G08"
+    },
+    {
+      "id": "loan_gambling_seo_spam",
+      "source": "baseline:random",
+      "runs": [],
+      "also_baseline": [],
+      "description": "A set of documents built around 'quick loan' (p\u00f4\u017ei\u010dka) and gambling/casino (kasino, automaty, poker) keywords contain incoherent, topic-jumping text that reads as machine-stitched or spun content optimized for search ranking rather than genuine articles \u2014 a single document abruptly mixes betting-bonus copy with unrelated facts (train schedules, football trivia, travel descriptions, tourist landmarks).",
+      "selector": "url ILIKE '%pozick%' OR url ILIKE '%kasino%' OR url ILIKE '%casino%' OR domain LIKE '%.xyz'",
+      "assertion": "prevalence <= 0.008558",
+      "n_matched": 226542,
+      "n_evaluated": 26470482,
+      "exact_on_full_corpus": true,
+      "prevalence": 0.008558287680594558,
+      "prevalence_ci95": [
+        0.00852326741243414,
+        0.008593450592338726
+      ],
+      "estimated_docs_full_corpus": 226542,
+      "agent_expected_precision": 0.6,
+      "likely_false_positives": "The keyword-based selector will also catch genuine finance/travel articles that legitimately discuss loans or a casino as a place name, and any .xyz-domain site that is not actually spam; the url/domain heuristic is a proxy for a topical-incoherence judgment that SQL alone cannot verify.",
+      "agent_evidence": "urn:uuid:3f541d42 (blueplast.sk, 'pozicka-do-100-eur-brezno'): jumps between a train schedule anecdote, a football club joke, a Tipsport betting-bonus pitch, and a Mediterranean resort description within 400 characters. urn:uuid:df8a21b0 (terrapermonia.sk, 'okamzita-pozicka-piestany'): mixes a nature-reserve description, a DOXXbet no-deposit bonus claim, and off-road driving copy. urn:uuid:e195fd5d (obecweb.sk, football/betting-odds page) mixes a football match preview with an unrelated Tallinn street description. urn:uuid:81929787 (prachova.sk, casino-automaty spam) contains a profanity hit (n_bad_words=1) and generic, incoherent gambling copy. urn:uuid:52ca7fe4 and urn:uuid:3bf84c1d (ufophoenix.xyz, dailyufosightings.xyz) show the same jumbled poker/casino pattern. Counter-evidence: not every url containing 'pozicka' is spam \u2014 some are legitimate travel/rental listings ('rafting - splav rieky V\u00e1h') that happen to contain the substring incidentally.",
+      "agent_example_ids": [
+        "<urn:uuid:3f541d42-6fae-424b-95b2-2bf362dcef2a>",
+        "<urn:uuid:df8a21b0-75d7-4a07-bf53-bf304aae54f2>",
+        "<urn:uuid:81929787-ef6b-465d-a0b8-8560fd197119>",
+        "<urn:uuid:e195fd5d-eedb-47ed-a0e2-5cc6068ca6c6>",
+        "<urn:uuid:52ca7fe4-cfcb-4b67-8417-c476b43e4efa>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 0.02656902472830645,
+        "LowConf": 0.00399484422314626,
+        "HighDup": 0.0006753714542998649
+      },
+      "max_baseline_overlap": 0.02656902472830645,
+      "human": {
+        "n_judged": 0,
+        "n_defective": 0,
+        "n_junk": 0,
+        "n_not_slovak": 0,
+        "precision": null,
+        "precision_ci95": null,
+        "language_labels": {},
+        "quality_labels": {}
+      },
+      "human_decision": "reject",
+      "adjudication_group": "G03"
+    },
+    {
+      "id": "non_slovak_language_mislabeled",
+      "source": "baseline:random",
+      "runs": [],
+      "also_baseline": [],
+      "description": "Some documents labeled language=slk are not Slovak at all (or only marginally contain Slovak text): at least two of the three independent language identifiers (fasttext, langdetect, lingua_top) disagree with the 'sk' label, and manual inspection confirms the snippet is genuinely in another language (usually English).",
+      "selector": "language = 'slk' AND ((fasttext <> 'sk')::int + (langdetect <> 'sk')::int + (lingua_top <> 'sk')::int) >= 2",
+      "assertion": "prevalence <= 0.012538",
+      "n_matched": 331892,
+      "n_evaluated": 26470482,
+      "exact_on_full_corpus": true,
+      "prevalence": 0.012538192542168291,
+      "prevalence_ci95": [
+        0.012495874269801525,
+        0.012580652302930147
+      ],
+      "estimated_docs_full_corpus": 331892,
+      "agent_expected_precision": 0.7,
+      "likely_false_positives": "Documents that are genuinely mixed-language (e.g. a Slovak article quoting an English headline or product name) will trigger this condition even though the bulk of the document is legitimate Slovak text; also very short snippets give language identifiers unstable, low-confidence votes that can flip to 'wrong' by chance.",
+      "agent_evidence": "urn:uuid:a546140d (hurmanblirrikqmph.firebaseapp.com): fasttext=en, langdetect=en, lingua_top=en, text is a fully English UBS Investment Bank RNS stock disclosure. urn:uuid:3d041587 (comicsuniverse.sk): fasttext=en, langdetect=en, lingua_top=en, text is an English cookie notice plus English comic-book blurb. urn:uuid:a63816eb (sk.pinterest.com): langdetect=en, lingua_top=en (p=0.54), text mixes Slovak captions with English pin titles. urn:uuid:f0660b54 (heylibbess.web.app): langdetect=en, lingua_top=en, text is an English FDIC/SEPA finance explainer. Counter-evidence: most slk-labeled documents in the sample have all three identifiers agreeing with 'sk' at high confidence, so this is a minority but real and reproducible failure mode, concentrated among short or boilerplate-heavy pages.",
+      "agent_example_ids": [
+        "<urn:uuid:a546140d-3a6b-4ebb-bfba-5cee9927b4ef>",
+        "<urn:uuid:3d041587-009c-4983-ab4d-75f0c7fab565>",
+        "<urn:uuid:a63816eb-c916-48fe-8721-5c74aa90120a>",
+        "<urn:uuid:f0660b54-41ac-42ac-8c41-60076abb0ce3>"
+      ],
+      "baseline_overlap": {
+        "LID-Disagree": 1.0,
+        "LowConf": 0.30627131717546674,
+        "HighDup": 0.001355862750533306
+      },
+      "max_baseline_overlap": 1.0,
+      "human": {
+        "n_judged": 0,
+        "n_defective": 0,
+        "n_junk": 0,
+        "n_not_slovak": 0,
+        "precision": null,
+        "precision_ci95": null,
+        "language_labels": {},
+        "quality_labels": {}
+      },
+      "human_decision": "unsure",
+      "adjudication_group": "G02"
+    }
+  ],
+  "costs": {
+    "rep2": {
+      "subtype": "success",
+      "num_turns": 78,
+      "duration_ms": 492933,
+      "total_cost_usd": 2.449033499999999,
+      "usage": {
+        "input_tokens": 80,
+        "cache_creation_input_tokens": 145260,
+        "cache_read_input_tokens": 3388895,
+        "output_tokens": 37371,
+        "output_tokens_details": {
+          "thinking_tokens": 23173
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 145260,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2092,
+            "cache_read_input_tokens": 160617,
+            "cache_creation_input_tokens": 3497,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 3497
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "tool_calls": 79,
+      "inspections_used": 173,
+      "findings_saved": 3
+    },
+    "rep1": {
+      "subtype": "success",
+      "num_turns": 85,
+      "duration_ms": 481258,
+      "total_cost_usd": 2.835432,
+      "usage": {
+        "input_tokens": 114,
+        "cache_creation_input_tokens": 138761,
+        "cache_read_input_tokens": 4947230,
+        "output_tokens": 34557,
+        "output_tokens_details": {
+          "thinking_tokens": 15398
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 138761,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2339,
+            "cache_read_input_tokens": 153626,
+            "cache_creation_input_tokens": 3989,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 3989
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "tool_calls": 85,
+      "inspections_used": 180,
+      "findings_saved": 4
+    },
+    "postrefactor_smoke": {
+      "subtype": "success",
+      "num_turns": 53,
+      "duration_ms": 214242,
+      "total_cost_usd": 0.7280288999999999,
+      "usage": {
+        "input_tokens": 28,
+        "cache_creation_input_tokens": 54988,
+        "cache_read_input_tokens": 406273,
+        "output_tokens": 18409,
+        "output_tokens_details": {
+          "thinking_tokens": 9037
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 54988,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2114,
+            "cache_read_input_tokens": 52133,
+            "cache_creation_input_tokens": 2855,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 2855
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "tool_calls": 52,
+      "inspections_used": 8,
+      "findings_saved": 2
+    },
+    "model_opus": {
+      "subtype": "success",
+      "num_turns": 147,
+      "duration_ms": 1134496,
+      "total_cost_usd": 8.171246,
+      "usage": {
+        "input_tokens": 174,
+        "cache_creation_input_tokens": 179228,
+        "cache_read_input_tokens": 9482692,
+        "output_tokens": 65470,
+        "output_tokens_details": {
+          "thinking_tokens": 29819
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 179228,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2021,
+            "cache_read_input_tokens": 178730,
+            "cache_creation_input_tokens": 498,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 498
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "tool_calls": 151,
+      "inspections_used": 124,
+      "findings_saved": 9
+    },
+    "main": {
+      "subtype": "success",
+      "num_turns": 67,
+      "duration_ms": 417046,
+      "total_cost_usd": 2.2115034000000002,
+      "usage": {
+        "input_tokens": 76,
+        "cache_creation_input_tokens": 134516,
+        "cache_read_input_tokens": 3114848,
+        "output_tokens": 31315,
+        "output_tokens_details": {
+          "thinking_tokens": 18819
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 134516,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 2125,
+            "cache_read_input_tokens": 149983,
+            "cache_creation_input_tokens": 684,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 684
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "tool_calls": 67,
+      "inspections_used": 197,
+      "findings_saved": 2
+    },
+    "smoke": {
+      "subtype": "success",
+      "num_turns": 65,
+      "duration_ms": 314207,
+      "total_cost_usd": 1.0602831000000001,
+      "usage": {
+        "input_tokens": 44,
+        "cache_creation_input_tokens": 69336,
+        "cache_read_input_tokens": 874417,
+        "output_tokens": 25454,
+        "output_tokens_details": {
+          "thinking_tokens": 14497
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 69336,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 1890,
+            "cache_read_input_tokens": 68598,
+            "cache_creation_input_tokens": 738,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 738
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      },
+      "tool_calls": 65,
+      "inspections_used": 12,
+      "findings_saved": 2
+    },
+    "lowconf": {
+      "total_cost_usd": 1.0327641,
+      "num_turns": 1,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 144258,
+        "cache_read_input_tokens": 11517,
+        "output_tokens": 10917,
+        "output_tokens_details": {
+          "thinking_tokens": 7469
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 144258,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 10917,
+            "cache_read_input_tokens": 11517,
+            "cache_creation_input_tokens": 144258,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 144258
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      }
+    },
+    "lid_disagree": {
+      "total_cost_usd": 1.1586621000000001,
+      "num_turns": 1,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 145466,
+        "cache_read_input_tokens": 11517,
+        "output_tokens": 18827,
+        "output_tokens_details": {
+          "thinking_tokens": 15243
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 145466,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 18827,
+            "cache_read_input_tokens": 11517,
+            "cache_creation_input_tokens": 145466,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 145466
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      }
+    },
+    "highdup": {
+      "total_cost_usd": 1.0562589,
+      "num_turns": 1,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 146117,
+        "cache_read_input_tokens": 12403,
+        "output_tokens": 11722,
+        "output_tokens_details": {
+          "thinking_tokens": 8079
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 146117,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 11722,
+            "cache_read_input_tokens": 12403,
+            "cache_creation_input_tokens": 146117,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 146117
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      }
+    },
+    "random": {
+      "total_cost_usd": 1.2150381,
+      "num_turns": 1,
+      "usage": {
+        "input_tokens": 2,
+        "cache_creation_input_tokens": 148977,
+        "cache_read_input_tokens": 11517,
+        "output_tokens": 21181,
+        "output_tokens_details": {
+          "thinking_tokens": 17942
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 148977,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 21181,
+            "cache_read_input_tokens": 11517,
+            "cache_creation_input_tokens": 148977,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 148977
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard"
+      }
+    }
+  }
+}

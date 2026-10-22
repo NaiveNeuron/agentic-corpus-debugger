@@ -1,0 +1,33 @@
+id: non_slovak_content_mislabeled_slovak_other_languages
+scope: slk_Latn
+source: baseline:highdup
+description: A small but identifiable set of documents are not Slovak at all (English,
+  or bilingual boilerplate with Polish) yet are labelled slk_Latn, generally with
+  a language_score noticeably below the near-1.0 typical of the rest of the corpus,
+  and with all three independent identifiers agreeing on the other language.
+selector: fasttext = langdetect AND langdetect = lingua_top AND fasttext != 'sk' AND
+  language_score < 0.99
+assertion: prevalence <= 0.003863
+evidence:
+  agent_evidence: pknet.sk (fasttext=langdetect=lingua_top='en', language_score 0.8785)
+    is an English WordPress theme/login page. bicykle.sk (fasttext=langdetect=lingua_top='en',
+    language_score 0.9219) is almost entirely English marketing copy ('Be the first
+    to know about new products...'). oravskemuzeum.sk (fasttext=lingua_top='pl', langdetect='sk',
+    language_score 0.989) is a bilingual Slovak/Polish closure notice.
+  prevalence: 0.003863095503889956
+  prevalence_ci95:
+  - 0.0038395352953859738
+  - 0.0038867997187823143
+  n_matched: 102258
+  evaluated_on: meta
+  exact_on_full_corpus: true
+  agent_expected_precision: 0.55
+  likely_false_positives: Short or template-heavy Slovak documents where the automated
+    identifiers simply disagree due to too little running text, without the document
+    actually being non-Slovak; the language_score<0.99 threshold alone is a weak signal
+    and needs the identifier-agreement condition to be meaningful.
+  example_ids:
+  - <urn:uuid:353fcaa9-7f13-4f07-b65c-7b8b545ec64a>
+  - <urn:uuid:1d2278e1-52d1-4072-97cd-acfa85821683>
+  - <urn:uuid:e9f3fdf3-1ed2-44a8-9d63-19f707c4e38c>
+  selector_error: null

@@ -1,0 +1,47 @@
+id: email_addresses_silently_replaced_by_placeholders
+scope: slk_Latn
+description: The corpus text was silently rewritten by a PII scrubber that replaced
+  essentially every e-mail address with one of two English placeholder strings ("email@example.com"
+  or "firstname.lastname@example.org"). ~3.7% of documents carry these injected tokens,
+  the real addresses are gone, and the redaction is inconsistent (phone numbers and
+  personal names in the very same contact block are left intact).
+selector: text LIKE '%firstname.lastname@example.org%' OR text LIKE '%email@example.com%'
+assertion: Either no document contains the placeholder strings, or the release documents
+  the e-mail substitution and applies it consistently to phone numbers and names as
+  well.
+evidence:
+  agent_evidence: 'Free SQL over the 2,034,896-doc working sample: 76,326 documents
+    contain any string matching an e-mail regex, and 76,133 of them (99.7%) contain
+    one of the two placeholders — i.e. real addresses are essentially absent from
+    the corpus. Grouping the first regex match per document gives ''firstname.lastname@example.org''
+    38,096 and ''email@example.com'' 37,829 as the top two by three orders of magnitude;
+    the few remaining hits are mangled strings where whitespace was lost during extraction
+    (e.g. ''[email]'', 50 docs), not surviving clean
+    addresses. run_detector: 76,133/2,034,896 = 3.74% (95% CI 3.72-3.77%), ≈990k documents
+    extrapolated to the full corpus. I inspected 6 documents drawn by the selector:
+    6/6 genuinely contain an injected placeholder in a natural Slovak contact context
+    (e-shop T&Cs, real-estate listings, company contact blocks). Document <urn:uuid:8990ac89-...>
+    shows the inconsistency directly: agent name ''Ing. Bernardína Beneová'' and phone
+    ''0908 133 421'' are kept verbatim while the e-mail is replaced, so this is not
+    effective anonymisation, only data corruption. Counter-evidence: the affected
+    documents are otherwise fluent Slovak and useful; the defect is a localised token-level
+    corruption plus an undocumented mutation of the source text, not whole-document
+    garbage.</evidence>
+
+    <parameter name="expected_precision">1.0'
+  prevalence: 0.03741370566358183
+  prevalence_ci95:
+  - 0.03715383023889055
+  - 0.03767532768186163
+  n_matched: 76133
+  evaluated_on: corpus
+  exact_on_full_corpus: false
+  agent_expected_precision: null
+  likely_false_positives: A document that genuinely quoted 'email@example.com' as
+    a documentation example (e.g. a tutorial on configuring mail); such uses exist
+    on the web but were not seen in the 6 inspected documents.
+  example_ids:
+  - <urn:uuid:8990ac89-2708-40d4-94df-58e6b9d7d076>
+  - <urn:uuid:cd28060e-e095-4ee6-8d8c-404191ff1cff>
+  - <urn:uuid:a634ab95-0d53-4c7d-9603-29f1cf47ba2a>
+  inspections_used_when_saved: 29

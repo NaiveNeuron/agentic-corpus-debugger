@@ -1,0 +1,58 @@
+{
+  "statuses": [
+    "accepted",
+    "candidate"
+  ],
+  "patches": [
+    "adult_spam_farm_wordsalad",
+    "czech_slovak_code_switched_docs",
+    "czech_text_mislabeled_as_slovak",
+    "firebase_content_farm_spam",
+    "porn_doorway_spam_network",
+    "porn_spam_keyword_farm",
+    "slo_prefix_machine_translated_farm"
+  ],
+  "counts": {
+    "meta": {
+      "before": 26470482,
+      "after": 24854597,
+      "removed": 1615885
+    },
+    "docs": {
+      "before": 2034896,
+      "after": 1910580,
+      "removed": 124316
+    }
+  },
+  "documents_kept": 0.9389552105624673,
+  "failing_before": 2,
+  "failing_after": [
+    "document_ids_unique",
+    "language_score_not_a_probability"
+  ],
+  "not_filterable": [
+    "document_ids_unique",
+    "language_score_not_a_probability"
+  ],
+  "fixed": [
+    "adult_spam_farm_wordsalad",
+    "czech_slovak_code_switched_docs",
+    "czech_text_mislabeled_as_slovak",
+    "firebase_content_farm_spam",
+    "porn_doorway_spam_network",
+    "porn_spam_keyword_farm",
+    "slo_prefix_machine_translated_farm"
+  ],
+  "survived": [
+    {
+      "id": "document_ids_unique",
+      "status": "FAIL",
+      "prevalence": 1.046084150952035e-06
+    },
+    {
+      "id": "language_score_not_a_probability",
+      "status": "FAIL",
+      "prevalence": 0.41505295780897195
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "id": "language_score_not_a_probability",
+    "train": 0.40388867871767503,
+    "heldout": 0.4022980501392758,
+    "ratio": 0.9960617153631307
+  },
+  {
+    "id": "firebase_content_farm_spam",
+    "train": 0.053207833540771944,
+    "heldout": 0.05024373259052925,
+    "ratio": 0.944292019558147
+  },
+  {
+    "id": "adult_spam_farm_wordsalad",
+    "train": 0.003871255536638887,
+    "heldout": 0.003481894150417827,
+    "ratio": 0.8994224528616077
+  },
+  {
+    "id": "porn_spam_keyword_farm",
+    "train": 0.0035868632841668693,
+    "heldout": 0.003342618384401114,
+    "ratio": 0.9319057124803444
+  },
+  {
+    "id": "slo_prefix_machine_translated_farm",
+    "train": 0.0027893334167470012,
+    "heldout": 0.002924791086350975,
+    "ratio": 1.0485627386065408
+  },
+  {
+    "id": "porn_doorway_spam_network",
+    "train": 0.001977825715451649,
+    "heldout": 0.0017061281337047353,
+    "ratio": 0.8626281478573707
+  },
+  {
+    "id": "czech_slovak_code_switched_docs",
+    "train": 0.0016717111535785407,
+    "heldout": 0.0017757660167130919,
+    "ratio": 1.062244522872152
+  },
+  {
+    "id": "czech_text_mislabeled_as_slovak",
+    "train": 0.0012011492650568281,
+    "heldout": 0.0011838440111420613,
+    "ratio": 0.9855927531921288
+  },
+  {
+    "id": "document_ids_unique",
+    "train": 9.82226164223228e-07,
+    "heldout": 0.0,
+    "ratio": 0.0
+  }
+]

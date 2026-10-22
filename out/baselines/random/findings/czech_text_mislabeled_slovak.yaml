@@ -1,0 +1,36 @@
+id: czech_text_mislabeled_slovak
+scope: slk_Latn
+source: baseline:random
+description: A minority of documents are written mostly or entirely in Czech (distinct
+  vocabulary/grammar such as 'brambory', 'který se nachází', 'vytvořila') but are
+  labeled as Slovak, reflecting the pipeline's difficulty separating these mutually-intelligible
+  languages.
+selector: language = 'slk' AND (fasttext = 'cs' OR (lingua_top = 'cs' AND lingua_top_p
+  > 0.5))
+assertion: prevalence <= 0.016988
+evidence:
+  agent_evidence: 'urn:uuid:50a15810 (receptjidlo.com): fasttext=cs; recipe text uses
+    Czech words (''kukuřice'', ''cibule'', ''brambory'', ''stroužky česneku'', ''pepř'',
+    ''sůl'') rather than their Slovak equivalents. urn:uuid:4ba9e6d3 (konsepti.com):
+    lingua_top=cs, p=0.61; body text ''...který se nachází v historickém centru Prahy,
+    vytvořila pro investora...'' is grammatically Czech, not Slovak. Counter-evidence:
+    a similar low-confidence lingua_top=''cs'' signal on urn:uuid:8821f76c (nskmi.sk,
+    p=0.30) turned out on inspection to be genuinely Slovak text (''zubná pasta''),
+    showing that low-confidence lingua_top alone is not reliable, which is why the
+    selector requires either fasttext=''cs'' or a higher-confidence lingua_top.'
+  prevalence: 0.016987563732311334
+  prevalence_ci95:
+  - 0.016938404876450104
+  - 0.017036862785113887
+  n_matched: 449669
+  evaluated_on: meta
+  exact_on_full_corpus: true
+  agent_expected_precision: 0.55
+  likely_false_positives: Slovak sites that quote or excerpt Czech-language material
+    (common given the close linguistic ties and shared media market) will be caught
+    even though the page's dominant language is genuinely Slovak; single-tool low-confidence
+    'cs' votes add further noise.
+  example_ids:
+  - <urn:uuid:50a15810-b3c1-4f9e-8ba2-f7eaf9c40fab>
+  - <urn:uuid:4ba9e6d3-a5df-4632-8df3-887aec006a30>
+  selector_error: null

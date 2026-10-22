@@ -1,0 +1,59 @@
+id: firebase_webapp_content_farm
+scope: slk_Latn
+description: 'A massive programmatic content-farm/doorway-page network hosted on Google
+  Firebase''s free static hosting (*.firebaseapp.com and *.web.app subdomains) accounts
+  for over 5% of the entire corpus. Each domain is auto-named from a finance/scam
+  keyword template (Slovak: akoinvestovat-, akozbohatnut-, pracovnemiesta-, investicie-,
+  predajakcii-, nakupzlata-, dane-, plat-, podnikanie-; Swedish: kopavguld-, hurman-,
+  enklapengar-, investerarpengar-, skatter-, valuta-, lon-, jobb-) plus a random alphanumeric
+  suffix, with URLs of the form /<digits>/<digits>.html. The page text is not authored
+  prose but a concatenation of unrelated scraped fragments (finance tips, celebrity
+  trivia, government-office instructions, product ads, forum snippets) frequently
+  spanning several languages within a single document (Slovak, Czech, Portuguese,
+  Slovenian, Serbo-Croatian, Swedish...). Despite this, the pipeline''s own language
+  classifier assigns these documents ''slk'' with very high confidence (often >0.99)
+  and the shipped fasttext/langdetect/lingua identifiers usually agree on ''sk'',
+  apparently because the Slovak-language fragment(s) embedded in the stitched page
+  dominate surface statistics.'
+selector: domain LIKE '%.firebaseapp.com' OR domain LIKE '%.web.app'
+assertion: Documents from *.firebaseapp.com / *.web.app domains matching the finance-keyword-plus-random-suffix
+  naming template should be excluded from a corpus claiming to be curated, deduplicated,
+  natural Slovak text.
+evidence:
+  agent_evidence: 'Inspected 27 documents matching this selector across three random
+    samples (seeds 21, 99, plus 2 via inspect_document for full text): 27/27 showed
+    the same signature — incoherent concatenation of scraped, topically-unrelated
+    fragments, often multi-language within one document, hosted on a freshly-suffixed
+    keyword-themed Firebase subdomain, with the numeric-path URL pattern. domain_stats/aggregate
+    confirm 2,851 distinct such domains in the corpus, each contributing roughly 2,000-2,600
+    documents (share_of_domain effectively 1.0, i.e. every document these domains
+    contribute matches), which is consistent with automated bulk generation rather
+    than organic sites. Full-text inspection of two documents showed paragraph-by-paragraph
+    language switching (Slovak paragraph, then Portuguese pesticide-ad paragraph,
+    then Serbian public-transport-card instructions, then Czech privacy-policy boilerplate)
+    with no topical or grammatical coherence between paragraphs — this is not translated
+    or code-switched natural text but mechanically concatenated scrape output. Prevalence:
+    1,408,437 / 26,470,482 = 5.32% of the full corpus, making it likely the single
+    largest coherent quality defect found in this audit. No counter-examples (legitimate
+    firebaseapp.com/web.app sites) were found in any of the three samples or in a
+    targeted check of the 50 most frequent such domains, all of which fit the keyword+suffix
+    naming template.'
+  prevalence: 0.053207833540771944
+  prevalence_ci95:
+  - 0.05312239361012374
+  - 0.05329340315523455
+  n_matched: 1408437
+  evaluated_on: corpus_meta
+  exact_on_full_corpus: true
+  agent_expected_precision: 0.95
+  likely_false_positives: A legitimate small business or personal project hosted on
+    Firebase's free tier with organically-written Slovak content would also match
+    this domain pattern; none were observed in ~30 inspected documents, but the selector
+    cannot distinguish them from the spam network by domain alone.
+  example_ids:
+  - <urn:uuid:ee91de6c-440d-45bb-8bae-17c08b7e641c>
+  - <urn:uuid:d7112c96-7fd9-431d-96a1-18398117590b>
+  - <urn:uuid:c71024ee-418b-437c-b266-7f547bcfe18b>
+  - <urn:uuid:dc6b7658-5d9b-49c0-91cc-ba9bd0b8fd09>
+  - <urn:uuid:7f0200ba-d731-4f04-aa97-41538576a233>
+  inspections_used_when_saved: 117

@@ -1,0 +1,67 @@
+id: porn_doorway_spam_network
+scope: slk_Latn
+status: accepted
+description: A second, distinct content-farm/doorway-page spam network -- unrelated
+  to the firebaseapp/web.app finance farm -- serves auto-generated pornography aggregator
+  pages under ~60+ unrelated-looking domains with generic personal/company names and
+  varied TLDs (adv-moto-girl.bike, baazzaa.com, agencerepublique.net/.me, aaronpowell.me,
+  bananapepper.fr, americanislandsregionalcenter.us, etc.). Pages are keyword-stuffed
+  concatenations of pornographic video-tag phrases machine-translated/rendered into
+  Slovak, not coherent prose, and repeat the same tag vocabulary across thousands
+  of near-identical URLs per domain.
+selector: n_bad_words > 5
+assertion: prevalence <= 0.00237339
+discovered_by: agent
+found_in_runs:
+- rep1
+evidence:
+  prevalence: 0.001977825715451649
+  prevalence_ci95:
+  - 0.001960972427061278
+  - 0.00199482355744003
+  n_matched: 52354
+  n_evaluated: 26470482
+  exact_on_full_corpus: true
+  human_precision: 1.0
+  human_precision_ci95:
+  - 0.8388698745050667
+  - 0.9999999999999998
+  n_human_judgments: 20
+  human_language_labels:
+    sk: 1
+    sk-pred: 19
+  human_quality_labels:
+    junk: 20
+  agent_expected_precision: 0.9
+  likely_false_positives: Legitimate Slovak news/health/forum articles that discuss
+    sex education, sexual health, or crime reporting and happen to use several profanity-list
+    words in a short document (e.g. a rape/abuse news story) could cross the n_bad_words>5
+    threshold without being spam; none were observed in the 15-document sample but
+    the mechanism is plausible for low-count crossings.
+  agent_evidence: 'n_bad_words > 5 selects 52,354 of 26,470,482 documents (0.20%)
+    across 660 distinct domains. domain_stats shows dozens of domains where 40-65%
+    of ALL that domain''s documents match this threshold (e.g. adv-moto-girl.bike
+    63%, accesslocator.net 64%, badotea.info 63%), indicating whole-domain spam rather
+    than incidental profanity. A follow-up aggregate restricting to domains where
+    >15% of the domain''s own documents exceed the threshold (and the domain has >50
+    docs) found 63 such domains totaling 99,008 documents (0.37% of the corpus) --
+    i.e. the true footprint of this spam network is roughly double what the bad-words
+    threshold alone catches, since many of its pages use euphemisms/fewer flagged
+    terms per page. I inspected 15 sampled documents via evaluate_detector (seed=11):
+    all 15 (100%) were confirmed pornographic-tag doorway pages with no coherent Slovak
+    prose, matching the pattern (e.g. ''Manelka berie prvy vek penis'', ''eben-ghetto-sex'',
+    keyword strings like ''Sexy čierna eben sluts sex pre monny''). language_score
+    on these was very high (0.99+) since the individual words/phrases are valid Slovak
+    translations, so the language filter does not catch them.'
+  agent_example_ids:
+  - <urn:uuid:097d5e6b-7335-43d3-9ad3-8af0ccdbef58>
+  - <urn:uuid:51c5dab9-fa95-4d95-b85a-a42d0fb44c52>
+  - <urn:uuid:0bbbaa84-b461-4db1-8013-807a7f217e33>
+  - <urn:uuid:c40fc7e9-7b8d-4ae2-905d-e8bed1f25b01>
+  overlap_with_static_slices:
+    LID-Disagree: 0.10331588799327654
+    LowConf: 0.03419031974634221
+    HighDup: 1.9100737288459333e-05
+  human_decision: approve
+  human_note: adult word-salad, .83 (n=12), 1.00 (n=20), .84 (n=19)
+  adjudication_group: G04

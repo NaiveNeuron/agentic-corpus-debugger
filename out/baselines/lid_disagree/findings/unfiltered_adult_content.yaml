@@ -1,0 +1,32 @@
+id: unfiltered_adult_content
+scope: slk_Latn
+source: baseline:lid_disagree
+description: Explicit pornographic content is present in the Slovak slice despite
+  the pipeline recording a profanity-match signal (n_bad_words) that could have been
+  used to filter it; documents with several profanity-list hits are graphic adult-video
+  listings rather than borderline slang usage.
+selector: language='slk' AND n_bad_words >= 4
+assertion: prevalence <= 0.002994
+evidence:
+  agent_evidence: slovhubkia.com entries (n_bad_words 4–7) are explicit pornographic
+    video descriptions; alexpichel.com (n_bad_words 9) is an explicit porn-listing
+    page. These pass the quality/dedup pipeline unfiltered and are indistinguishable
+    in the metadata from ordinary documents except for the bad-word count, which was
+    evidently not used as an exclusion threshold.
+  prevalence: 0.002993825348552399
+  prevalence_ci95:
+  - 0.0029730842290100925
+  - 0.0030147107267933905
+  n_matched: 79248
+  evaluated_on: meta
+  exact_on_full_corpus: true
+  agent_expected_precision: 0.8
+  likely_false_positives: Documents with several incidental profanity-list matches
+    that are not adult content (e.g. crude blog comments, angry forum arguments, or
+    word-list false hits on unrelated vocabulary).
+  example_ids:
+  - <urn:uuid:33a88e12-e0e0-458b-84b7-87a51783d8f5>
+  - <urn:uuid:c2e1923d-db9f-409a-bdc7-da29952cb3d7>
+  - <urn:uuid:af5acf6b-dc9e-4c7a-ad2f-81093895b36f>
+  - <urn:uuid:3e2c3d91-17ad-432f-b446-4dda8c0634f8>
+  selector_error: null

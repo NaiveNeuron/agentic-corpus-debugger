@@ -1,0 +1,106 @@
+{
+  "tests": [
+    {
+      "id": "firebase_content_farm_spam",
+      "status": "PASS",
+      "assertion": "prevalence <= 0.06384940",
+      "kind": "prevalence_guard",
+      "n_matched": 1212,
+      "n_evaluated": 32557,
+      "prevalence": 0.03722701723131738,
+      "prevalence_ci95": [
+        0.03522453064646267,
+        0.03933870177318093
+      ],
+      "exact_on_full_corpus": true,
+      "seconds": 0.002
+    },
+    {
+      "id": "slo_prefix_machine_translated_farm",
+      "status": "PASS",
+      "assertion": "prevalence <= 0.00334720",
+      "kind": "prevalence_guard",
+      "n_matched": 84,
+      "n_evaluated": 32557,
+      "prevalence": 0.0025800903031606105,
+      "prevalence_ci95": [
+        0.002084643905939071,
+        0.003192910099298926
+      ],
+      "exact_on_full_corpus": true,
+      "seconds": 0.001
+    },
+    {
+      "id": "document_ids_unique",
+      "status": "PASS",
+      "assertion": "n_matched == 0",
+      "kind": "metadata_invariant",
+      "n_matched": 0,
+      "n_evaluated": 32557,
+      "prevalence": 0.0,
+      "prevalence_ci95": [
+        0.0,
+        0.00011798220842055876
+      ],
+      "exact_on_full_corpus": true,
+      "seconds": 0.007
+    },
+    {
+      "id": "language_score_not_a_probability",
+      "status": "FAIL",
+      "assertion": "n_matched == 0",
+      "kind": "metadata_invariant",
+      "n_matched": 12288,
+      "n_evaluated": 32557,
+      "prevalence": 0.37743035291949506,
+      "prevalence_ci95": [
+        0.37217952413170785,
+        0.382710103782578
+      ],
+      "exact_on_full_corpus": true,
+      "seconds": 0.001
+    }
+  ],
+  "seconds": 0.02,
+  "scope": "slk_Latn",
+  "skipped_out_of_scope": [],
+  "unmeasurable": [
+    {
+      "id": "adult_spam_farm_wordsalad",
+      "needs": [
+        "bad_words"
+      ]
+    },
+    {
+      "id": "czech_slovak_code_switched_docs",
+      "needs": [
+        "fasttext",
+        "langdetect",
+        "lingua"
+      ]
+    },
+    {
+      "id": "czech_text_mislabeled_as_slovak",
+      "needs": [
+        "fasttext",
+        "langdetect",
+        "lingua"
+      ]
+    },
+    {
+      "id": "porn_doorway_spam_network",
+      "needs": [
+        "bad_words"
+      ]
+    },
+    {
+      "id": "porn_spam_keyword_farm",
+      "needs": [
+        "bad_words"
+      ]
+    }
+  ],
+  "malformed": [],
+  "n_total": 32557,
+  "n_sample": 2504
+}

@@ -1,0 +1,38 @@
+id: czech_documents_mislabeled_as_slovak
+scope: slk_Latn
+source: baseline:lowconf
+description: 'A substantial share of documents labelled slk with low language_score
+  are actually Czech: fasttext (and often langdetect/lingua_top) identify them as
+  ''cs'', and the visible text uses Czech grammar/vocabulary, indicating the pipeline''s
+  Slovak classifier confuses the two closely related languages near its decision threshold.'
+selector: language = 'slk' AND fasttext = 'cs'
+assertion: prevalence <= 0.015584
+evidence:
+  agent_evidence: 'Examples include cz.pinterest.com Czech recipe/craft boards, vw-club.cz
+    and nakole.cz Czech forum posts, and many of the firebase doorway pages, all with
+    fasttext=''cs'' while labelled slk, and language_score sitting near the 0.667
+    floor seen throughout the sample. Counter-evidence: because Czech and Slovak are
+    close, fasttext itself sometimes mislabels genuine Slovak text as ''cs'', so not
+    every row is a true mismatch.'
+  prevalence: 0.015584453656718454
+  prevalence_ci95:
+  - 0.015537338235164498
+  - 0.01563170968247393
+  n_matched: 412528
+  evaluated_on: meta
+  exact_on_full_corpus: true
+  agent_expected_precision: 0.6
+  likely_false_positives: Genuine Slovak documents that fasttext happens to misclassify
+    as Czech (a known confusion for this language pair, especially on short or code-mixed
+    text) will be wrongly caught by this selector, as will genuinely bilingual cs/sk
+    pages.
+  example_ids:
+  - <urn:uuid:4b123d20-3033-463b-a4e3-17f939fe3d22>
+  - <urn:uuid:b80b9a7c-48e8-4011-a29f-8beb9cdadf91>
+  - <urn:uuid:eb5fcebc-45a9-4d0b-901a-fae29d9cc94f>
+  - <urn:uuid:0d020677-7d94-4a2b-a40d-a45858ade4b6>
+  - <urn:uuid:d1284497-969a-42cb-ae1b-b8ad1d75bc41>
+  - <urn:uuid:06b8edf0-0e71-4618-90bf-213240812e07>
+  - <urn:uuid:033f9c29-95b6-4df8-8718-c1b9e5b690ef>
+  - <urn:uuid:458d49fb-3555-4398-9724-a8cb4a0f03ac>
+  selector_error: null

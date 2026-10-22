@@ -1,0 +1,70 @@
+id: czech_text_mislabeled_as_slovak
+scope: slk_Latn
+status: accepted
+description: A systematic slice of documents are substantially or entirely Czech-language
+  text (product data, forum posts, cookie notices, thesis metadata, Pinterest boards)
+  that the corpus nonetheless labels as Slovak (slk_Latn). These typically come from
+  bilingual CZ/SK commerce platforms, cross-posted forums, and Pinterest country mirrors
+  that reuse Czech copy on .sk domains or vice versa.
+selector: fasttext='cs' AND langdetect='cs' AND lingua_top='cs' AND NOT (domain LIKE
+  '%.firebaseapp.com' OR domain LIKE '%.web.app')
+assertion: prevalence <= 0.00144138
+discovered_by: agent
+found_in_runs:
+- rep1
+evidence:
+  prevalence: 0.0012011492650568281
+  prevalence_ci95:
+  - 0.0011880263579465444
+  - 0.0012144169511996126
+  n_matched: 31795
+  n_evaluated: 26470482
+  exact_on_full_corpus: true
+  human_precision: 0.5294117647058824
+  human_precision_ci95:
+  - 0.3096289731154949
+  - 0.738351988039119
+  n_human_judgments: 17
+  human_language_labels:
+    mix: 8
+    sk-pred: 8
+    cs: 1
+  human_quality_labels:
+    noisy: 17
+  agent_expected_precision: 0.8
+  likely_false_positives: Genuinely bilingual CZ/SK forum threads where the majority
+    language present may still be Slovak in aggregate across the page; Slovak academic
+    abstracts hosted on Czech institutional repositories (dspace.vutbr.cz) where only
+    template/metadata fields are Czech but the abstract body is authentic Slovak.
+  agent_evidence: '44,251 of 26,470,482 documents (0.17%) have all three independent
+    language identifiers (fasttext, langdetect, lingua) agreeing on Czech while the
+    pipeline''s own label is Slovak. domain_stats shows this concentrated in identifiable
+    domain classes: Pinterest country mirrors (cz.pinterest.com 9.9% of its own docs,
+    sk.pinterest.com 2.7%), CZ/SK shared e-commerce catalogs (latky-marlen.sk 39%,
+    tenisove-zbozi.cz 51%, sracky.1984.cz 76% -- though the last is actually a nonsense/profanity
+    generator, a separate issue), bilingual parenting/forum sites (modrykonik.sk/.cz),
+    and a Czech thesis repository (dspace.vutbr.cz, 8.7%, though many of these have
+    genuinely Slovak abstracts with only Czech/English metadata labels -- a partial
+    false positive). I inspected 15+15 sampled documents (evaluate_detector seed=9
+    n=15 and sample_documents seed=3/4): the large majority (~13/15, ~87%) were dominantly
+    or entirely Czech running text (e.g. latky-marlen.sk fabric descriptions in Czech,
+    mandarinka.cz jewelry descriptions in Czech, arome.cz classified ad, audiozone.cz
+    forum reply) with at most a Slovak sentence or two; a minority were genuinely
+    bilingual forum threads (modrykonik) where Slovak and Czech speakers converse
+    in their own language on the same page. I also checked fasttext=''cs'' alone (without
+    langdetect/lingua agreement): that weaker condition was much noisier, catching
+    many genuinely Slovak pages that fasttext misclassifies on short/quote-heavy text
+    (forum.zdravie.sk, zlavoking.sk, new.rcsolosnica.sk all pure Slovak) -- so I did
+    not use it.'
+  agent_example_ids:
+  - <urn:uuid:da31a797-8fb8-4c32-89f9-cbc79820299d>
+  - <urn:uuid:faf2b598-326b-492a-9411-343e5e9dcfca>
+  - <urn:uuid:1474f3b4-313f-43f7-9f4b-308812812867>
+  - <urn:uuid:5d47e13c-0427-4c76-a254-5445155073dd>
+  overlap_with_static_slices:
+    LID-Disagree: 1.0
+    LowConf: 0.5335115584211354
+    HighDup: 0.0010378990407296745
+  human_decision: approve
+  human_note: labels support it, 0.53 (n=17)
+  adjudication_group: G02

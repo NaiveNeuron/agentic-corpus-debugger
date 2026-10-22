@@ -1,0 +1,43 @@
+id: advertising_boilerplate_spliced_into_text
+scope: slk_Latn
+description: On zdravie.sk — the single largest host in the corpus (355,542 docs,
+  1.34%) — the text extractor kept the page's paid text-ad block, so about 69% of
+  its documents end with a "Textová Inzercia" header followed by unrelated advertising
+  copy (sports shops, IT services, erectile-dysfunction remedies) welded onto the
+  user's forum post.
+selector: text LIKE '%Textová Inzercia%'
+assertion: Extracted document text should not contain a site's paid text-ad block;
+  no host should have &gt;5% of its documents carrying an advertising marker.
+evidence:
+  agent_evidence: 'Free SQL on the 2,034,896-doc working sample: 18,887 documents
+    contain the marker, spread over only 3 hosts, of which zdravie.sk contributes
+    18,661; within the sample zdravie.sk has 27,188 documents, so 68.6% of that host''s
+    documents are affected. Scaled to the host''s full-corpus size (355,542 docs)
+    that is ≈244k documents, ≈0.92% of the corpus. I inspected 5 zdravie.sk documents:
+    4 random ones (3 of which carried the ad block) plus a full read of <urn:uuid:e5a8ab93-...>,
+    a 538-character forum question about a persistent cough whose last 155 characters
+    are an EXIsport shoe advertisement with no relation to the post; another carried
+    an "Erexus vyrieši váš problém!" pharma ad. Because zdravie.sk documents are short
+    (mean 177 words), the injected ad can be a quarter or more of the document. Counter-evidence
+    that this is NOT a corpus-wide extraction failure: generic boilerplate markers
+    are rare overall — a standalone "Reklama" line occurs in only 2,443 docs (0.12%),
+    "Prihlásiť sa" in 8,645 (0.42%), a leading cookie banner in ~13,600 (0.67%) —
+    so the extractor is generally clean and this is a host-specific template it fails
+    on. The marker itself is unambiguous: no document I saw contains "Textová Inzercia"
+    as genuine editorial content.</evidence>
+
+    <parameter name="expected_precision">0.97'
+  prevalence: 0.009281555421014146
+  prevalence_ci95:
+  - 0.00915072267474707
+  - 0.009414240979825756
+  n_matched: 18887
+  evaluated_on: corpus
+  exact_on_full_corpus: false
+  agent_expected_precision: null
+  likely_false_positives: A document genuinely discussing text advertising, or a media-industry
+    article quoting the phrase.
+  example_ids:
+  - <urn:uuid:e5a8ab93-68d1-4a77-a71e-de8b05559662>
+  - <urn:uuid:1e9cb2d5-29ea-4fa9-8b2c-bb118989613d>
+  inspections_used_when_saved: 116

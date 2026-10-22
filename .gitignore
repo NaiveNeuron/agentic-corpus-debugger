@@ -1,0 +1,11 @@
+# the 63 GB corpus and its derived tables are not redistributed here
+data/
+logs/
+.venv/
+__pycache__/
+*.pyc
+paper/
+# released artefacts live under out/; only the bulky raw streams are pruned
+out/runs/smoke/
+out/patches/
+dist/

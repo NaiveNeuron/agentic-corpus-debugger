@@ -1,0 +1,12 @@
+{
+  "single_cs": 491,
+  "single_sk": 36,
+  "acc_cs": 0.835030549898167,
+  "acc_sk": 0.6666666666666666,
+  "joint": 655,
+  "joint_called_czech": 446,
+  "joint_called_czech_share": 0.6809160305343511,
+  "ambiguous_share_of_cs_sk_material": 0.5541455160744501,
+  "median_joint_chars": 24,
+  "note": "External calibration from CHALIS (Tichy and Libovicky, 2026). Only lingua is exercised: it is the identifier this project already depends on. Forced binary Czech-vs-Slovak, the hardest setting."
+}

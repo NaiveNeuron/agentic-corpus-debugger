@@ -1,0 +1,33 @@
+id: parked_domain_placeholder_pages
+scope: slk_Latn
+source: baseline:highdup
+description: Some documents are not real content pages at all but auto-generated 'this
+  domain has no website yet' / hosting-registrar placeholder pages (typically from
+  Websupport.sk-style templates), which contain no topical content and are near-identical
+  to each other across many different domains.
+selector: text LIKE '%K tejto doméne zatiaľ neexistuje žiadny webhosting%' OR text
+  LIKE '%Na tejto%doméne zatiaľ%nič nie je%' OR text LIKE '%doména je parkovaná%'
+  OR text LIKE '%Websupport.sk ponúka najnižšie ceny domén%'
+assertion: prevalence <= 0.000001
+evidence:
+  agent_evidence: 4init.sk ('Na tejto doméne zatiaľ nič nie je... Websupport'), agrobiochemix.pl
+    ('K tejto doméne zatiaľ neexistuje žiadny webhosting... Websupport.sk'), jezirka-stavby.cz
+    ('Doména je parkovaná na CZECHIA.COM') are all templated registrar placeholder
+    pages with essentially zero unique or topical content, two of them on non-.sk
+    TLDs (.pl, .cz).
+  prevalence: 9.828512120521148e-07
+  prevalence_ci95:
+  - 2.695276524411667e-07
+  - 3.5840281047966495e-06
+  n_matched: 2
+  evaluated_on: corpus_view
+  exact_on_full_corpus: false
+  agent_expected_precision: 0.85
+  likely_false_positives: Legitimate pages that happen to mention a registrar in passing
+    without being a parked-domain placeholder themselves; low-recall pattern so precision
+    should stay high.
+  example_ids:
+  - <urn:uuid:884a4503-1c3e-4899-bdd1-2affb13ffdce>
+  - <urn:uuid:016ae022-ffab-49eb-8096-c82c72ecec40>
+  - <urn:uuid:a3b4d714-1929-42ac-a369-b6083a95c38c>
+  selector_error: null

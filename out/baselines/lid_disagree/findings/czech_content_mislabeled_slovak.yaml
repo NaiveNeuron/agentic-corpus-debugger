@@ -1,0 +1,38 @@
+id: czech_content_mislabeled_slovak
+scope: slk_Latn
+source: baseline:lid_disagree
+description: A recurring subset of documents is written substantially or entirely
+  in Czech (recipes, forum posts, product boilerplate, cookie/legal notices) but is
+  labeled slk_Latn, apparently because Czech and Slovak are close enough to confuse
+  the pipeline's language detector, especially on Czech-hosted (.cz) or Czech-Slovak
+  shared e-shop content.
+selector: language='slk' AND fasttext='cs' AND langdetect='cs'
+assertion: prevalence <= 0.004327
+evidence:
+  agent_evidence: 'huskysk.sk text is fully Czech (''Nesedí Vám námi dodaný výrobek...
+    Husky nabízí možnost VÝMĚNY zboží''); tratovestroje.net opens with a Czech historical/technical
+    passage (''V roce 1921 zakoupily ČSD...''); behej.com is a Czech running-forum
+    post (''dnes se mně... nedařilo dostat tepy''); eshop.autopalace.sk pages mix
+    short Slovak product codes with Czech legal boilerplate (''Pokračováním v prohlížení
+    této stránky souhlasím...''). Counter-evidence: lecba-rakoviny.cz shows a genuinely
+    Slovak-written question posted on a Czech medical site, so fasttext=cs/langdetect=cs
+    does not always mean the document is actually Czech-dominant.'
+  prevalence: 0.004326517363756353
+  prevalence_ci95:
+  - 0.004301585580755661
+  - 0.004351593018634751
+  n_matched: 114525
+  evaluated_on: meta
+  exact_on_full_corpus: true
+  agent_expected_precision: 0.55
+  likely_false_positives: Genuinely bilingual Czech-Slovak documents (quoted Slovak
+    speech inside a Czech article, or vice versa), and short/ambiguous product-listing
+    text where both fasttext and langdetect default to 'cs' even though the actual
+    majority text is Slovak.
+  example_ids:
+  - <urn:uuid:59c7ae48-fc31-4865-8179-60d08d65096c>
+  - <urn:uuid:c5b7ca4d-9f7b-4832-a90d-5ddb6136fcc6>
+  - <urn:uuid:5cd8be56-9975-400b-b7ad-c9ef0390ecc5>
+  - <urn:uuid:31cc4107-9898-4d63-bd0a-ec483ed39f2b>
+  - <urn:uuid:36553d4b-e69c-4616-bf4d-c6704863dab6>
+  selector_error: null

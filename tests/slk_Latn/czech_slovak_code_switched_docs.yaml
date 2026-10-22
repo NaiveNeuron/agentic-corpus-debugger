@@ -1,0 +1,71 @@
+id: czech_slovak_code_switched_docs
+scope: slk_Latn
+status: accepted
+description: A systematic subset of documents are Czech-language or heavily Czech/Slovak
+  code-switched, not clean Slovak, yet are labelled language='slk' with high language_score.
+  This mostly comes from (a) Slovak e-commerce sites that paste Czech-language product
+  descriptions/reviews verbatim from shared CZ/SK catalogs and (b) cz.pinterest.com
+  / forum pages whose captions and comments mix Czech and Slovak. Because Czech and
+  Slovak are highly mutually intelligible, the pipeline's own LID and all three shipped
+  auxiliary LIDs (fasttext, langdetect, lingua) confidently but wrongly agree that
+  many such documents are Slovak, and even when they agree the document is Czech,
+  the corpus still ships it labelled slk.
+selector: fasttext='cs' AND langdetect='cs' AND lingua_top='cs'
+assertion: prevalence <= 0.00200605
+discovered_by: agent
+found_in_runs:
+- rep2
+evidence:
+  prevalence: 0.0016717111535785407
+  prevalence_ci95:
+  - 0.00165622033878475
+  - 0.0016873466108217286
+  n_matched: 44251
+  n_evaluated: 26470482
+  exact_on_full_corpus: true
+  human_precision: 0.8095238095238095
+  human_precision_ci95:
+  - 0.599990134607267
+  - 0.923325593848227
+  n_human_judgments: 21
+  human_language_labels:
+    mix: 14
+    sk-pred: 5
+    other: 1
+    cs: 1
+  human_quality_labels:
+    junk: 7
+    noisy: 14
+  agent_expected_precision: 0.7
+  likely_false_positives: Genuinely Slovak documents (colloquial forum speech, short
+    lists of proper nouns/brand names, or terse product listings) that confuse all
+    three external language identifiers into guessing Czech even though the corpus's
+    own slk label is correct.
+  agent_evidence: 'Inspected 22 documents where all three auxiliary LIDs (fasttext,
+    langdetect, lingua_top) independently label the text ''cs'' while the corpus''s
+    own pipeline still labels it ''slk'' (seeds 2 and 3). About 16/22 clearly contained
+    substantial or dominant Czech-language text: pure-Czech pages crawled from .cz
+    domains (ciirc.cvut.cz academic page, dg-shop.cz, zks-shop.cz, stoklasa-sk.sk,
+    monelli.cz), and, more frequently, nominally-Slovak e-shops (bonami.sk, svet-kupelne.sk,
+    krasnadoma.sk, b2b.agfoods.sk, kuchynsky-drez.sk) and cz.pinterest.com boards
+    whose product/recipe text is untranslated Czech pasted alongside Slovak site chrome.
+    Counter-evidence: 6/22 were false positives where the text was actually fully
+    idiomatic Slovak (e.g. bezkempu.cz camping listing, modrykonik.sk forum posts,
+    a car-brand name list) that all three external LIDs misjudged as Czech, presumably
+    because Slovak dialectal/colloquial text and short brand-name lists are hard to
+    distinguish from Czech. Prevalence of the strict triple-agreement selector is
+    44,251/26,470,482 = 0.17% of the full corpus; loosening to fasttext=''cs'' alone
+    matches 412,528 (1.6%) but with visibly lower precision on manual inspection.'
+  agent_example_ids:
+  - <urn:uuid:f446353c-c2cb-4c05-b7cb-3f0c702a0945>
+  - <urn:uuid:d3b4a245-3181-43d3-b661-fff063f78785>
+  - <urn:uuid:ccae2f4f-5717-4466-92d5-194ef9a7e72f>
+  - <urn:uuid:c0b4af37-1006-41e7-ac71-6fb8110cd5f0>
+  - <urn:uuid:2304b1ba-e60f-4515-8141-b3cbd0f883e0>
+  overlap_with_static_slices:
+    LID-Disagree: 1.0
+    LowConf: 0.5775462701407877
+    HighDup: 0.0007457458588506474
+  human_decision: approve
+  human_note: labels support it, 0.81 (n=21)
+  adjudication_group: G02

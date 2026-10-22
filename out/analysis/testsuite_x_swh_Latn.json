@@ -1,0 +1,49 @@
+{
+  "tests": [
+    {
+      "id": "document_ids_unique",
+      "status": "PASS",
+      "assertion": "n_matched == 0",
+      "kind": "metadata_invariant",
+      "n_matched": 0,
+      "n_evaluated": 12669,
+      "prevalence": 0.0,
+      "prevalence_ci95": [
+        -2.7096837782654162e-20,
+        0.00030313643311062925
+      ],
+      "exact_on_full_corpus": true,
+      "seconds": 0.004
+    },
+    {
+      "id": "language_score_not_a_probability",
+      "status": "PASS",
+      "assertion": "n_matched == 0",
+      "kind": "metadata_invariant",
+      "n_matched": 0,
+      "n_evaluated": 12669,
+      "prevalence": 0.0,
+      "prevalence_ci95": [
+        -2.7096837782654162e-20,
+        0.00030313643311062925
+      ],
+      "exact_on_full_corpus": true,
+      "seconds": 0.0
+    }
+  ],
+  "seconds": 0.02,
+  "scope": "swh",
+  "skipped_out_of_scope": [
+    "adult_spam_farm_wordsalad",
+    "czech_slovak_code_switched_docs",
+    "czech_text_mislabeled_as_slovak",
+    "firebase_content_farm_spam",
+    "porn_doorway_spam_network",
+    "porn_spam_keyword_farm",
+    "slo_prefix_machine_translated_farm"
+  ],
+  "unmeasurable": [],
+  "malformed": [],
+  "n_total": 12669,
+  "n_sample": 1005
+}

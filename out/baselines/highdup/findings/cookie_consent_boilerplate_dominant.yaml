@@ -1,0 +1,38 @@
+id: cookie_consent_boilerplate_dominant
+scope: slk_Latn
+source: baseline:highdup
+description: A very large share of documents open with (and are sometimes almost entirely
+  composed of) generic cookie-consent / GDPR notices rather than substantive page
+  content. Because the crawler/extractor captured this legal boilerplate as the primary
+  text, many 'unique' post-dedup documents contribute little genuine linguistic content
+  and are highly repetitive in structure/vocabulary across completely unrelated sites.
+selector: LOWER(SUBSTR(text,1,250)) LIKE '%cookie%' OR LOWER(SUBSTR(text,1,250)) LIKE
+  '%súbory cookie%'
+assertion: prevalence <= 0.005738
+evidence:
+  agent_evidence: teatrotatro.sk, zootechnika.sk, tanierik.sk, rajmodelov.sk, muzeumkremnica.sk,
+    essensparfumy.sk, knplast.sk, kucharske-noze-doplnky pages, h-ios.sk, harris.peakston.sk,
+    prva-lekaren.sk, feedo.sk all open with near-identical cookie-notice boilerplate;
+    several (e.g. teatrotatro.sk, cluster_size 1,370,347) are among the highest-duplication
+    documents in the whole sample, indicating this pattern is extremely widespread
+    across the corpus.
+  prevalence: 0.0057378853759602454
+  prevalence_ci95:
+  - 0.005635034930820889
+  - 0.005842602013529052
+  n_matched: 11676
+  evaluated_on: corpus_view
+  exact_on_full_corpus: false
+  agent_expected_precision: 0.65
+  likely_false_positives: Pages that mention 'cookie' briefly in the first 250 characters
+    but then continue with substantial unique content afterward (e.g. a product page
+    whose consent banner is short and followed by rich description); also legitimate
+    standalone cookie-policy documents, which are 'about' cookies rather than contaminated
+    by them.
+  example_ids:
+  - <urn:uuid:f4898f61-7158-4c3f-ad9d-cbb115c97452>
+  - <urn:uuid:3efc18e2-302d-4242-a757-16a924083784>
+  - <urn:uuid:4e559fe5-d387-4e96-b17a-7da335f4086d>
+  - <urn:uuid:9fd76da5-a22d-449c-a535-bd7b3c5b83bd>
+  - <urn:uuid:0a4d9eff-a034-43ca-b382-3dd5e10d997d>
+  selector_error: null

@@ -1,0 +1,4 @@
+{"mcpServers": {"audit": {"command": "/repo/.venv/bin/python",
+  "args": ["-m", "src.corpusaudit.mcp_server"], "cwd": "/repo",
+  "env": {"AUDIT_DERIVED": "data/derived", "AUDIT_BUDGET": "300",
+          "AUDIT_LOG": "out/runs/main/tools.jsonl", "AUDIT_FINDINGS": "out/runs/main/findings"}}}}

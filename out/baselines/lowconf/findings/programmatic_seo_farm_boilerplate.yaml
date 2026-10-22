@@ -1,0 +1,46 @@
+id: programmatic_seo_farm_boilerplate
+scope: slk_Latn
+source: baseline:lowconf
+description: 'A large fraction of the slice consists of auto-generated ''content farm''
+  pages hosted on randomly-named firebaseapp.com/web.app subdomains (currency converters,
+  crypto-coin explainers, ''how to get rich'' pages). These documents are not coherent
+  prose: they are concatenations of unrelated scraped snippets (crypto prices, unrelated
+  FAQ fragments, other languages) stitched together by templates, often mixing Slovak,
+  Czech, English and other languages within a single 400-character window. They pass
+  quality/dedup filters (minhash_cluster_size=1) but are not usable as a linguistic
+  resource and inflate the corpus with near-duplicate template noise.'
+selector: domain LIKE '%.firebaseapp.com' OR domain LIKE '%.web.app'
+assertion: prevalence <= 0.053208
+evidence:
+  agent_evidence: Dozens of examples share the same URL pattern (random-word + random-suffix
+    + firebaseapp.com/web.app + numeric path), e.g. 'nakupzlatadbrv.firebaseapp.com',
+    'valutadnxu.web.app', 'hurmanblirrik*.web.app', 'akozbohatnut*.firebaseapp.com',
+    'investeringar*.web.app', 'kopavguld*.web.app', 'forsaljningavaktier*.web.app'.
+    Their snippets jump between unrelated topics mid-paragraph (e.g. a Nigerian rapper
+    bio directly followed by unrelated subgenre text; a currency-converter FAQ followed
+    by unrelated dictionary etymology). All show minhash_cluster_size=1 (so dedup
+    did not catch them, presumably because each generated page is superficially unique)
+    and language_score at the ~0.667 floor. This appears to be dozens of distinct
+    site instances of the same template network, suggesting this pattern recurs at
+    large scale across the full corpus, not just this sample.
+  prevalence: 0.053207833540771944
+  prevalence_ci95:
+  - 0.05312239361012374
+  - 0.05329340315523455
+  n_matched: 1408437
+  evaluated_on: meta
+  exact_on_full_corpus: true
+  agent_expected_precision: 0.85
+  likely_false_positives: A small number of legitimate small businesses or personal
+    sites happen to be hosted on firebaseapp.com/web.app for hosting-cost reasons
+    and contain genuine coherent Slovak text; these would be wrongly caught by a pure-domain
+    selector.
+  example_ids:
+  - <urn:uuid:b80b9a7c-48e8-4011-a29f-8beb9cdadf91>
+  - <urn:uuid:eb5fcebc-45a9-4d0b-901a-fae29d9cc94f>
+  - <urn:uuid:0d020677-7d94-4a2b-a40d-a45858ade4b6>
+  - <urn:uuid:785aa219-fd16-43f1-9e45-6cb75aeffc41>
+  - <urn:uuid:34e83008-f4c4-401b-9b34-68be71c88028>
+  - <urn:uuid:da368415-b4dd-4b4e-8a63-02c8599d4eb6>
+  - <urn:uuid:8b16a29c-8190-4163-be5e-c2bf402412da>
+  selector_error: null

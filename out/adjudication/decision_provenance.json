@@ -1,0 +1,26 @@
+{
+  "date": "2026-08-14",
+  "decided_by": "the annotator (the project's native-speaker author)",
+  "how": "The agent tabulated, per group, the phenomenon description, the selector, the exact prevalence, the blinded label evidence (defect rate and sample size), the overlap with the static audit slices, and the auditor's own stated likely false positives. It proposed a verdict per group from that evidence. The annotator read the tabulation and adopted the proposed verdicts.",
+  "rule_applied": {
+    "labels_present": "approve when the blinded defect rate is at least 0.5 with at least 5 judgments, reject when it is below 0.5",
+    "no_labels": "unsure when the phenomenon is plausible but unmeasured, reject when the auditor's own statement disqualifies the selector (a URL-keyword proxy, a closed list of domains from its own sample, or a match on two documents)",
+    "explicit_exception": "G05, the slo.* machine-translated farm, has labels giving 0.07 and by the rule would be rejected. It is marked unsure so that the finding its labels do not support stays visible in the paper and the suite rather than being deleted."
+  },
+  "group_split": "G02 was not decided as one group. It mixed Czech mislabelling, English-dominant pages and generic non-Slovak selectors, with label evidence from 0.14 to 0.81, so each of its 14 member findings carries its own row.",
+  "what_this_is_not": "The verdicts are not a model's judgment substituted for a human's. They follow from the human labels collected earlier, and a person adopted them knowingly. The label evidence itself was produced by the annotator, never by a model.",
+  "caveat_worth_stating": "Because the verdicts were proposed rather than formed independently, they inherit the framing of the evidence summary. A reader should treat them as an evidence-driven triage that a person signed, not as 11 independent human deliberations.",
+  "corrections": [
+    {
+      "date": "2026-10-07",
+      "rows": [
+        "english_documents_mislabeled_as_slovak",
+        "english_documents_labeled_slovak"
+      ],
+      "error": "Random's english_documents_labeled_slovak is byte-identical to LowConf's english_documents_mislabeled_as_slovak. scripts/analyze.py merged the two under LowConf's name and read labels by slice name only, so the 12 documents drawn and 7 labelled under Random's slice name were not attributed. The tabulation showed n=0 and the proposed verdict for both rows was unsure under the no-labels branch.",
+      "fix": "With the labels attributed by selector the slice has 4 defective of 7 labelled (0.57), so the stated labels-present rule gives approve. Both rows were changed from unsure to approve. scripts/make_arxiv_tables.py now attributes labels by selector rather than slice name.",
+      "how_applied": "Applied mechanically under the stated rule at the author's direction. The annotator did not re-deliberate the verdict, and no label was added or changed.",
+      "effect": "Random is credited with 2 validated selectors over 2 groups and LowConf with 4 over 3. Pooled, the baselines have 6 validated selectors over 4 groups. The verdict tally changes from 9 approve / 8 reject / 7 unsure to 11 / 8 / 5."
+    }
+  ]
+}

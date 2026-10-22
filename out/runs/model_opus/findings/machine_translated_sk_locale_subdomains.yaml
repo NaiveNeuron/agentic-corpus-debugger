@@ -1,0 +1,58 @@
+id: machine_translated_sk_locale_subdomains
+scope: slk_Latn
+description: Roughly 9,700 foreign websites publish bulk machine-translated Slovak
+  under an "sk." locale subdomain (sk.265health.com, sk.myservername.com, sk.smarthomemaking.com,
+  sk.rayhaber.com, sk.amtelefon.com, sk.obtic.org, ...), contributing 903,273 documents
+  (3.4%). The text is translationese with characteristic MT failures (proper nouns
+  translated as common nouns, spaced punctuation, English/Romanian/Russian source
+  slugs left in the URL) and is not native Slovak, yet it is labelled slk_Latn with
+  score ≈1.0.
+selector: domain LIKE 'sk.%' AND domain NOT LIKE '%.sk' AND domain NOT LIKE 'sk.%wikipedia.org'
+assertion: Documents from 'sk.'-prefixed subdomains of non-Slovak sites should be
+  flagged as machine-translated and either excluded or shipped with a provenance tag.
+evidence:
+  agent_evidence: 'Exact on the full corpus: 903,273/26,470,482 docs (3.412%) over
+    9,716 ''sk.''-prefixed non-.sk hosts; the head is sk.airbnb.com 135,347, sk.265health.com
+    49,901, sk.hotels.com 43,616, sk.pinterest.com 22,226, then a long tail of thousands
+    of hosts with 2k-8k docs each (sk.myservername.com, sk.soringpcrepair.com, sk.smarthomemaking.com,
+    sk.gautamblogs.com, sk.secrettohappypets.com, sk.woman-b.com, sk.rayhaber.com,
+    sk.eturbonews.com, sk.news-front.info). sk.wikipedia.org / sk.m.wikipedia.org
+    (51k docs) are excluded by the selector because they are genuine Slovak. I inspected
+    18 documents from this space. A blind sample of 8 (excluding the airbnb/hotels/pinterest
+    heads) gave 8/8 machine translation; evaluate_detector on the exact selector at
+    n=10 gave 9/10 machine-translated or non-Slovak-origin content. Direct MT evidence
+    in the documents: sk.amtelefon.com renders ''Apple'' as the fruit (''zástupcovia
+    jablko povedal'', ''nezmizne z portfólia jablko'') and keeps the Romanian source
+    slug /conform-unor-zvonuri-neoficiale-apple-va-lansa-trei-modele/; sk.265health.com
+    has English-style spaced punctuation ('' , '') and untranslated headers (''Forms'',
+    ''História''); sk.obtic.org, sk.smarthomemaking.com, sk.irlconsulist.com, sk.anymediaeditor.com
+    and sk.myservername.com all keep English URL slugs; sk.merxmusicproductions.eu
+    and sk.oriimec.eu additionally show Windows-1250-as-Latin-1 mojibake (''Membránové
+    èerpadlá ... úèinnos» vïaka ¹pecifickej kon¹trukcii''). Counter-evidence: the
+    selector does catch some legitimate material — sk.scribd.com hosts genuine Slovak
+    university texts, sk.wikipedia is deliberately excluded, and sk.airbnb.com / sk.hotels.com
+    / sk.pinterest.com are real localisations of international platforms whose Slovak
+    chrome is professionally produced even if the user-generated body text is mixed-language;
+    those heads are ~210k of the 903k documents, so precision is lower on the head
+    than on the long tail.</evidence>
+
+    <parameter name="expected_precision">0.85'
+  prevalence: 0.03412378361678491
+  prevalence_ci95:
+  - 0.034054689689364516
+  - 0.03419301276726721
+  n_matched: 903273
+  evaluated_on: corpus_meta
+  exact_on_full_corpus: true
+  agent_expected_precision: null
+  likely_false_positives: Genuine Slovak locale sections of large international platforms
+    (sk.airbnb.com, sk.hotels.com, sk.pinterest.com, sk.jooble.org, sk.oriflame.com)
+    and user-uploaded native Slovak documents on sk.scribd.com.
+  example_ids:
+  - <urn:uuid:b8323117-82b0-43f6-b8ca-27dbfef9eaac>
+  - <urn:uuid:1cc06d66-0d21-4758-8167-d088a4e7cc6c>
+  - <urn:uuid:146dfd11-cdb1-4efc-b088-38804d2c0ca3>
+  - <urn:uuid:5029032e-43ba-41ec-b665-b5b3eedc73ab>
+  - <urn:uuid:cddff608-b1c9-4263-bdd4-22467da8d3e7>
+  - <urn:uuid:75f3e601-f9fa-4315-bbbc-adf65ad53e94>
+  inspections_used_when_saved: 94

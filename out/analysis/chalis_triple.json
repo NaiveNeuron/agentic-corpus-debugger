@@ -1,0 +1,12 @@
+{
+  "triple_fired": 257,
+  "triple_correct": 256,
+  "triple_precision": 0.9961089494163424,
+  "triple_fired_on_joint": 187,
+  "triple_joint_rate": 0.28549618320610687,
+  "slovak_side_accuracy": {
+    "fasttext": 0.2222222222222222,
+    "langdetect": 0.6944444444444444,
+    "lingua": 0.6666666666666666
+  }
+}

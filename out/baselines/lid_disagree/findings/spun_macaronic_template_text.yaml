@@ -1,0 +1,34 @@
+id: spun_macaronic_template_text
+scope: slk_Latn
+source: baseline:lid_disagree
+description: A set of location/accommodation listing pages (observed systematically
+  on domain kamsi.sk) use algorithmically spun text that ungrammatically mixes Slovak
+  and Czech words and synonyms (e.g. 'a lebo', 'prípadne', 'treba') to generate ostensibly
+  unique per-town pages. This is not natural language in either Slovak or Czech, and
+  is templated near-duplicate filler rather than genuine linguistic content.
+selector: language='slk' AND domain='kamsi.sk'
+assertion: prevalence <= 0.000707
+evidence:
+  agent_evidence: Four sampled kamsi.sk pages (Revúca, Mělník, Svidník, Veľký Krtíš,
+    Zlaté Moravce) all show the identical broken pattern, e.g. 'Vychutnejte si romantické
+    ubytovanie a často navštěvované ubytovanie v Zlatých Moravcích v obľubených mestách
+    a rozdielnej kvalitě' — a nonsensical, spun concatenation, repeated with only
+    place names swapped.
+  prevalence: 0.0007067495030880057
+  prevalence_ci95:
+  - 0.0006966976534884804
+  - 0.0007169462752222049
+  n_matched: 18708
+  evaluated_on: meta
+  exact_on_full_corpus: true
+  agent_expected_precision: 0.8
+  likely_false_positives: Any kamsi.sk pages that use normal, grammatical Slovak listing
+    text rather than the synonym-spun template (not observed in this sample but plausible
+    for other sections of the site).
+  example_ids:
+  - <urn:uuid:cf5fe1ed-48d2-476c-9d52-52222ec984ee>
+  - <urn:uuid:2ee7137b-de05-4ff5-8c5d-8ebd4b1c67fd>
+  - <urn:uuid:fe046841-1760-440d-960d-41acf0af9aa0>
+  - <urn:uuid:916e49c4-c0bd-47ef-afb8-3f5b9e4a9dd7>
+  - <urn:uuid:dc4d8111-57b2-4b70-a60f-2732ca1f73fc>
+  selector_error: null

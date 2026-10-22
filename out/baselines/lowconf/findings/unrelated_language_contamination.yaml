@@ -1,0 +1,42 @@
+id: unrelated_language_contamination
+scope: slk_Latn
+source: baseline:lowconf
+description: A substantial subset of documents are not Slavic-language text at all
+  but English (and occasionally Polish, Russian, German, Turkish) pages — product
+  listings, hotel booking pages, app stores, code documentation — where two independent
+  language identifiers agree on the same non-Slovak, non-Czech language, yet the corpus
+  labelled them 'slk'. These are not borderline dialect-confusion cases; they indicate
+  the language-ID stage of the pipeline is unreliable on short/boilerplate-heavy documents.
+selector: language = 'slk' AND fasttext = langdetect AND fasttext NOT IN ('sk','cs')
+assertion: prevalence <= 0.002387
+evidence:
+  agent_evidence: 'Examples: askfileswaju.web.app (a C-language operators reference
+    table, fasttext=langdetect=''en''), pricemania.sk (English book blurb for ''The
+    Luzhin Defense'', en/en), machineseeker.sk (English machinery listing, en/en),
+    seaportwineandspirits.com (English business description, en/en), sk.airbnb.com
+    listing (en/en), ikea.com product description (en/en), lenockaslittleworld.blogspot.com
+    (English blog post, en/en). All have language_score ~0.667, i.e. at the low-confidence
+    floor. Counter-evidence: several of these pages do contain a short embedded Slovak
+    fragment (e.g. a Slovak menu breadcrumb on an otherwise English IKEA page), so
+    the page is not 100% non-Slovak, just overwhelmingly so.'
+  prevalence: 0.002387376248003342
+  prevalence_ci95:
+  - 0.0023688567357809174
+  - 0.0024060401949495443
+  n_matched: 63195
+  evaluated_on: meta
+  exact_on_full_corpus: true
+  agent_expected_precision: 0.7
+  likely_false_positives: Pages that are legitimately bilingual (Slovak site with
+    an English product name/quote block) where the majority-language tag is technically
+    correct for the dominant text but the page still contains usable Slovak content;
+    also cases where fastText/langdetect themselves are wrong on very short snippets.
+  example_ids:
+  - <urn:uuid:6ebfd155-50b4-4189-8c27-d4496846f9f2>
+  - <urn:uuid:0d2837d9-6487-4579-b2da-ef0e057d0432>
+  - <urn:uuid:e728b070-1237-4202-9339-4d12ed15b715>
+  - <urn:uuid:c50c5467-2bd6-4644-88be-654c94a41f54>
+  - <urn:uuid:022e6bd1-2b45-4c5a-bda3-55cf7aaee953>
+  - <urn:uuid:a93bc873-2320-43dd-99f5-1ec0943fd908>
+  - <urn:uuid:1fac95d9-deea-4390-bab9-9f70aa32e83b>
+  selector_error: null

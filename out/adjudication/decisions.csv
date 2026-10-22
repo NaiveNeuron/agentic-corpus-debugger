@@ -1,0 +1,25 @@
+group,decision,note
+G09,approve,"1.00 (n=9), small at 1,717 documents but the labels are unanimous"
+G08,reject,"no labels; selector is a closed list of 7 domains from its own sample, does not generalise"
+G07,reject,"labels contradict it, .00 (n=7): boilerplate around real content is noisy, not junk"
+G06,unsure,"no labels; single-domain phenomenon, plausible but unmeasured"
+G05,unsure,labels give .07 (n=14); kept as a candidate so the unsupported finding stays visible
+G04,approve,"adult word-salad, .83 (n=12), 1.00 (n=20), .84 (n=19)"
+G03,reject,no labels; URL-keyword selector is a proxy the auditor says catches legitimate finance articles
+G01,approve,"content farm, .74 (n=19) and .91 (n=11) on two independent samples"
+unrelated_language_contamination,unsure,no labels (n=0); phenomenon plausible but unmeasured
+non_slovak_language_mislabeled,unsure,no labels (n=0); phenomenon plausible but unmeasured
+non_slovak_content_mislabeled_slovak_other_languages,unsure,no labels (n=0); phenomenon plausible but unmeasured
+english_dominant_travel_ecommerce_pages,reject,"labels do not support it, 0.44 (n=9)"
+english_documents_mislabeled_as_slovak,approve,"labels support it, 0.57 (n=7); corrected 2026-10-07: labels drawn under the identical Random selector were not attributed in the original tabulation"
+english_documents_labeled_slovak,approve,"labels support it, 0.57 (n=7); corrected 2026-10-07: labels drawn under the identical Random selector were not attributed in the original tabulation"
+czech_text_mislabeled_slovak,reject,"labels do not support it, 0.14 (n=7)"
+czech_text_mislabeled_as_slovak,approve,"labels support it, 0.53 (n=17)"
+czech_slovak_code_switched_docs,approve,"labels support it, 0.81 (n=21)"
+czech_language_content_mislabeled_slovak,approve,"labels support it, 0.60 (n=10)"
+czech_documents_mislabeled_as_slovak,reject,"labels do not support it, 0.25 (n=8)"
+czech_documents_misclassified_as_slovak,approve,"labels support it, 0.78 (n=9)"
+czech_documents_labeled_slovak,reject,"labels do not support it, 0.40 (n=10)"
+czech_content_mislabeled_slovak,approve,"labels support it, 0.60 (n=10)"
+G11,reject,no labels; 2 documents in the text sample
+G10,approve,".64 (n=11), injected ad widget across unrelated hosts"

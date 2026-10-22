@@ -1,0 +1,45 @@
+id: firebase_doorway_spam_farm
+scope: slk_Latn
+description: A large content-farm/doorway-page spam campaign hosted on randomly-named
+  *.firebaseapp.com and *.web.app subdomains (topic-word + random suffix, e.g. akozbohatnutmulk.firebaseapp.com,
+  danexbnl.firebaseapp.com) accounts for a huge share of the corpus. Documents are
+  auto-generated pastiches of unrelated scraped sentence fragments (crypto/finance
+  boilerplate, currency converters, news snippets, search-suggestion queries like
+  "moje heslo je tapeta") stitched together into ~700-1200 word pages with no coherent
+  topic, author or narrative. They pass the language filter because most fragments
+  are genuine Slovak (or Slovak+Czech) sentences, so language_score is typically >0.98
+  despite the text being incoherent.
+selector: domain LIKE '%.firebaseapp.com' OR domain LIKE '%.web.app'
+assertion: Documents from *.firebaseapp.com / *.web.app doorway-spam domains should
+  be excluded, or at minimum the corpus should not silently contain a 5%+ share of
+  incoherent auto-generated content under a genuine-Slovak-text label.
+evidence:
+  agent_evidence: 'domain_stats shows ~2851 distinct spam subdomains under these two
+    suffixes, together 1,408,437 of 26,470,482 documents (5.3% of the corpus overall),
+    concentrated almost entirely in CC-MAIN-2022-49 through CC-MAIN-2023-40 (up to
+    38.7% of a single dump''s Slovak documents, e.g. CC-MAIN-2023-06). minhash_cluster_size
+    averages ~1.0 (each page is near-unique text, so dedup does not catch it) and
+    language_score averages 0.98. Inspected 22 sampled documents (evaluate_detector
+    n=12 seed=7 plus earlier sample n=10 seed=2, plus one full inspect_document read):
+    all were incoherent stitched fragments on finance/crypto/tech/converter topics
+    with no single coherent subject, consistent with automatically generated SEO doorway
+    pages, not human-authored text. Zero documents in the samples looked like genuine
+    articles.'
+  prevalence: 0.053207833540771944
+  prevalence_ci95:
+  - 0.05312239361012374
+  - 0.05329340315523455
+  n_matched: 1408437
+  evaluated_on: corpus_meta
+  exact_on_full_corpus: true
+  agent_expected_precision: 0.95
+  likely_false_positives: Essentially none observed among 22 inspected; theoretically
+    a legitimate site could be hosted on Firebase/Google App Engine's free subdomains,
+    but none were seen in samples of this size (topical-keyword-plus-random-suffix
+    domain naming is itself a strong spam signature).
+  example_ids:
+  - <urn:uuid:f274d7ed-e2e8-47d4-bafb-90c2a6912afb>
+  - <urn:uuid:444ff299-0c1d-46ba-a55b-33ed394e818b>
+  - <urn:uuid:eb9a1e24-60b9-4248-b042-4dd6833234aa>
+  - <urn:uuid:ad38a577-47e6-4446-aab8-b38af84a8a99>
+  inspections_used_when_saved: 32

@@ -1,0 +1,40 @@
+id: firebase_webapp_spam_farms
+scope: slk_Latn
+source: baseline:lid_disagree
+description: A large share of documents come from randomly-named subdomains on firebaseapp.com
+  and web.app (often with keyword-stuffed names in Slovak/Czech/Swedish like 'investovat',
+  'kryptomena', 'valuta', 'pracovnemiesta', 'akozbohatnut'). These are auto-generated
+  doorway/content-farm pages that concatenate unrelated scraped paragraphs (finance,
+  crypto, travel, dictionary snippets) often in several different languages within
+  one document, with no coherent topic or narrative. Many are only fragmentarily Slovak
+  yet the whole document is labeled slk_Latn.
+selector: language='slk' AND (domain LIKE '%.firebaseapp.com' OR domain LIKE '%.web.app')
+assertion: prevalence <= 0.053208
+evidence:
+  agent_evidence: 'e.g. danerfkp.firebaseapp.com splices a German-flag caption with
+    an unrelated Velázquez/Rubens art-history paragraph; forsaljningavaktierbyxa.web.app
+    splices an English NGO description with a Slovak dream-dictionary entry; hurmanblirrikqmph.firebaseapp.com
+    is pure English UBS/FXCM regulatory boilerplate labeled slk (language_score 0.78,
+    fasttext/langdetect/lingua all ''en''). Counter-evidence: some pages on these
+    same domains (e.g. valutagjqb.firebaseapp.com, coin-collecting text) are internally
+    coherent single-topic Slovak articles, so not every document on these hosts is
+    spam gibberish.'
+  prevalence: 0.053207833540771944
+  prevalence_ci95:
+  - 0.05312239361012374
+  - 0.05329340315523455
+  n_matched: 1408437
+  evaluated_on: meta
+  exact_on_full_corpus: true
+  agent_expected_precision: 0.75
+  likely_false_positives: Pages on these same hosting domains that happen to contain
+    a single coherent, genuinely Slovak article (e.g. straightforward coin/product
+    descriptions) rather than a stitched multi-language collage.
+  example_ids:
+  - <urn:uuid:a546140d-3a6b-4ebb-bfba-5cee9927b4ef>
+  - <urn:uuid:4e7a1167-0478-4727-b8bc-96f6efd28103>
+  - <urn:uuid:529cef53-fe18-4788-a6ce-415daa042dbf>
+  - <urn:uuid:a1d25130-f36c-4814-9334-809cfcc974eb>
+  - <urn:uuid:b8c873f5-7ea9-4189-aeef-917cc763788d>
+  - <urn:uuid:f854168b-120b-466c-8857-d841bc23f26d>
+  selector_error: null

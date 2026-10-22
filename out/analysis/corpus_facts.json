@@ -1,0 +1,20 @@
+{
+  "corpus_docs": 26470482,
+  "distinct_hosts": 351844,
+  "crawls": 96,
+  "corpus_mean_words": 437.68131721213086,
+  "static_slices": {
+    "LID-Disagree": {
+      "n": 826409,
+      "share": 0.031220020851905908
+    },
+    "LowConf": {
+      "n": 129222,
+      "share": 0.004881739592048229
+    },
+    "HighDup": {
+      "n": 61173,
+      "share": 0.0023109892747702893
+    }
+  }
+}

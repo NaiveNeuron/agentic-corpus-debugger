@@ -1,0 +1,70 @@
+{
+  "guards": [
+    {
+      "id": "adult_spam_farm_wordsalad",
+      "corpus": 0.003871255536638887,
+      "recent": 0.0005750178919461486,
+      "peak": 0.022889810458515875,
+      "limit": 0.00464551,
+      "recent_trips": false,
+      "peak_trips": true
+    },
+    {
+      "id": "czech_slovak_code_switched_docs",
+      "corpus": 0.0016717111535785407,
+      "recent": 0.002163787701243759,
+      "peak": 0.003965752680735558,
+      "limit": 0.00200605,
+      "recent_trips": true,
+      "peak_trips": true
+    },
+    {
+      "id": "czech_text_mislabeled_as_slovak",
+      "corpus": 0.0012011492650568281,
+      "recent": 0.0007704414547014933,
+      "peak": 0.0038737382681069596,
+      "limit": 0.00144138,
+      "recent_trips": false,
+      "peak_trips": true
+    },
+    {
+      "id": "firebase_content_farm_spam",
+      "corpus": 0.053207833540771944,
+      "recent": 0.15911654046030438,
+      "peak": 0.3869059609755826,
+      "limit": 0.0638494,
+      "recent_trips": true,
+      "peak_trips": true
+    },
+    {
+      "id": "porn_doorway_spam_network",
+      "corpus": 0.001977825715451649,
+      "recent": 0.00012965721981912504,
+      "peak": 0.013779315059867042,
+      "limit": 0.00237339,
+      "recent_trips": false,
+      "peak_trips": true
+    },
+    {
+      "id": "porn_spam_keyword_farm",
+      "corpus": 0.0035868632841668693,
+      "recent": 0.0003609646997278824,
+      "peak": 0.022608691740956973,
+      "limit": 0.00430424,
+      "recent_trips": false,
+      "peak_trips": true
+    },
+    {
+      "id": "slo_prefix_machine_translated_farm",
+      "corpus": 0.0027893334167470012,
+      "recent": 0.0030336288567709077,
+      "peak": 0.00912726778635695,
+      "limit": 0.0033472,
+      "recent_trips": false,
+      "peak_trips": true
+    }
+  ],
+  "n_trip_recent": 2,
+  "n_trip_peak": 7,
+  "note": "The guards are calibrated for corpus-wide evaluation. On a narrow slice of crawls they can trip on that slice's composition, which is information about the crawl rather than a regression. For the content farm, tripping on recent crawls is the guard working as intended."
+}

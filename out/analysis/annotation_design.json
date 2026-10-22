@@ -1,0 +1,16 @@
+{
+  "n_items": 358,
+  "agent_slices": 7,
+  "per_agent": [
+    25
+  ],
+  "baseline_slices": 12,
+  "per_baseline": [
+    11,
+    12
+  ],
+  "controls": 40,
+  "seen_by_agent": 0,
+  "adjacent_same_slice": 23,
+  "shuffle_mean": 20.705
+}

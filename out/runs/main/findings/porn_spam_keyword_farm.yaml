@@ -1,0 +1,48 @@
+id: porn_spam_keyword_farm
+scope: slk_Latn
+description: A second, separate spam network of thousands of randomly-named domains
+  (English dictionary-word-like names + generic gTLDs/ccTLDs such as .com/.me/.fr/.bike/.online/.info/.nl/.it/.us/.br)
+  hosts keyword-stuffed, incoherent "word salad" adult/porn doorway pages that are
+  grammatically broken pastiches of scraped Slovak sentence fragments and tag lists,
+  not genuine documents. Many share a literal CMS template header "Posted by Admin
+  | in <Month> <Day>, 2020 |".
+selector: n_bad_words >= 3 AND domain NOT LIKE '%.sk' AND domain NOT LIKE '%.cz'
+assertion: A clean corpus should not contain incoherent keyword-stuffed doorway pages;
+  documents matching this template/domain signature should be filtered as spam regardless
+  of the language-ID confidence assigned to them.
+evidence:
+  agent_evidence: 'domain_stats on n_bad_words>=3 shows dozens of domains (slovhubkia.com,
+    adv-moto-girl.bike, baazzaa.com, aaronpowell.me, alexpichel.com, bananapepper.fr,
+    accesslocator.net/.org/.info, agencerepublique.me/.net, and many more) each contributing
+    1,000-6,000 docs with 75-92% of their own documents matching high bad-word counts.
+    Inspected 32 documents total via evaluate_detector (seeds 11 and 42): 32/32 were
+    confirmed word-salad porn/dating spam pages — grammatically incoherent strings
+    of scraped fragments/tag lists about explicit content, all with random-looking
+    domain names unrelated to Slovakia, minhash_cluster_size mostly 1 (unique per
+    page despite templated structure). A follow-up sample of the same domains without
+    the bad-word filter (e.g. bananapepper.fr) showed the identical word-salad template
+    style even at n_bad_words=0, meaning the true farm is larger than what this conservative
+    selector catches. The regexp literal ''Posted by Admin \\| in [A-Za-z]+ \\d+,
+    2020'' alone matches an estimated 28,592 docs (0.108%) and also had 12/12 precision
+    when checked independently.'
+  prevalence: 0.0035868632841668693
+  prevalence_ci95:
+  - 0.0035641605353027655
+  - 0.0036097101195972274
+  n_matched: 94946
+  evaluated_on: corpus_meta
+  exact_on_full_corpus: true
+  agent_expected_precision: 0.95
+  likely_false_positives: A genuine Slovak site on a non-.sk/.cz domain (e.g. a Slovak
+    business using a .com or .eu domain) that legitimately discusses adult/medical
+    topics or uses informal/profane language (e.g. forum arguments) could be wrongly
+    caught by the bad-word threshold; this is why the domain-diversity check (thousands
+    of distinct low-traffic domains, each ~70-90% flagged) was used as corroborating
+    evidence rather than relying on word count alone.
+  example_ids:
+  - <urn:uuid:9e74111c-60f2-42d5-b6ac-fcdfc2f64c3a>
+  - <urn:uuid:0db6d8a0-e330-4087-8909-5d90eea5afb1>
+  - <urn:uuid:011a5243-893e-4728-8a22-02267d533d32>
+  - <urn:uuid:ca8fafb4-906a-484b-af71-c19c62430f0d>
+  - <urn:uuid:52f29f99-7e10-4e4f-bd6f-206687991f3e>
+  inspections_used_when_saved: 162

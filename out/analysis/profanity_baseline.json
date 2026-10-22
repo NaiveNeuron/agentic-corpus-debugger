@@ -1,0 +1,55 @@
+{
+  "strategy": "highprof",
+  "order": "n_bad_words desc nulls last, hash(id || '0')",
+  "budget": 300,
+  "n_total": 26470482,
+  "overlap_slice": {
+    "selector": "n_bad_words >= 3",
+    "n": 102474,
+    "prevalence": 0.003871255536638887,
+    "prevalence_ci95": [
+      0.0038476704780377067,
+      0.003894984599259951
+    ]
+  },
+  "sample_n_bad_words": {
+    "min": 15,
+    "max": 31,
+    "n_ge_3": 300
+  },
+  "sample_in_agent_slice": {
+    "firebase_content_farm_spam": 0,
+    "porn_spam_keyword_farm": 299,
+    "czech_text_mislabeled_as_slovak": 0,
+    "porn_doorway_spam_network": 300,
+    "slo_prefix_machine_translated_farm": 0,
+    "adult_spam_farm_wordsalad": 300,
+    "czech_slovak_code_switched_docs": 0
+  },
+  "g04_coverage_by_slice": {
+    "porn_spam_keyword_farm": {
+      "selector": "n_bad_words >= 3 AND domain NOT LIKE '%.sk' AND domain NOT LIKE '%.cz'",
+      "n": 94946,
+      "n_in_slice": 94946,
+      "share_covered": 1.0
+    },
+    "porn_doorway_spam_network": {
+      "selector": "n_bad_words > 5",
+      "n": 52354,
+      "n_in_slice": 52354,
+      "share_covered": 1.0
+    },
+    "adult_spam_farm_wordsalad": {
+      "selector": "n_bad_words >= 3",
+      "n": 102474,
+      "n_in_slice": 102474,
+      "share_covered": 1.0
+    }
+  },
+  "llm_run": {
+    "completed": false,
+    "model_usage": null,
+    "cost": null
+  },
+  "candidates": []
+}

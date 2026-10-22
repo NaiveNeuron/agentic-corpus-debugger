@@ -1,0 +1,135 @@
+{
+  "crawls": 96,
+  "first": "CC-MAIN-2013-20",
+  "last": "CC-MAIN-2024-18",
+  "recent_crawls": [
+    "CC-MAIN-2022-49",
+    "CC-MAIN-2023-06",
+    "CC-MAIN-2023-14",
+    "CC-MAIN-2023-23",
+    "CC-MAIN-2023-40",
+    "CC-MAIN-2023-50",
+    "CC-MAIN-2024-10",
+    "CC-MAIN-2024-18"
+  ],
+  "tests": [
+    {
+      "id": "document_ids_unique",
+      "kind": "metadata_invariant",
+      "share_all": 9.82226164223228e-07,
+      "share_older": 0.0,
+      "share_recent": 3.2508078257446976e-06,
+      "crawls_present": 1,
+      "crawls_total": 96,
+      "peak_crawl": "CC-MAIN-2024-10",
+      "peak_share": 3.347452717230369e-05,
+      "recent_over_older": null
+    },
+    {
+      "id": "language_score_not_a_probability",
+      "kind": "metadata_invariant",
+      "share_all": 0.40388867871767503,
+      "share_older": 0.40501389364822354,
+      "share_recent": 0.40128984552661334,
+      "crawls_present": 96,
+      "crawls_total": 96,
+      "peak_crawl": "CC-MAIN-2024-10",
+      "peak_share": 0.46876697866642636,
+      "recent_over_older": 0.9908051348854596
+    },
+    {
+      "id": "adult_spam_farm_wordsalad",
+      "kind": "prevalence_guard",
+      "share_all": 0.003871255536638887,
+      "share_older": 0.005298425169996216,
+      "share_recent": 0.0005750178919461486,
+      "crawls_present": 96,
+      "crawls_total": 96,
+      "peak_crawl": "CC-MAIN-2020-40",
+      "peak_share": 0.022889810458515875,
+      "recent_over_older": 0.10852618910281964
+    },
+    {
+      "id": "czech_slovak_code_switched_docs",
+      "kind": "prevalence_guard",
+      "share_all": 0.0016717111535785407,
+      "share_older": 0.001458657125982611,
+      "share_recent": 0.002163787701243759,
+      "crawls_present": 96,
+      "crawls_total": 96,
+      "peak_crawl": "CC-MAIN-2023-06",
+      "peak_share": 0.003965752680735558,
+      "recent_over_older": 1.4834107774204601
+    },
+    {
+      "id": "czech_text_mislabeled_as_slovak",
+      "kind": "prevalence_guard",
+      "share_all": 0.0012011492650568281,
+      "share_older": 0.0013876325147638621,
+      "share_recent": 0.0007704414547014933,
+      "crawls_present": 96,
+      "crawls_total": 96,
+      "peak_crawl": "CC-MAIN-2017-26",
+      "peak_share": 0.0038737382681069596,
+      "recent_over_older": 0.5552200935797486
+    },
+    {
+      "id": "firebase_content_farm_spam",
+      "kind": "prevalence_guard",
+      "share_all": 0.053207833540771944,
+      "share_older": 0.00735261716489457,
+      "share_recent": 0.15911654046030438,
+      "crawls_present": 23,
+      "crawls_total": 96,
+      "peak_crawl": "CC-MAIN-2023-06",
+      "peak_share": 0.3869059609755826,
+      "recent_over_older": 21.640803117019892
+    },
+    {
+      "id": "porn_doorway_spam_network",
+      "kind": "prevalence_guard",
+      "share_all": 0.001977825715451649,
+      "share_older": 0.0027780258947504043,
+      "share_recent": 0.00012965721981912504,
+      "crawls_present": 84,
+      "crawls_total": 96,
+      "peak_crawl": "CC-MAIN-2020-40",
+      "peak_share": 0.013779315059867042,
+      "recent_over_older": 0.04667243025492902
+    },
+    {
+      "id": "porn_spam_keyword_farm",
+      "kind": "prevalence_guard",
+      "share_all": 0.0035868632841668693,
+      "share_older": 0.004983578265386275,
+      "share_recent": 0.0003609646997278824,
+      "crawls_present": 95,
+      "crawls_total": 96,
+      "peak_crawl": "CC-MAIN-2020-40",
+      "peak_share": 0.022608691740956973,
+      "recent_over_older": 0.07243082791234225
+    },
+    {
+      "id": "slo_prefix_machine_translated_farm",
+      "kind": "prevalence_guard",
+      "share_all": 0.0027893334167470012,
+      "share_older": 0.00268356099644498,
+      "share_recent": 0.0030336288567709077,
+      "crawls_present": 46,
+      "crawls_total": 96,
+      "peak_crawl": "CC-MAIN-2021-49",
+      "peak_share": 0.00912726778635695,
+      "recent_over_older": 1.1304490044346585
+    }
+  ],
+  "guards": 7,
+  "present_in_at_least_half_the_crawls": 5,
+  "larger_in_recent_crawls": [
+    "firebase_content_farm_spam"
+  ],
+  "smaller_in_recent_crawls": [
+    "adult_spam_farm_wordsalad",
+    "porn_doorway_spam_network",
+    "porn_spam_keyword_farm"
+  ]
+}

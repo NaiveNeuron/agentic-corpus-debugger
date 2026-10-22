@@ -1,0 +1,14 @@
+{
+  "decision": "accept_carried_labels",
+  "date": "2026-08-14",
+  "n_accepted": 117,
+  "scope": "out/annotation/recode_items.txt minus out/annotation/pass2_labels.csv",
+  "what_happened": "The criterion for unusable text was clarified after the first annotation pass: a fluent page that exists to place links or keywords counts as junk. 138 documents were then judged under the clarified criterion, and 117 labels from the first pass were left in place. The annotator reviewed the situation, including the two slices where the earlier labels dominate, and accepted those labels as final rather than re-coding each document.",
+  "what_this_is_not": "This is not a document-by-document re-judgement. The 117 labels are the ones given in the first pass. The 39 labels that changed between the passes were re-judged individually and are recorded in labels.csv as such.",
+  "affected_findings": {
+    "slo_prefix_machine_translated_farm": "12 of 14 labels predate the clarification; precision 0.07",
+    "czech_text_mislabeled_as_slovak": "11 of 17 labels predate the clarification; precision 0.53",
+    "czech_slovak_code_switched_docs": "10 of 21 labels predate the clarification; precision 0.81"
+  },
+  "consequence_for_the_paper": "No re-coding backlog remains, so the paper reports the labels as final and states in Limitations that the earlier-criterion labels were reviewed and accepted rather than re-coded. The machine-translated farm is reported as a finding the labels do not support."
+}
