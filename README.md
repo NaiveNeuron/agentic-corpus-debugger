@@ -177,17 +177,6 @@ paper. Since then:
   audited corpus, and the prompt for other languages were added. For the
   Slovak corpus the prompt is unchanged.
 
-## Citation
-
-```bibtex
-@misc{suppa-etal-2026-agent,
-  title  = {Can an Agent Debug a Web Corpus? Agentic Auditing of Slovak {FineWeb2}},
-  author = {{\v{S}}uppa, Marek and Vykopal, Ivan and Kop{\v{c}}an, Jaroslav},
-  year   = {2026},
-  note   = {Presented at the 13th Web as Corpus Workshop (WaC-13), non-archival}
-}
-```
-
 ## Licence
 
 * **Code** (`src/`, `scripts/`, `selftest/`): MIT, see `LICENSE`.
