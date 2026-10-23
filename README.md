@@ -7,7 +7,7 @@ machine-readable **corpus tests**. The tests then run on every new release
 without any LLM or GPU.
 
 This repository holds the code and data for the paper
-*Can an Agent Debug a Web Corpus? Agentic Auditing of Slovak FineWeb2*
+[*Can an Agent Debug a Web Corpus? Agentic Auditing of Slovak FineWeb2*](https://arxiv.org/abs/2610.31636)
 (WaC-13, EMNLP 2026). On the Slovak part of FineWeb2 (26.47M documents) the
 agent found, among other defects, a content farm of 1,408,437 documents
 (5.32%) on Firebase subdomains that passes FineWeb2's language-ID and
@@ -176,6 +176,20 @@ paper. Since then:
   columns, `sentence_lid` over all Lingua languages, findings scoped to the
   audited corpus, and the prompt for other languages were added. For the
   Slovak corpus the prompt is unchanged.
+
+## Citation
+
+```bibtex
+@misc{suppa2026agentdebugwebcorpus,
+  title         = {Can an Agent Debug a Web Corpus? Agentic Auditing of Slovak {FineWeb2}},
+  author        = {{\v{S}}uppa, Marek and Vykopal, Ivan and Kop{\v{c}}an, Jaroslav},
+  year          = {2026},
+  eprint        = {2610.31636},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  url           = {https://arxiv.org/abs/2610.31636}
+}
+```
 
 ## Licence
 
